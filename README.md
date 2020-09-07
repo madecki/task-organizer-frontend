@@ -1,4 +1,18 @@
+# TASK ORGANIZER
+This is an application for managing your time, tasks and your employees. With this app you can be even more efficient.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## What can you find in the app?
+-you can create acount for you and yours employees
+-to-do list
+-timmer
+-calendar for organizing your time
+
+and many other useful functions
+
+## Who can use this app?
+Anyone who wants to be more effective!
 
 ## Available Scripts
 

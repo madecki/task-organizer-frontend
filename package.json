@@ -19,6 +19,10 @@
   "eslintConfig": {
     "extends": "react-app"
   },
+  "eslintIgnore": [
+    "serviceWorker.js",
+    "App.test.js"
+  ],
   "browserslist": {
     "production": [
       ">0.2%",

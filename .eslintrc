@@ -1,8 +1,25 @@
 {
-  "extends": ["react-app", "airbnb"],
+  "extends": ["react-app"],
   "plugins": ["prettier"],
   "rules": {
-    "prettier/prettier": "error",
-    "max-len": ["error", { "code": 100 }]
+    "prettier/prettier": ["error", { "singleQuote": true }],
+    "max-len": ["error", { "code": 100 }],
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "no-console": [1, { "allow": ["warn", "error"] }],
+    "no-use-before-define": [
+      "error",
+      { "functions": false, "classes": false, "variables": false }
+    ],
+    "no-param-reassign": [2, { "props": false }],
+    "comma-dangle": [
+      "error",
+      {
+        "arrays": "never",
+        "objects": "never",
+        "imports": "never",
+        "exports": "never",
+        "functions": "never"
+      }
+    ]
   }
 }

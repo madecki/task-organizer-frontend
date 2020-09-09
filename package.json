@@ -34,8 +34,14 @@
   },
   "husky": {
     "hooks": {
-      "pre-push": "npm test",
+      "pre-push": "eslint",
       "...": "..."
+    },
+    "eslint": {
+      "*.js": [
+        "eslint --fix",
+        "git add"
+      ]
     }
   }
 }

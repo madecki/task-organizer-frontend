@@ -34,14 +34,17 @@
   },
   "husky": {
     "hooks": {
-      "pre-push": "eslint",
+      "pre-push": "lint-staged",
       "...": "..."
-    },
-    "eslint": {
-      "*.js": [
-        "npx eslint --fix",
-        "git add"
-      ]
     }
+  },
+  "lint-staged": {
+    "./src/*.{js,jsx,ts,tsx}": [
+      "npx prettier --write",
+      "eslint src/*.js --fix-dry-run"
+    ]
+  },
+  "devDependencies": {
+    "lint-staged": "^10.3.0"
   }
 }

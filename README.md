@@ -1,11 +1,13 @@
 # TASK ORGANIZER
+
 This is an application for managing your time, tasks and your employees. With this app you can be even more efficient. Our application combines many different functions that can be used in one place.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## What can you find in the app?
+
 - create account for you and yours employees
-- create a list of tasks and their category 
+- create a list of tasks and their category
 - create a visual layer of tasks
 - sort tasks using filters
 - create a customer definition
@@ -19,9 +21,11 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 and many other useful functions
 
 ## Who can use this app?
+
 For everyone who wants to be more effective, who wants to save their time and money
 
 ## What we use:
+
 https://www.figma.com/file/8szlX8gN2XVWAKW3udZdGr/Figma-Elements-Part-1?node-id=0%3A1
 
 ## Available Scripts

@@ -46,7 +46,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-push": "npx prettier --write && npx eslint src/*.js --fix"
+      "pre-push": "npx prettier src/*.{css,js} --write && npx eslint src/*.js --fix"
     }
   }
 }

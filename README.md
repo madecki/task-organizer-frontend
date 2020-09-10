@@ -6,17 +6,17 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## What can you find in the app?
 
--   create account for you and yours employees
--   create a list of tasks and their category
--   create a visual layer of tasks
--   sort tasks using filters
--   create a customer definition
--   create a shoppin list
--   timer that helps you manage your time better
--   advice on how to improve your efficiency
--   calendar for organizing your time, where you can easily find a free date
--   access to the work done by your employees
--   access to work statistics
+- create account for you and yours employees
+- create a list of tasks and their category
+- create a visual layer of tasks
+- sort tasks using filters
+- create a customer definition
+- create a shoppin list
+- timer that helps you manage your time better
+- advice on how to improve your efficiency
+- calendar for organizing your time, where you can easily find a free date
+- access to the work done by your employees
+- access to work statistics
 
 and many other useful functions
 

@@ -44,14 +44,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-push": "lint-staged",
-      "...": "..."
+      "pre-push": "npx prettier --write && npx eslint src/*.js --fix"
     }
-  },
-  "lint-staged": {
-    "./src/*.{js,jsx,ts,tsx}": [
-      "npx prettier --write",
-      "eslint src/*.js --fix-dry-run"
-    ]
   }
 }

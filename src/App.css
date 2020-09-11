@@ -1,3 +1,10 @@
+@import url(./reset.css);
+@import url(./variables.css);
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
 .App {
   text-align: center;
 }

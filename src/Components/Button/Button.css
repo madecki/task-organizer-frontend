@@ -1,0 +1,16 @@
+.btn {
+  padding: 15px 70px;
+  border: 0;
+  border-radius: 20px;
+  font-weight: 700;
+}
+
+.btn--sign-in {
+  background-color: var(--turquoise);
+  color: var(--white);
+}
+
+.btn--fb {
+  background-color: var(--fb-blue);
+  color: var(--white);
+}

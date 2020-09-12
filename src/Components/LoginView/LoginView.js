@@ -16,14 +16,16 @@ function LoginView() {
             <input className='login__input-wrapper__text'></input>
           </div>
           <label>PASSWORD</label>
-          <div className='login__wrapper'>
+          <div className='login__input-wrapper'>
             <div className='login__input-wrapper--password'>
               <div className='login__input-wrapper__icon'>
                 <i class="fas fa-lock"></i>
               </div>
               <input className='login__input-wrapper__text'></input>
             </div>
-            <Button></Button>
+            <div className='login__input-wrapper__btn'>
+              <Button></Button>
+            </div>
           </div>
         </form>
         <a>Forgot Password?</a>

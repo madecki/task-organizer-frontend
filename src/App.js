@@ -8,8 +8,8 @@ function App() {
     <>
       <Router>
         <Switch>
-          <Route> 
-            <LoginView></LoginView>
+          <Route>
+            <LoginView />
           </Route>
         </Switch>
       </Router>

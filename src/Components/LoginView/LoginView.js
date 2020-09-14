@@ -11,7 +11,7 @@ function LoginView() {
           <label>YOUR E-MAIL</label>
           <div className='login__input-wrapper--mail'>
             <div className='login__input-wrapper__icon'>
-              <i class="fas fa-envelope"></i>
+              <i className="fas fa-envelope"></i>
             </div>
             <input className='login__input-wrapper__text'></input>
           </div>
@@ -19,7 +19,7 @@ function LoginView() {
           <div className='login__input-wrapper'>
             <div className='login__input-wrapper--password'>
               <div className='login__input-wrapper__icon'>
-                <i class="fas fa-lock"></i>
+                <i className="fas fa-lock"></i>
               </div>
               <input className='login__input-wrapper__text'></input>
             </div>

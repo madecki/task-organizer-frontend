@@ -24,7 +24,7 @@ function LoginView() {
               <input className='login__input-wrapper__text'></input>
             </div>
             <div className='login__input-wrapper__btn'>
-              <Button></Button>
+              <Button />
             </div>
           </div>
         </form>

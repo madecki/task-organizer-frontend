@@ -36,13 +36,13 @@ function LoginView() {
         </div>
         <div className='login__wrapper login__wrapper--btn'>
           <Button />
-          <Button></Button>
+          <Button />
         </div>
       </div>
       <div className='login__container login__container--bottom'>
         <div className='login__container__wrapper'>
           <p>Don't have an account</p>
-          <Button></Button>
+          <Button />
         </div>
       </div>
     </>

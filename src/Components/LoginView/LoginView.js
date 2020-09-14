@@ -35,7 +35,7 @@ function LoginView() {
           <div className='login__wrapper__line' />
         </div>
         <div className='login__wrapper login__wrapper--btn'>
-          <Button></Button>
+          <Button />
           <Button></Button>
         </div>
       </div>

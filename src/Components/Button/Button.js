@@ -1,7 +1,7 @@
 import React from 'react';
 import './Button.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { array, PropTypes } from 'prop-types';
+import { PropTypes } from 'prop-types';
 
 function Button({ label, color, icon, size }) {
   let btnColorClass;
@@ -41,6 +41,5 @@ Button.defaultProps = {
   size: '',
   icon: null
 };
-
 
 export default Button;

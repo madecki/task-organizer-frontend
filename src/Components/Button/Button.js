@@ -1,7 +1,7 @@
 import React from 'react';
 import './Button.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { PropTypes } from 'prop-types';
+import { array, PropTypes } from 'prop-types';
 
 function Button({ label, color, icon, size }) {
   let btnColorClass;
@@ -22,9 +22,8 @@ function Button({ label, color, icon, size }) {
 
   return (
     <button
-      className={`btn ${btnColorClass} ${icon ? 'btn--large' : ''} ${
-        size ? 'btn--free-sign-up' : ' '
-      }`}
+      className={`btn ${btnColorClass} ${icon ? 'btn--large' : ''} ${size ? 'btn--free-sign-up' : ' '
+        }`}
       type='button'>
       {icon ? <FontAwesomeIcon icon={icon} /> : null} {label}
     </button>
@@ -32,17 +31,16 @@ function Button({ label, color, icon, size }) {
 }
 
 Button.propTypes = {
-  label: PropTypes.string,
+  label: PropTypes.string.isRequired,
   color: PropTypes.string,
   size: PropTypes.string,
-  icon: PropTypes.string
+  icon: PropTypes.arrayOf(PropTypes.string)
 };
 
 Button.defaultProps = {
-  label: 'Provide label',
-  color: PropTypes.string,
-  size: PropTypes.string,
-  icon: PropTypes.string
-};
+  color: '',
+  size: '',
+  icon: ''
+}
 
 export default Button;

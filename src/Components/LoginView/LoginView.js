@@ -1,5 +1,6 @@
 import React from 'react';
 import './LoginView.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Button from '../Button/Button';
 
 function LoginView() {
@@ -7,42 +8,49 @@ function LoginView() {
     <>
       <div className='login__container'>
         <h1>Sign In</h1>
+
         <form className='login__form'>
-          <label>YOUR E-MAIL</label>
+          <label htmlFor='email'>YOUR E-MAIL</label>
           <div className='login__input-wrapper--mail'>
             <div className='login__input-wrapper__icon'>
-              <i className="fas fa-envelope"></i>
+              <FontAwesomeIcon icon='envelope' />
             </div>
-            <input className='login__input-wrapper__text'></input>
+            <input className='login__input-wrapper__text' id='email' type='email' />
           </div>
-          <label>PASSWORD</label>
+
+          <label htmlFor='password'>PASSWORD</label>
           <div className='login__input-wrapper'>
             <div className='login__input-wrapper--password'>
               <div className='login__input-wrapper__icon'>
-                <i className="fas fa-lock"></i>
+                <FontAwesomeIcon icon='lock' />
               </div>
-              <input className='login__input-wrapper__text'></input>
+              <input className='login__input-wrapper__text' id='password' type='email' />
             </div>
             <div className='login__input-wrapper__btn'>
-              <Button />
+              <Button color='turquoise' label='SIGN IN' />
             </div>
           </div>
         </form>
-        <a>Forgot Password?</a>
+
+        <a href='#' className='password-reminder'>
+          Forgot Password?
+        </a>
+
         <div className='login__wrapper'>
           <div className='login__wrapper__line' />
           <p>OR</p>
           <div className='login__wrapper__line' />
         </div>
         <div className='login__wrapper login__wrapper--btn'>
-          <Button />
-          <Button />
+          <Button color='white' icon={['fab', 'google']} label='GOOGLE' />
+          <Button color='blue' icon={['fab', 'facebook-f']} label='FACEBOOK' />
         </div>
       </div>
+
       <div className='login__container login__container--bottom'>
         <div className='login__container__wrapper'>
-          <p>Don't have an account</p>
-          <Button />
+          <p>Don&apos;t have an account</p>
+          <Button label='SIGN UP FOR FREE' size='small-padding' />
         </div>
       </div>
     </>

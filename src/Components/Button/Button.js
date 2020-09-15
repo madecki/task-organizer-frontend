@@ -36,11 +36,11 @@ Button.propTypes = {
   size: PropTypes.string,
   icon: PropTypes.arrayOf(PropTypes.string)
 };
-
 Button.defaultProps = {
   color: '',
   size: '',
-  icon: ''
-}
+  icon: null
+};
+
 
 export default Button;

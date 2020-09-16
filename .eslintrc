@@ -3,23 +3,39 @@
   "plugins": ["prettier"],
   "rules": {
     "prettier/prettier": ["error", { "singleQuote": true }],
+    "jsx-quotes": ["error", "prefer-single"],
+    "quotes": ["error", "single", { "avoidEscape": true }],
+    "react/jsx-closing-bracket-location": [1, "after-props"],
+    "jsx-a11y/anchor-is-valid": ["warn"],
+    "object-curly-newline": [
+      "error",
+      {
+        "ObjectPattern": "never"
+      }
+    ],
+    "jsx-a11y/label-has-associated-control": [
+      "error",
+      {
+        "labelComponents": [],
+        "labelAttributes": [],
+        "controlComponents": [],
+        "assert": "htmlFor",
+        "depth": 25
+      }
+    ],
     "max-len": ["error", { "code": 100 }],
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "no-console": [1, { "allow": ["warn", "error"] }],
     "no-use-before-define": [
       "error",
-      { "functions": false, "classes": false, "variables": false }
+      {
+        "functions": false,
+        "classes": false,
+        "variables": false
+      }
     ],
     "no-param-reassign": [2, { "props": false }],
-    "comma-dangle": [
-      "error",
-      {
-        "arrays": "never",
-        "objects": "never",
-        "imports": "never",
-        "exports": "never",
-        "functions": "never"
-      }
-    ]
+    "react/jsx-one-expression-per-line": "off",
+    "comma-dangle": ["error", "never"]
   }
 }

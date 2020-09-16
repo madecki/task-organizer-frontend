@@ -1,7 +1,7 @@
 import React from 'react';
 import './LoginView.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Button from '../Button/Button';
+import Input from '../Input/Input';
 
 function LoginView() {
   return (
@@ -11,21 +11,12 @@ function LoginView() {
 
         <form className='login__form'>
           <label htmlFor='email'>YOUR E-MAIL</label>
-          <div className='login__input-wrapper--mail'>
-            <div className='login__input-wrapper__icon'>
-              <FontAwesomeIcon icon='envelope' />
-            </div>
-            <input className='login__input-wrapper__text' id='email' type='email' />
-          </div>
+          <Input icon={['fas', 'envelope']} />
 
           <label htmlFor='password'>PASSWORD</label>
           <div className='login__input-wrapper'>
-            <div className='login__input-wrapper--password'>
-              <div className='login__input-wrapper__icon'>
-                <FontAwesomeIcon icon='lock' />
-              </div>
-              <input className='login__input-wrapper__text' id='password' type='email' />
-            </div>
+            <Input icon={['fas', 'lock']} size='small' />
+
             <div className='login__input-wrapper__btn'>
               <Button color='turquoise' label='SIGN IN' />
             </div>

@@ -22,8 +22,9 @@ function Button({ label, color, icon, size }) {
 
   return (
     <button
-      className={`btn ${btnColorClass} ${icon ? 'btn--large' : ''} ${size ? 'btn--free-sign-up' : ' '
-        }`}
+      className={`btn ${btnColorClass} ${icon ? 'btn--large' : ''} ${
+        size ? 'btn--free-sign-up' : ' '
+      }`}
       type='button'>
       {icon ? <FontAwesomeIcon icon={icon} /> : null} {label}
     </button>
@@ -36,6 +37,7 @@ Button.propTypes = {
   size: PropTypes.string,
   icon: PropTypes.arrayOf(PropTypes.string)
 };
+
 Button.defaultProps = {
   color: '',
   size: '',

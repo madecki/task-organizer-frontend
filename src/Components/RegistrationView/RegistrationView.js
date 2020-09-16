@@ -1,7 +1,7 @@
 import React from 'react';
 import './RegistrationView.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Button from '../Button/Button';
+import Input from '../Input/Input';
 
 function RegistrationView() {
   return (
@@ -11,26 +11,11 @@ function RegistrationView() {
 
         <form className='registration__form'>
           <label htmlFor='name'>FIRST NAME</label>
-          <div className='registration__input-wrapper--name'>
-            <div className='registration__input-wrapper__icon'>
-              <FontAwesomeIcon icon='user' />
-            </div>
-            <input className='registration__input-wrapper__text' id='name' type='text' />
-          </div>
+          <Input icon={['fas', 'user']} />
           <label htmlFor='name'>LAST NAME</label>
-          <div className='registration__input-wrapper--name'>
-            <div className='registration__input-wrapper__icon'>
-              <FontAwesomeIcon icon='user' />
-            </div>
-            <input className='registration__input-wrapper__text' id='name' type='text' />
-          </div>
+          <Input icon={['fas', 'user']} />
           <label htmlFor='nickname'>NICKNAME</label>
-          <div className='registration__input-wrapper--nickname'>
-            <div className='registration__input-wrapper__icon'>
-              <FontAwesomeIcon icon='user' />
-            </div>
-            <input className='registration__input-wrapper__text' id='nickname' type='text' />
-          </div>
+          <Input icon={['fas', 'user']} />
         </form>
 
         <p className='terms-and-condition-agreement'>

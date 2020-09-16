@@ -8,6 +8,7 @@
 }
 
 .btn--sign-in {
+  padding: 15px 60px;
   background-color: var(--turquoise);
   color: var(--white);
 }
@@ -44,6 +45,10 @@
 @media (min-width: 375px) {
   .btn {
     padding: 15px 50px;
+  }
+
+  .btn--sign-in {
+    padding: 15px 65px;
   }
 }
 

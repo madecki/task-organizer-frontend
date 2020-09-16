@@ -10,12 +10,9 @@ function RegistrationView() {
         <h1>Create Account</h1>
 
         <form className='registration__form'>
-          <label htmlFor='name'>FIRST NAME</label>
-          <Input icon={['fas', 'user']} />
-          <label htmlFor='name'>LAST NAME</label>
-          <Input icon={['fas', 'user']} />
-          <label htmlFor='nickname'>NICKNAME</label>
-          <Input icon={['fas', 'user']} />
+          <Input icon={['fas', 'user']} type='text' id='first-name' text='FIRST NAME' />
+          <Input icon={['fas', 'user']} type='text' id='last-name' text='LAST NAME' />
+          <Input icon={['fas', 'user']} type='text' id='nick-name' text='NICKNAME' />
         </form>
 
         <p className='terms-and-condition-agreement'>

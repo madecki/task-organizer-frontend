@@ -3,25 +3,34 @@ import './Input.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { PropTypes } from 'prop-types';
 
-function Input({ icon, size }) {
+function Input({ icon, size, type, id, text }) {
   return (
-    <div className={`login__input-wrapper ${size ? 'login__input-wrapper--small' : ''}`}>
-      <div className='login__input-wrapper__icon'>
-        <FontAwesomeIcon icon={icon} />
+    <>
+      <div className={`input-container ${size ? 'input-container--small' : ''}`}>
+        <label htmlFor={id}>{text}</label>
+        <div className='input-container__wrapper'>
+          <div className='input-container__wrapper__icon'>
+            <FontAwesomeIcon icon={icon} />
+          </div>
+          <input className='input-container__wrapper__text' id={id} type={type} />
+        </div>
       </div>
-      <input className='login__input-wrapper__text' id='email' type='email' />
-    </div>
+    </>
   );
 }
 
 Input.propTypes = {
   icon: PropTypes.arrayOf(PropTypes.string),
-  size: PropTypes.string
+  size: PropTypes.string,
+  type: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+  text: PropTypes.string
 };
 
 Input.defaultProps = {
   icon: null,
-  size: ''
+  size: '',
+  text: ''
 };
 
 export default Input;

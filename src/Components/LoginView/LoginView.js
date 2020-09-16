@@ -10,12 +10,16 @@ function LoginView() {
         <h1>Sign In</h1>
 
         <form className='login__form'>
-          <label htmlFor='email'>YOUR E-MAIL</label>
-          <Input icon={['fas', 'envelope']} />
+          <Input icon={['fas', 'envelope']} type='email' id='email' text='YOUR E-MAIL' />
 
-          <label htmlFor='password'>PASSWORD</label>
           <div className='login__input-wrapper'>
-            <Input icon={['fas', 'lock']} size='small' />
+            <Input
+              icon={['fas', 'lock']}
+              size='small'
+              type='password'
+              id='password'
+              text='PASSWORD'
+            />
 
             <div className='login__input-wrapper__btn'>
               <Button color='turquoise' label='SIGN IN' />

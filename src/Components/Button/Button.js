@@ -34,9 +34,7 @@ function Button({ label, color, icon, size }) {
   }
 
   return (
-    <button
-      className={`btn ${btnColorClass} ${icon ? 'btn--large' : ''} ${btnSizeClass} `}
-      type='button'>
+    <button className={`btn ${btnColorClass} ${btnSizeClass} `} type='button'>
       {icon ? <FontAwesomeIcon icon={icon} /> : null} {label}
     </button>
   );

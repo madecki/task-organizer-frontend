@@ -45,7 +45,7 @@ function LoginView() {
       <div className='login__container login__container--bottom'>
         <div className='login__container__wrapper'>
           <p>Don&apos;t have an account</p>
-          <Button label='SIGN UP FOR FREE' size='small-padding' />
+          <Button label='SIGN UP FOR FREE' size='small' />
         </div>
       </div>
     </>

@@ -8,7 +8,7 @@
 }
 
 .btn--sign-in {
-  padding: 15px 60px;
+  padding: 15px 49px;
   background-color: var(--turquoise);
   color: var(--white);
 }
@@ -29,17 +29,24 @@
   border: 1px solid var(--black);
 }
 
-.fa-google,
+.fa-google {
+  margin: 0 6px;
+}
+
 .fa-facebook-f {
-  margin-right: 6px;
+  margin-right: 4px;
 }
 
 .btn--large {
-  padding: 15px 53px;
+  padding: 15px 33px;
 }
 
-.btn--free-sign-up {
-  padding: 15px 43px;
+.btn--small-pddiang {
+  padding: 15px 20px;
+}
+
+.btn--extra-large {
+  width: 100%;
 }
 
 @media (min-width: 375px) {
@@ -48,7 +55,15 @@
   }
 
   .btn--sign-in {
-    padding: 15px 65px;
+    padding: 15px 58px;
+  }
+
+  .btn--large {
+    padding: 15px 42px;
+  }
+
+  .btn--small-pddiang {
+    padding: 15px 29px;
   }
 }
 
@@ -57,11 +72,15 @@
     padding: 15px 70px;
   }
 
+  .btn--sign-in {
+    padding: 15px 69px;
+  }
+
   .btn--large {
     padding: 15px 53px;
   }
 
-  .btn--free-sign-up {
-    padding: 15px 43px;
+  .btn--small-pddiang {
+    padding: 15px 40px;
   }
 }

@@ -20,11 +20,22 @@ function Button({ label, color, icon, size }) {
       btnColorClass = 'btn--default';
   }
 
+  let btnSizeClass;
+
+  switch (size) {
+    case 'extra-large':
+      btnSizeClass = 'btn--extra-large';
+      break;
+    case 'small':
+      btnSizeClass = 'btn--small-pddiang';
+      break;
+    default:
+      btnSizeClass = 'btn';
+  }
+
   return (
     <button
-      className={`btn ${btnColorClass} ${icon ? 'btn--large' : ''} ${
-        size ? 'btn--free-sign-up' : ' '
-      }`}
+      className={`btn ${btnColorClass} ${icon ? 'btn--large' : ''} ${btnSizeClass} `}
       type='button'>
       {icon ? <FontAwesomeIcon icon={icon} /> : null} {label}
     </button>

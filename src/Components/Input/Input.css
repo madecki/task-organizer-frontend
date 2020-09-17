@@ -1,3 +1,7 @@
+label {
+  letter-spacing: 1px;
+}
+
 .input-container label {
   padding-left: 17px;
   color: var(--gray);

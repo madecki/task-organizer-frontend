@@ -10,7 +10,13 @@ function LoginView() {
         <h1>Sign In</h1>
 
         <form className='login__form'>
-          <Input icon={['fas', 'envelope']} type='email' id='email' text='YOUR E-MAIL' />
+          <Input
+            icon={['fas', 'envelope']}
+            type='email'
+            id='email'
+            text='YOUR E-MAIL'
+            placeholder='example@gmail.com'
+          />
 
           <div className='login__input-wrapper'>
             <Input
@@ -19,6 +25,7 @@ function LoginView() {
               type='password'
               id='password'
               text='PASSWORD'
+              placeholder='12345678'
             />
 
             <div className='login__input-wrapper__btn'>
@@ -40,10 +47,7 @@ function LoginView() {
           <Button color='white' icon={['fab', 'google']} label='GOOGLE' />
           <Button color='blue' icon={['fab', 'facebook-f']} label='FACEBOOK' />
         </div>
-      </div>
-
-      <div className='login__container login__container--bottom'>
-        <div className='login__container__wrapper'>
+        <div className='login__sign-up-wrapper'>
           <p>Don&apos;t have an account</p>
           <Button label='SIGN UP FOR FREE' size='small' />
         </div>

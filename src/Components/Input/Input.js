@@ -3,7 +3,7 @@ import './Input.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { PropTypes } from 'prop-types';
 
-function Input({ icon, size, type, id, text }) {
+function Input({ icon, size, type, id, text, placeholder }) {
   return (
     <>
       <div className={`input-container ${size ? 'input-container--small' : ''}`}>
@@ -12,7 +12,12 @@ function Input({ icon, size, type, id, text }) {
           <div className='input-container__wrapper__icon'>
             <FontAwesomeIcon icon={icon} />
           </div>
-          <input className='input-container__wrapper__text' id={id} type={type} />
+          <input
+            className='input-container__wrapper__text'
+            id={id}
+            type={type}
+            placeholder={placeholder}
+          />
         </div>
       </div>
     </>
@@ -24,7 +29,8 @@ Input.propTypes = {
   size: PropTypes.string,
   type: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
-  text: PropTypes.string
+  text: PropTypes.string,
+  placeholder: PropTypes.string.isRequired
 };
 
 Input.defaultProps = {

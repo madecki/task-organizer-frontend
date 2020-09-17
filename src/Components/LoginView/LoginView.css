@@ -3,8 +3,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 80vh;
-  padding: 0% 5%;
+  min-height: 100vh;
+  margin: 0% 5%;
 }
 
 .login__container h1 {
@@ -54,35 +54,35 @@
 }
 
 .login__wrapper--btn {
-  margin-top: 5%;
+  margin: 5% 0;
 }
 
-.login__container--bottom {
-  justify-content: center;
-  min-height: 20vh;
-  background-color: var(--light-gray);
-}
-
-.login__container__wrapper {
+.login__sign-up-wrapper {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
+  background-color: var(--light-gray);
 }
 
-.login__container__wrapper p {
+.login__sign-up-wrapper p {
   font-size: 14px;
+}
+
+.login__sign-up-wrapper .btn {
+  margin-bottom: 5%;
 }
 
 @media (min-width: 500px) {
   .login__container {
-    padding: 0 12%;
+    margin: 0 12%;
   }
 }
 
 @media (min-width: 768px) {
   .login__container {
-    padding: 0 20%;
+    margin: 0 20%;
   }
 
   .login__form {
@@ -92,20 +92,20 @@
 
 @media (min-width: 1024px) {
   .login__container {
-    padding: 0 30%;
+    margin: 0 30%;
   }
 
   .login__form {
     padding: 10% 0 5% 0;
   }
 
-  .login__container__wrapper {
+  .login__sign-up-wrapper {
     height: 10vh;
   }
 }
 
 @media (min-width: 1200px) {
   .login__container {
-    padding: 0 33%;
+    margin: 0 33%;
   }
 }

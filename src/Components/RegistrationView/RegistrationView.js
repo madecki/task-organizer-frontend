@@ -7,49 +7,53 @@ import Input from '../Input/Input';
 function RegistrationView() {
   return (
     <>
-      <div className='registration__container'>
-        <h1>Create Account</h1>
+      <div className='centered-container'>
+        <div className='registration__container'>
+          <div className='registration__container--padding'>
+            <h1>Create Account</h1>
 
-        <form className='registration__form'>
-          <Input
-            icon={['fas', 'user']}
-            type='text'
-            id='first-name'
-            text='FIRST NAME'
-            placeholder='Bill'
-          />
-          <Input
-            icon={['fas', 'user']}
-            type='text'
-            id='last-name'
-            text='LAST NAME'
-            placeholder='Gates'
-          />
-          <Input
-            icon={['fas', 'user']}
-            type='text'
-            id='nick-name'
-            text='NICKNAME'
-            placeholder='Covid-19'
-          />
-        </form>
+            <form className='registration__form'>
+              <Input
+                icon={['fas', 'user']}
+                type='text'
+                id='first-name'
+                text='FIRST NAME'
+                placeholder='Bill'
+              />
+              <Input
+                icon={['fas', 'user']}
+                type='text'
+                id='last-name'
+                text='LAST NAME'
+                placeholder='Gates'
+              />
+              <Input
+                icon={['fas', 'user']}
+                type='text'
+                id='nick-name'
+                text='NICKNAME'
+                placeholder='Covid-19'
+              />
+            </form>
 
-        <p className='terms-and-condition-agreement'>
-          By creating an account you agree to the <a href='#'>Terms of Service</a> and{' '}
-          <a href='#'>Privacy Policy</a>
-        </p>
+            <p className='terms-and-condition-agreement'>
+              By creating an account you agree to the <a href='#'>Terms of Service</a> and{' '}
+              <a href='#'>Privacy Policy</a>
+            </p>
 
-        <Button label='NEXT' size='extra-large' />
+            <Button label='NEXT' size='extra-large' />
 
-        <div className='registration__wrapper'>
-          <div className='registration__wrapper__line' />
-          <p>OR</p>
-          <div className='registration__wrapper__line' />
-        </div>
+            <div className='registration__wrapper'>
+              <div className='registration__wrapper__line' />
+              <p>OR</p>
+              <div className='registration__wrapper__line' />
+            </div>
 
-        <div className='registration__wrapper registration__wrapper--btn'>
-          <Button color='white' imgIcon={Google} />
-          <Button color='blue' icon={['fab', 'facebook-f']} label='FACEBOOK' />
+            <div className='registration__wrapper registration__wrapper--btn'>
+              <Button color='white' imgIcon={Google} />
+              <Button color='blue' icon={['fab', 'facebook-f']} label='FACEBOOK' />
+            </div>
+          </div>
         </div>
       </div>
     </>

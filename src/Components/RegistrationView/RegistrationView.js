@@ -1,6 +1,7 @@
 import React from 'react';
 import './RegistrationView.css';
 import Button from '../Button/Button';
+import Google from '../../Assets/Icon/google.png';
 import Input from '../Input/Input';
 
 function RegistrationView() {
@@ -47,7 +48,7 @@ function RegistrationView() {
         </div>
 
         <div className='registration__wrapper registration__wrapper--btn'>
-          <Button color='white' icon={['fab', 'google']} label='GOOGLE' />
+          <Button color='white' imgIcon={Google} />
           <Button color='blue' icon={['fab', 'facebook-f']} label='FACEBOOK' />
         </div>
       </div>

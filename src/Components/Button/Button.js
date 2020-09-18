@@ -3,7 +3,7 @@ import './Button.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { PropTypes } from 'prop-types';
 
-function Button({ label, color, icon, size }) {
+function Button({ label, color, icon, size, imgIcon }) {
   let btnColorClass;
 
   switch (color) {
@@ -27,7 +27,7 @@ function Button({ label, color, icon, size }) {
       btnSizeClass = 'btn--extra-large';
       break;
     case 'small':
-      btnSizeClass = 'btn--small-pddiang';
+      btnSizeClass = 'btn--small-padding';
       break;
     default:
       btnSizeClass = 'btn';
@@ -35,22 +35,27 @@ function Button({ label, color, icon, size }) {
 
   return (
     <button className={`btn ${btnColorClass} ${btnSizeClass} `} type='button'>
-      {icon ? <FontAwesomeIcon icon={icon} /> : null} {label}
+      {icon ? <FontAwesomeIcon icon={icon} /> : null}
+      {imgIcon ? <img src={imgIcon} alt={`${imgIcon} logo`} /> : null}
+      {label}
     </button>
   );
 }
 
 Button.propTypes = {
-  label: PropTypes.string.isRequired,
+  label: PropTypes.string,
   color: PropTypes.string,
   size: PropTypes.string,
-  icon: PropTypes.arrayOf(PropTypes.string)
+  icon: PropTypes.arrayOf(PropTypes.string),
+  imgIcon: PropTypes.string
 };
 
 Button.defaultProps = {
+  label: '',
   color: '',
   size: '',
-  icon: null
+  icon: null,
+  imgIcon: null
 };
 
 export default Button;

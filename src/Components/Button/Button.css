@@ -1,5 +1,5 @@
 .btn {
-  padding: 15px 33px;
+  padding: 15px 35px;
   border: 0;
   border-radius: 20px;
   background-color: var(--fb-blue);
@@ -8,7 +8,7 @@
 }
 
 .btn--sign-in {
-  padding: 15px 49px;
+  padding: 15px 50px;
   background-color: var(--turquoise);
   color: var(--white);
 }
@@ -24,21 +24,22 @@
 }
 
 .btn--google {
+  padding: 8px 53px;
   background-color: var(--white);
   color: var(--black);
-  border: 1px solid var(--black);
+  border: 2px solid var(--light-gray);
 }
 
-.fa-google {
-  margin: 0 6px;
+.btn--google img {
+  width: 66%;
 }
 
 .fa-facebook-f {
   margin-right: 4px;
 }
 
-.btn--small-pddiang {
-  padding: 15px 20px;
+.btn--small-padding {
+  padding: 15px 21px;
 }
 
 .btn--extra-large {
@@ -47,28 +48,61 @@
 
 @media (min-width: 375px) {
   .btn {
-    padding: 15px 42px;
+    padding: 15px 43px;
+  }
+
+  .btn--google {
+    padding: 8px 60px;
+  }
+
+  .btn--sign-in {
+    padding: 15px 49px;
   }
 
   .btn--sign-in {
     padding: 15px 58px;
   }
 
-  .btn--small-pddiang {
+  .btn--small-padding {
     padding: 15px 29px;
   }
 }
 
 @media (min-width: 500px) {
   .btn {
-    padding: 15px 53px;
+    padding: 12px 53px;
   }
 
   .btn--sign-in {
-    padding: 15px 69px;
+    padding: 12px 69px;
   }
 
-  .btn--small-pddiang {
-    padding: 15px 40px;
+  .btn--google {
+    padding: 5px 70px;
+    background-color: var(--white);
+    color: var(--black);
+    border: 2px solid var(--light-gray);
+  }
+
+  .btn--small-padding {
+    padding: 12px 38px;
+  }
+}
+
+@media (min-width: 768px) {
+  .btn {
+    padding: 12px 56px;
+  }
+
+  .btn--google {
+    padding: 5px 59px;
+  }
+
+  .btn--fb {
+    padding: 12px 42px;
+  }
+
+  .btn--small-padding {
+    padding: 12px 27px;
   }
 }

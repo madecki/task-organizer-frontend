@@ -1,10 +1,28 @@
+.centered-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+}
+
 .login__container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  margin: 0% 5%;
+  height: 100vh;
+  width: 100vw;
+}
+
+.login__container--padding {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 95%;
+  height: 80%;
+  padding-top: 5%;
 }
 
 .login__container h1 {
@@ -17,7 +35,7 @@
   flex-direction: column;
   justify-content: space-between;
   width: 100%;
-  padding-bottom: 10%;
+  padding: 12% 0;
 }
 
 .login__input-wrapper {
@@ -40,11 +58,11 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  height: 100%;
 }
 
 .login__wrapper p {
   color: var(--gray);
+  font-size: 10px;
 }
 
 .login__wrapper__line {
@@ -54,58 +72,85 @@
 }
 
 .login__wrapper--btn {
-  margin: 5% 0;
+  margin: 10% 0;
 }
 
-.login__sign-up-wrapper {
+.login__sign-up-container {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   width: 100%;
+  height: 20%;
   background-color: var(--light-gray);
 }
 
-.login__sign-up-wrapper p {
+.login__sign-up-container p {
   font-size: 14px;
 }
 
-.login__sign-up-wrapper .btn {
-  margin-bottom: 5%;
+.login__sign-up-container__wrapper {
+  text-align: center;
+}
+
+.login__sign-up-container__wrapper .btn {
+  margin-bottom: 1%;
+}
+
+@media (min-width: 375px) {
+  .login__container--padding {
+    padding-top: 10%;
+  }
 }
 
 @media (min-width: 500px) {
   .login__container {
-    margin: 0 12%;
+    height: 85vh;
+    width: 60vw;
+  }
+
+  .login__form {
+    padding: 10% 0;
+  }
+
+  .login__wrapper--btn {
+    margin-bottom: 8%;
   }
 }
 
 @media (min-width: 768px) {
   .login__container {
-    margin: 0 20%;
+    box-shadow: 0 0 20px 1px var(--gray);
+  }
+
+  .login__container--padding {
+    width: 70%;
+    padding-top: 4%;
   }
 
   .login__form {
-    padding-bottom: 5%;
+    padding: 8% 0;
   }
 }
 
 @media (min-width: 1024px) {
-  .login__container {
-    margin: 0 30%;
-  }
-
   .login__form {
-    padding: 10% 0 5% 0;
-  }
-
-  .login__sign-up-wrapper {
-    height: 10vh;
+    padding: 7% 0 8% 0;
   }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1440px) {
   .login__container {
-    margin: 0 33%;
+    width: 50vw;
+  }
+
+  .login__container--padding {
+    height: 77%;
+    padding-top: 8%;
+  }
+
+  .login__sign-up-container {
+    justify-content: inherit;
+    height: 23%;
   }
 }

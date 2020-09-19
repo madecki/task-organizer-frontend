@@ -3,7 +3,7 @@ import './Button.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { PropTypes } from 'prop-types';
 
-function Button({ label, color, icon, size, imgIcon }) {
+function Button({ label, color, icon, size, imgIcon, func }) {
   let btnColorClass;
 
   switch (color) {
@@ -34,7 +34,7 @@ function Button({ label, color, icon, size, imgIcon }) {
   }
 
   return (
-    <button className={`btn ${btnColorClass} ${btnSizeClass} `} type='button'>
+    <button className={`btn ${btnColorClass} ${btnSizeClass} `} type='button' onClick={func}>
       {icon ? <FontAwesomeIcon icon={icon} /> : null}
       {imgIcon ? <img src={imgIcon} alt={`${imgIcon} logo`} /> : null}
       {label}
@@ -47,7 +47,8 @@ Button.propTypes = {
   color: PropTypes.string,
   size: PropTypes.string,
   icon: PropTypes.arrayOf(PropTypes.string),
-  imgIcon: PropTypes.string
+  imgIcon: PropTypes.string,
+  func: PropTypes.oneOfType([PropTypes.string, PropTypes.func])
 };
 
 Button.defaultProps = {
@@ -55,7 +56,8 @@ Button.defaultProps = {
   color: '',
   size: '',
   icon: null,
-  imgIcon: null
+  imgIcon: null,
+  func: null
 };
 
 export default Button;

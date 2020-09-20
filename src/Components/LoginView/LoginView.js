@@ -32,7 +32,7 @@ function LoginView() {
                 />
 
                 <div className='login__input-wrapper__btn'>
-                  <Button color='turquoise' label='SIGN IN' />
+                  <Button color='turquoise' size='medium' label='SIGN IN' />
                 </div>
               </div>
             </form>

@@ -8,7 +8,7 @@ function Button({ label, color, icon, size, imgIcon, func }) {
 
   switch (color) {
     case 'turquoise':
-      btnColorClass = 'btn--sign-in';
+      btnColorClass = 'btn--turquoise';
       break;
     case 'blue':
       btnColorClass = 'btn--fb';
@@ -28,6 +28,9 @@ function Button({ label, color, icon, size, imgIcon, func }) {
       break;
     case 'small':
       btnSizeClass = 'btn--small-padding';
+      break;
+    case 'medium':
+      btnSizeClass = 'btn--sign-in';
       break;
     default:
       btnSizeClass = 'btn';

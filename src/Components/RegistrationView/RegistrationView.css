@@ -20,6 +20,10 @@
   height: 100vh;
 }
 
+.registration__container--padding {
+  width: 100%;
+}
+
 .registration__container h1 {
   margin: 0;
   font-size: 36px;
@@ -111,7 +115,7 @@
   display: flex;
   justify-content: space-between;
   padding: 5% 0;
-  transition: 1s;
+  transition: 2s;
 }
 
 .box-info {
@@ -120,7 +124,7 @@
   align-items: center;
   width: 30%;
   border: 2px solid var(--gray);
-  transition: 1s;
+  transition: 2s;
 }
 
 @media (min-width: 375px) {
@@ -179,9 +183,5 @@
 @media (min-width: 1440px) {
   .registration__container {
     width: 50vw;
-  }
-
-  .registration__container--padding {
-    height: 77%;
   }
 }

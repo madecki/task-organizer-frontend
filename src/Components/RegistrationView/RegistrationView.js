@@ -46,13 +46,13 @@ function RegistrationView() {
                   text='LAST NAME'
                   placeholder='Gates'
                 />
-                <Input
+                {/* <Input
                   icon={['fas', 'user']}
                   type='text'
                   id='nick-name'
                   text='NICKNAME'
                   placeholder='Covid-19'
-                />
+                /> */}
               </form>
 
               <p className='terms-and-condition-agreement'>
@@ -132,7 +132,7 @@ function RegistrationView() {
                   icon={['fas', 'lock']}
                   type='password'
                   id='repeat-password'
-                  text='REPEAT-PASSWORD'
+                  text='REPEAT PASSWORD'
                   placeholder='A123456!'
                 />
 
@@ -221,7 +221,7 @@ function RegistrationView() {
               </div>
               <div className='registration__wrapper registration__wrapper--btn'>
                 <Button label='PREV' func={() => prevStep()} />
-                <Button label='FINISH' />
+                <Button color='turquoise' label='FINISH' />
               </div>
             </div>
           </div>

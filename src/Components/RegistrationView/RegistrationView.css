@@ -3,25 +3,12 @@
   color: var(--gray);
 }
 
-.centered-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100vw;
-  height: 100vh;
-}
-
 .registration__container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 95vw;
-  height: 100vh;
-}
-
-.registration__container--padding {
-  width: 100%;
+  padding: 15% 3% 10% 3%;
 }
 
 .registration__container h1 {
@@ -40,7 +27,7 @@
   flex-direction: column;
   justify-content: space-between;
   width: 100%;
-  padding: 10% 0 2% 0;
+  padding: 15% 0 10% 0;
 }
 
 .registration__form label {
@@ -53,13 +40,14 @@
 
 .password-requirements {
   width: 100%;
-  border: 2px solid var(--gray);
+  border: 1.5px solid var(--border-gray);
+  border-radius: 20px;
   color: var(--gray);
   text-align: center;
 }
 
 .password-requirements h2 {
-  font-size: 20px;
+  font-size: 14px;
 }
 
 .password-requirements p {
@@ -127,25 +115,17 @@
   transition: 2s;
 }
 
-@media (min-width: 375px) {
-  .registration__form {
-    padding: 15% 0 2% 0;
-  }
-}
-
 @media (min-width: 500px) {
   .registration__container {
-    width: 80vw;
-    height: 85vh;
+    height: inherit;
+    margin: 5% 0;
+    padding: 0;
+    width: 75%;
     box-shadow: 0 0 20px 1px var(--gray);
   }
 
   .registration__container--padding {
-    width: 90%;
-  }
-
-  .registration__form {
-    padding: 4% 0 2% 0;
+    padding: 15% 6% 10% 6%;
   }
 
   .box-info {
@@ -156,11 +136,11 @@
 
 @media (min-width: 768px) {
   .registration__container {
-    width: 60vw;
+    width: 55%;
   }
 
   .registration__container--padding {
-    width: 70%;
+    padding: 5% 10% 10% 10%;
   }
 
   .registration__form {
@@ -169,19 +149,82 @@
 }
 
 @media (min-width: 1024px) {
+  .registration__container {
+    width: 45%;
+  }
+
+  .registration__container--padding {
+    padding: 15%;
+  }
+
   .registration__form {
-    padding: 5% 0 2% 0;
+    padding: 12% 0 8% 0;
   }
 
   .box-info:hover {
     transform: scale(1.2);
     transition: 1s;
-    border: 3px solid var(--gray);
   }
 }
 
 @media (min-width: 1440px) {
   .registration__container {
-    width: 50vw;
+    width: 35%;
+  }
+}
+
+@media (min-width: 500px) {
+  .login__container {
+    width: 75%;
+    height: inherit;
+    margin: 5% 0;
+    box-shadow: 0 0 20px 1px var(--gray);
+  }
+
+  .login__container--padding {
+    height: inherit;
+    padding: 8% 8% 0 8%;
+  }
+
+  .login__form {
+    margin-bottom: 8%;
+  }
+
+  .login__container .password-reminder {
+    margin-bottom: 8%;
+  }
+
+  .login__wrapper--btn {
+    margin: 8% 0 12% 0;
+  }
+
+  .login__sign-up-container {
+    height: inherit;
+  }
+}
+
+@media (min-width: 768px) {
+  .login__container {
+    width: 55%;
+  }
+
+  .login__container--padding {
+    padding: 12% 12% 0 12%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .login__container {
+    width: 45%;
+  }
+}
+
+@media (min-width: 1440px) {
+  .login__container {
+    width: 35%;
+  }
+
+  .login__container--padding {
+    padding: 15% 15% 0 15%;
   }
 }

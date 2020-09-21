@@ -46,13 +46,34 @@ function RegistrationView() {
                   text='LAST NAME'
                   placeholder='Gates'
                 />
-                {/* <Input
-                  icon={['fas', 'user']}
-                  type='text'
-                  id='nick-name'
-                  text='NICKNAME'
-                  placeholder='Covid-19'
-                /> */}
+                <Input
+                  icon={['fas', 'envelope']}
+                  type='email'
+                  id='email'
+                  text='E-MAIL'
+                  placeholder='example@gmail.com'
+                />
+                <Input
+                  icon={['fas', 'lock']}
+                  type='password'
+                  id='password'
+                  text='PASSWORD'
+                  placeholder='A1234567'
+                />
+                <Input
+                  icon={['fas', 'lock']}
+                  type='password'
+                  id='repeat-password'
+                  text='REPEAT PASSWORD'
+                  placeholder='A1234567'
+                />
+
+                <div className='password-requirements'>
+                  <h2>PASSWORD REQUIREMENTS:</h2>
+                  <p>-Minimum 8 signs</p>
+                  <p>-Minimum one big letter</p>
+                  <p>-Minimum one number</p>
+                </div>
               </form>
 
               <p className='terms-and-condition-agreement'>
@@ -92,74 +113,12 @@ function RegistrationView() {
               <p className='step-counter'>Step {currentStep} of 5</p>
               <form className='registration__form'>
                 <Input
-                  icon={['fas', 'envelope']}
-                  type='email'
-                  id='email'
-                  text='E-MAIL'
-                  placeholder='example@gmail.com'
-                />
-                <Input
                   icon={['fas', 'phone-square-alt']}
                   type='number'
                   id='phone-number'
                   text='PHONE NUMBER'
                   placeholder='+1800800800'
                 />
-              </form>
-
-              <div className='registration__btn-wrapper'>
-                <Button label='PREV' func={() => prevStep()} />
-                <Button label='NEXT' func={() => nextStep()} />
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-      {currentStep === 3 && (
-        <div className='centered-container'>
-          <div className='registration__container'>
-            <div className='registration__container--padding'>
-              <p className='step-counter'>Step {currentStep} of 5</p>
-              <form className='registration__form'>
-                <Input
-                  icon={['fas', 'lock']}
-                  type='password'
-                  id='password'
-                  text='PASSWORD'
-                  placeholder='A123456!'
-                />
-                <Input
-                  icon={['fas', 'lock']}
-                  type='password'
-                  id='repeat-password'
-                  text='REPEAT PASSWORD'
-                  placeholder='A123456!'
-                />
-
-                <div className='password-requirements'>
-                  <h2>PASSWORD REQUIREMENTS:</h2>
-                  <p>-Minimum 8 signs</p>
-                  <p>-Minimum one big letter</p>
-                  <p>-Minimum one number</p>
-                  <p>-Minimum one special sign</p>
-                </div>
-              </form>
-
-              <div className='registration__btn-wrapper'>
-                <Button label='PREV' func={() => prevStep()} />
-                <Button label='NEXT' func={() => nextStep()} />
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-      {currentStep === 4 && (
-        <div className='centered-container'>
-          <div className='registration__container'>
-            <div className='registration__container--padding'>
-              <p className='step-counter'>Step {currentStep} of 5</p>
-
-              <form className='registration__form'>
                 <Input
                   icon={['fas', 'flag']}
                   type='text'
@@ -190,7 +149,7 @@ function RegistrationView() {
                 />
               </form>
 
-              <div className='registration__wrapper registration__wrapper--btn'>
+              <div className='registration__btn-wrapper'>
                 <Button label='PREV' func={() => prevStep()} />
                 <Button label='NEXT' func={() => nextStep()} />
               </div>
@@ -198,7 +157,7 @@ function RegistrationView() {
           </div>
         </div>
       )}
-      {currentStep === 5 && (
+      {currentStep === 3 && (
         <div className='centered-container'>
           <div className='registration__container'>
             <div className='registration__container--padding'>

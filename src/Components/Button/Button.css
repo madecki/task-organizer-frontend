@@ -60,10 +60,6 @@
   }
 
   .btn--sign-in {
-    padding: 16.5px 49px;
-  }
-
-  .btn--sign-in {
     padding: 16.5px 58px;
   }
 
@@ -74,22 +70,22 @@
 
 @media (min-width: 500px) {
   .btn {
-    padding: 16.5px 53px;
+    padding: 16.5px 42px;
   }
 
   .btn--sign-in {
-    padding: 16.5px 69px;
+    padding: 16.5px 56px;
   }
 
   .btn--google {
-    padding: 9.5px 70px;
+    padding: 9.5px 59px;
     background-color: var(--white);
     color: var(--black);
     border: 2px solid var(--light-gray);
   }
 
   .btn--small-padding {
-    padding: 16.5px 38px;
+    padding: 16.5px 27px;
   }
 }
 
@@ -103,7 +99,7 @@
   }
 
   .btn--google {
-    padding: 6.5px 59px;
+    padding: 7.5px 59px;
   }
 
   .btn--fb {
@@ -123,18 +119,18 @@
 
 @media (min-width: 1440px) {
   .btn--sign-in {
-    padding: 12px 95px;
+    padding: 13.5px 66px;
   }
 
   .btn--google {
-    padding: 5px 97px;
+    padding: 6px 69px;
   }
 
   .btn--fb {
-    padding: 12px 80px;
+    padding: 13.5px 51px;
   }
 
   .btn--small-padding {
-    padding: 12px 65px;
+    padding: 13.5px 37px;
   }
 }

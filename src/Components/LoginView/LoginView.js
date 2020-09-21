@@ -28,7 +28,7 @@ function LoginView() {
                   type='password'
                   id='password'
                   text='PASSWORD'
-                  placeholder='12345678'
+                  placeholder='A1234567'
                 />
 
                 <div className='login__input-wrapper__btn'>

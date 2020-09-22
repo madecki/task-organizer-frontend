@@ -32,6 +32,9 @@ function Button({ label, color, icon, size, imgIcon, func }) {
     case 'medium':
       btnSizeClass = 'btn--sign-in';
       break;
+    case 'large':
+      btnSizeClass = 'btn--type-of-use';
+      break;
     default:
       btnSizeClass = 'btn';
   }

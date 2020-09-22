@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import './RegistrationView.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { v4 as uuidv4 } from 'uuid';
 import Button from '../Button/Button';
 import Google from '../../Assets/Icon/google.png';
 import Input from '../Input/Input';
+import Checkbox from '../Checkbox/Checkbox';
 
 function RegistrationView() {
   const [currentStep, setCurrentStep] = useState(1);
@@ -20,6 +21,13 @@ function RegistrationView() {
     let whichStep = currentStep;
 
     whichStep = currentStep === 2 ? 1 : currentStep - 1;
+    setCurrentStep(whichStep);
+  };
+
+  const stepTypeOfProfession = () => {
+    let whichStep = currentStep;
+
+    whichStep = currentStep === 3 ? 4 : currentStep === 4;
     setCurrentStep(whichStep);
   };
 
@@ -70,14 +78,26 @@ function RegistrationView() {
 
                 <div className='password-requirements'>
                   <h2>PASSWORD REQUIREMENTS</h2>
-                  <p>Password must includes minimum 8 signs, at least one big letter and one number</p>
+                  <p>
+                    Password must includes minimum 8 signs, at least one big letter and one number
+                  </p>
                 </div>
               </form>
-
-              <p className='terms-and-condition-agreement'>
-                By creating an account you agree to the <a href='#'>Terms of Service</a> and{' '}
-                <a href='#'>Privacy Policy</a>
-              </p>
+              <Checkbox
+                text={[
+                  <p key={uuidv4()}>
+                    By creating an account you agree to the{' '}
+                    <a href='' key={uuidv4()}>
+                      Terms of Service
+                    </a>{' '}
+                    and{' '}
+                    <a href='' key={uuidv4()}>
+                      Privacy Policy
+                    </a>
+                  </p>
+                ]}
+                id='terms'
+              />
 
               <Button label='NEXT' size='extra-large' func={() => nextStep()} />
 
@@ -88,16 +108,7 @@ function RegistrationView() {
               </div>
 
               <div className='registration__wrapper registration__wrapper--btn'>
-                <Button
-                  color='white'
-                  imgIcon={Google}
-                  onClick={() => {
-                    let whichStep = currentStep;
-
-                    whichStep = currentStep === 2 ? 1 : currentStep - 1;
-                    setCurrentStep(whichStep);
-                  }}
-                />
+                <Button color='white' imgIcon={Google} />
                 <Button color='blue' icon={['fab', 'facebook-f']} label='FACEBOOK' />
               </div>
             </div>
@@ -116,6 +127,13 @@ function RegistrationView() {
                   id='phone-number'
                   text='PHONE NUMBER'
                   placeholder='+1800800800'
+                />
+                <Input
+                  icon={['fas', 'calendar-alt']}
+                  type='number'
+                  id='age'
+                  text='AGE'
+                  placeholder='26'
                 />
                 <Input
                   icon={['fas', 'flag']}
@@ -158,24 +176,37 @@ function RegistrationView() {
       {currentStep === 3 && (
         <div className='centered-container'>
           <div className='registration__container'>
-            <div className='registration__container--padding'>
+            <div className='registration__container--padding registration__container--type-of-use'>
               <p className='step-counter'>Step {currentStep} of 5</p>
               <h2>Tell us a bit about yourself</h2>
               <p>What will you be using our app for?</p>
-              <div className='box-wrapper'>
-                <div className='box-info'>
-                  <FontAwesomeIcon icon={['fas', 'suitcase']} />
-                  <p>Work</p>
-                </div>
-                <div className='box-info'>
-                  <FontAwesomeIcon icon={['fas', 'user']} />
-                  <p>Personal</p>
-                </div>
-                <div className='box-info'>
-                  <FontAwesomeIcon icon={['fas', 'graduation-cap']} />
-                  <p>School</p>
-                </div>
+
+              <Button
+                icon={['fas', 'suitcase']}
+                size='large'
+                label='WORK'
+                func={() => stepTypeOfProfession()}
+              />
+
+              <Button icon={['fas', 'user']} size='large' label='PERSONAL' />
+
+              <Button icon={['fas', 'graduation-cap']} size='large' label='SCHOOL' />
+
+              <div className='registration__wrapper registration__wrapper--btn'>
+                <Button label='PREV' func={() => prevStep()} />
+                <Button color='turquoise' label='FINISH' />
               </div>
+            </div>
+          </div>
+        </div>
+      )}
+      {currentStep === 4 && (
+        <div className='centered-container'>
+          <div className='registration__container'>
+            <div className='registration__container--padding'>
+              <p className='step-counter'>Last step</p>
+              <h2>What is your profession</h2>
+
               <div className='registration__wrapper registration__wrapper--btn'>
                 <Button label='PREV' func={() => prevStep()} />
                 <Button color='turquoise' label='FINISH' />

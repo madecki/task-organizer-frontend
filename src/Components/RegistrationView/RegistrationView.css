@@ -11,6 +11,10 @@
   padding: 15% 3% 10% 3%;
 }
 
+.registration__container--type-of-use {
+  text-align: center;
+}
+
 .registration__container h1 {
   margin: 0;
   font-size: 36px;
@@ -51,17 +55,10 @@
   margin: 5px auto;
 }
 
-.terms-and-condition-agreement {
-  width: 65%;
-  margin: 0 auto;
+.registration__container .container-label {
+  width: 60%;
   text-align: center;
-  font-size: 14px;
-  font-weight: 300;
-}
-
-.terms-and-condition-agreement a {
-  color: var(--black);
-  font-weight: 500;
+  margin: 0 auto;
 }
 
 .registration__btn-wrapper {
@@ -109,7 +106,6 @@
   align-items: center;
   width: 30%;
   border: 2px solid var(--gray);
-  transition: 2s;
 }
 
 @media (min-width: 500px) {
@@ -158,71 +154,10 @@
   .registration__form {
     padding: 12% 0 8% 0;
   }
-
-  .box-info:hover {
-    transform: scale(1.2);
-    transition: 1s;
-  }
 }
 
 @media (min-width: 1440px) {
   .registration__container {
     width: 35%;
-  }
-}
-
-@media (min-width: 500px) {
-  .login__container {
-    width: 75%;
-    height: inherit;
-    margin: 5% 0;
-    box-shadow: 0 0 20px 1px var(--gray);
-  }
-
-  .login__container--padding {
-    height: inherit;
-    padding: 8% 8% 0 8%;
-  }
-
-  .login__form {
-    margin-bottom: 8%;
-  }
-
-  .login__container .password-reminder {
-    margin-bottom: 8%;
-  }
-
-  .login__wrapper--btn {
-    margin: 8% 0 12% 0;
-  }
-
-  .login__sign-up-container {
-    height: inherit;
-  }
-}
-
-@media (min-width: 768px) {
-  .login__container {
-    width: 55%;
-  }
-
-  .login__container--padding {
-    padding: 12% 12% 0 12%;
-  }
-}
-
-@media (min-width: 1024px) {
-  .login__container {
-    width: 45%;
-  }
-}
-
-@media (min-width: 1440px) {
-  .login__container {
-    width: 35%;
-  }
-
-  .login__container--padding {
-    padding: 15% 15% 0 15%;
   }
 }

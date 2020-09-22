@@ -127,6 +127,18 @@
   .btn--fb {
     padding: 13.5px 33px;
   }
+
+  .btn--type-of-use {
+    width: 60%;
+    margin-bottom: 5%;
+    background: none;
+    color: black;
+    border: 1.5px solid var(--border-gray);
+  }
+
+  .btn--type-of-use svg {
+    margin-right: 5%;
+  }
 }
 
 @media (min-width: 1440px) {

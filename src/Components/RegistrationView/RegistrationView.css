@@ -40,18 +40,15 @@
 
 .password-requirements {
   width: 100%;
-  border: 1.5px solid var(--border-gray);
-  border-radius: 20px;
   color: var(--gray);
   text-align: center;
 }
 
-.password-requirements h2 {
-  font-size: 14px;
-}
-
+.password-requirements h2,
 .password-requirements p {
   font-size: 14px;
+  width: 80%;
+  margin: 5px auto;
 }
 
 .terms-and-condition-agreement {
@@ -117,6 +114,7 @@
 
 @media (min-width: 500px) {
   .registration__container {
+    display: initial;
     height: inherit;
     margin: 5% 0;
     padding: 0;

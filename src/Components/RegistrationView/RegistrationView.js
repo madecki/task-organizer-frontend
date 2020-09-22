@@ -69,10 +69,8 @@ function RegistrationView() {
                 />
 
                 <div className='password-requirements'>
-                  <h2>PASSWORD REQUIREMENTS:</h2>
-                  <p>-Minimum 8 signs</p>
-                  <p>-Minimum one big letter</p>
-                  <p>-Minimum one number</p>
+                  <h2>PASSWORD REQUIREMENTS</h2>
+                  <p>Password must includes minimum 8 signs, at least one big letter and one number</p>
                 </div>
               </form>
 

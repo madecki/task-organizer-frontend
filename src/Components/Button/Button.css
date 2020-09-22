@@ -112,8 +112,20 @@
 }
 
 @media (min-width: 1024px) {
+  .btn {
+    padding: 13.5px 60px;
+  }
+
   .btn--sign-in {
     padding: 13.5px 58px;
+  }
+
+  .btn--google {
+    padding: 6.5px 59px;
+  }
+
+  .btn--fb {
+    padding: 13.5px 33px;
   }
 }
 

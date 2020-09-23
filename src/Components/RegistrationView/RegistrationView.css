@@ -3,6 +3,13 @@
   color: var(--gray);
 }
 
+.btn--type-of-use:hover .fa-graduation-cap,
+.btn--type-of-use:hover .fa-suitcase,
+.btn--type-of-use:hover .fa-user {
+  color: var(--white);
+  transition: 1s;
+}
+
 .registration__container {
   display: flex;
   flex-direction: column;

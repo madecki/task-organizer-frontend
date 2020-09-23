@@ -189,7 +189,12 @@ function RegistrationView() {
                 func={() => stepTypeOfProfession()}
               />
 
-              <Button icon={['fas', 'user']} size='large' label='PERSONAL' />
+              <Button
+                icon={['fas', 'user']}
+                size='large'
+                label='PERSONAL'
+                func={() => stepTypeOfProfession()}
+              />
 
               <Button icon={['fas', 'graduation-cap']} size='large' label='SCHOOL' />
 
@@ -204,9 +209,9 @@ function RegistrationView() {
       {currentStep === 4 && (
         <div className='centered-container'>
           <div className='registration__container'>
-            <div className='registration__container--padding'>
+            <div className='registration__container--padding registration__container--profession'>
               <p className='step-counter'>Last step</p>
-              <h2>What is your profession</h2>
+              <h2>What is your profession?</h2>
               <ProfessionsList />
               <div className='registration__wrapper registration__wrapper--btn'>
                 <Button label='PREV' func={() => prevStep()} />

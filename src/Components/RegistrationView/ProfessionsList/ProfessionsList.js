@@ -1,14 +1,32 @@
 import React from 'react';
 import './ProfessionsList.css';
+import { v4 as uuidv4 } from 'uuid';
 import Checkbox from '../../Checkbox/Checkbox';
+import Input from '../../Input/Input';
 
 function ProfessionsList() {
-  const professions = ['teacher', 'engineer', 'office worker', 'doctor', 'manual worker', 'farmer'];
+  const professions = [
+    'Education',
+    'Engineer',
+    'Farmer',
+    'Health service',
+    'Manual worker',
+    'Logistic',
+    'IT',
+    'Office worker',
+    'Trade',
+    'Transport'
+  ];
 
   return (
     <>
-      <Checkbox text={professions[0]} id='profession' />
-      <Checkbox text={professions[1]} id='profession' />
+      {professions.map(prof => (
+        <Checkbox key={uuidv4()} text={prof} id={uuidv4()} type='round' />
+      ))}
+      <div className='checkbox-and-input-wrapper'>
+        <Checkbox text='Other (which?)' id='other-profession' type='round' />
+        <Input type='text' placeholder='Work' id='type-of-profession' />
+      </div>
     </>
   );
 }

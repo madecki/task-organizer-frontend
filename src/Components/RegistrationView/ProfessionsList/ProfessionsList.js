@@ -21,10 +21,10 @@ function ProfessionsList() {
   return (
     <>
       {professions.map(prof => (
-        <Checkbox key={uuidv4()} text={prof} id={uuidv4()} type='round' />
+        <Checkbox key={uuidv4()} text={prof} id={uuidv4()} categorie='round' type='radio' />
       ))}
       <div className='checkbox-and-input-wrapper'>
-        <Checkbox text='Other (which?)' id='other-profession' type='round' />
+        <Checkbox text='Other (which?)' id='other-profession' categorie='round' type='radio' />
         <Input type='text' placeholder='Work' id='type-of-profession' />
       </div>
     </>

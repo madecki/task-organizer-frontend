@@ -98,6 +98,7 @@ function RegistrationView() {
                   </p>
                 ]}
                 id='terms'
+                type='checkbox'
               />
 
               <Button label='NEXT' size='extra-large' func={() => nextStep()} />

@@ -50,6 +50,18 @@
   background-color: var(--turquoise);
 }
 
+.btn--type-of-use {
+  width: 60%;
+  margin-bottom: 5%;
+  background: none;
+  color: black;
+  border: 1.5px solid var(--border-gray);
+}
+
+.btn--type-of-use svg {
+  margin-right: 5%;
+}
+
 @media (min-width: 375px) {
   .btn {
     padding: 16.5px 43px;
@@ -65,6 +77,10 @@
 
   .btn--small-padding {
     padding: 16.5px 29px;
+  }
+
+  .btn--type-of-use {
+    width: 55%;
   }
 }
 
@@ -109,6 +125,10 @@
   .btn--small-padding {
     padding: 13.5px 27px;
   }
+
+  .btn--type-of-use {
+    width: 60%;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -129,11 +149,7 @@
   }
 
   .btn--type-of-use {
-    width: 60%;
-    margin-bottom: 5%;
-    background: none;
-    color: black;
-    border: 1.5px solid var(--border-gray);
+    width: 65%;
   }
 
   .btn--type-of-use svg {

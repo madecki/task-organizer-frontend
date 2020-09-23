@@ -5,6 +5,7 @@ import Button from '../Button/Button';
 import Google from '../../Assets/Icon/google.png';
 import Input from '../Input/Input';
 import Checkbox from '../Checkbox/Checkbox';
+import ProfessionsList from './ProfessionsList/ProfessionsList';
 
 function RegistrationView() {
   const [currentStep, setCurrentStep] = useState(1);
@@ -206,7 +207,7 @@ function RegistrationView() {
             <div className='registration__container--padding'>
               <p className='step-counter'>Last step</p>
               <h2>What is your profession</h2>
-
+              <ProfessionsList />
               <div className='registration__wrapper registration__wrapper--btn'>
                 <Button label='PREV' func={() => prevStep()} />
                 <Button color='turquoise' label='FINISH' />

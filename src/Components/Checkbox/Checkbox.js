@@ -15,7 +15,7 @@ function Checkbox({ text, id }) {
 }
 
 Checkbox.propTypes = {
-  text: PropTypes.arrayOf(PropTypes.object).isRequired,
+  text: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.object), PropTypes.string]).isRequired,
   id: PropTypes.string.isRequired
 };
 

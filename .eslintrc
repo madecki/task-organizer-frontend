@@ -36,6 +36,7 @@
     ],
     "no-param-reassign": [2, { "props": false }],
     "react/jsx-one-expression-per-line": "off",
-    "comma-dangle": ["error", "never"]
+    "comma-dangle": ["error", "never"],
+    "arrow-parens": [2, "as-needed", { "requireForBlockBody": true }]
   }
 }

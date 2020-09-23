@@ -2,11 +2,11 @@ import React from 'react';
 import './Checkbox.css';
 import { PropTypes } from 'prop-types';
 
-function Checkbox({ text, id, categorie, type }) {
+function Checkbox({ text, id, category, type }) {
   let labelClass;
   let spanClass;
 
-  switch (categorie) {
+  switch (category) {
     case 'round':
       labelClass = 'container-label-round';
       spanClass = 'checkmark-round';
@@ -30,12 +30,12 @@ function Checkbox({ text, id, categorie, type }) {
 Checkbox.propTypes = {
   text: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.object), PropTypes.string]).isRequired,
   id: PropTypes.string.isRequired,
-  categorie: PropTypes.string,
+  category: PropTypes.string,
   type: PropTypes.string.isRequired
 };
 
 Checkbox.defaultProps = {
-  categorie: ''
+  category: ''
 };
 
 export default Checkbox;

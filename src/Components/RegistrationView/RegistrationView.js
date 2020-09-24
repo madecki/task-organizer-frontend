@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
 import './RegistrationView.css';
 import { v4 as uuidv4 } from 'uuid';
+import { useForm } from 'react-hook-form';
 import Button from '../Button/Button';
 import Google from '../../Assets/Icon/google.png';
 import Input from '../Input/Input';
 import Checkbox from '../Checkbox/Checkbox';
 import ProfessionsList from './ProfessionsList/ProfessionsList';
+import Stepper from './Stepper/Stepper';
 
 function RegistrationView() {
   const [currentStep, setCurrentStep] = useState(1);
+  const { register, handleSubmit, errors } = useForm();
 
   const nextStep = () => {
     let whichStep = currentStep;
@@ -32,6 +35,11 @@ function RegistrationView() {
     setCurrentStep(whichStep);
   };
 
+  const validatePassword = (passwordRep, password) => {
+    if (!passwordRep.value === password.value) return false;
+    return true;
+  };
+
   return (
     <>
       {currentStep === 1 && (
@@ -39,43 +47,85 @@ function RegistrationView() {
           <div className='registration__container'>
             <div className='registration__container--padding'>
               <h1>Create Account</h1>
-
-              <form className='registration__form'>
+              <Stepper currentStep={currentStep} />
+              <form className='registration__form' onSubmit={handleSubmit()}>
                 <Input
                   icon={['fas', 'user']}
                   type='text'
-                  id='first-name'
+                  id='firstName'
                   text='FIRST NAME'
                   placeholder='Bill'
+                  hooksprop={register({ required: true, minLength: 2 })}
                 />
+
+                {errors.firstName && errors.firstName.type === 'required' && (
+                  <p className='registration-error'>First name is required</p>
+                )}
+                {errors.firstName && errors.firstName.type === 'minLength' && (
+                  <p className='registration-error'>This is filed required min. length of 2</p>
+                )}
+
                 <Input
                   icon={['fas', 'user']}
                   type='text'
-                  id='last-name'
+                  id='lastName'
                   text='LAST NAME'
                   placeholder='Gates'
+                  hooksprop={register({ required: true, minLength: 2 })}
                 />
+                {errors.lastName && errors.lastName.type === 'required' && (
+                  <p className='registration-error'>Last name is required</p>
+                )}
+                {errors.lastName && errors.lastName.type === 'minLength' && (
+                  <p className='registration-error'>This is filed required min. length of 2</p>
+                )}
                 <Input
                   icon={['fas', 'envelope']}
                   type='email'
                   id='email'
                   text='E-MAIL'
                   placeholder='example@gmail.com'
+                  hooksprop={register({ required: true })}
                 />
+                {errors.email && errors.email.type === 'required' && (
+                  <p className='registration-error'>Email is required</p>
+                )}
+                {errors.email && errors.email.type === 'minLength' && (
+                  <p className='registration-error'>This is filed required min. length of 2</p>
+                )}
                 <Input
                   icon={['fas', 'lock']}
                   type='password'
                   id='password'
                   text='PASSWORD'
                   placeholder='A1234567'
+                  hooksprop={register({
+                    required: true,
+                    minLength: 8,
+                    validate: () => validatePassword()
+                  })}
                 />
+                {errors.password && errors.password.type === 'required' && (
+                  <p className='registration-error'>Password is required</p>
+                )}
+                {errors.password && errors.password.type === 'minLength' && (
+                  <p className='registration-error'>This is filed required min. length of 8</p>
+                )}
+                {errors.password && errors.password.type === 'validate' && (
+                  <p className='registration-error'>Passwords don&apos;t match</p>
+                )}
                 <Input
                   icon={['fas', 'lock']}
                   type='password'
-                  id='repeat-password'
+                  id='passwordRep'
                   text='REPEAT PASSWORD'
                   placeholder='A1234567'
+                  name='passwordRep'
+                  hooksprop={register({ required: true, minLength: 8 })}
                 />
+                {errors.passwordRep && errors.password.type === 'required' && (
+                  <p className='registration-error'>Repeat password is required</p>
+                )}
 
                 <div className='password-requirements'>
                   <h2>PASSWORD REQUIREMENTS</h2>
@@ -83,36 +133,39 @@ function RegistrationView() {
                     Password must includes minimum 8 signs, at least one big letter and one number
                   </p>
                 </div>
+                <Checkbox
+                  text={[
+                    <p key={uuidv4()}>
+                      By creating an account you agree to the{' '}
+                      <a href='' key={uuidv4()}>
+                        Terms of Service
+                      </a>{' '}
+                      and{' '}
+                      <a href='' key={uuidv4()}>
+                        Privacy Policy
+                      </a>
+                    </p>
+                  ]}
+                  id='terms'
+                  type='checkbox'
+                  name='checkbox'
+                  hooksprop={register({ required: true })}
+                />
+                {errors.checkbox && <p className='registration-error'>This checkox is required</p>}
+
+                <button type='submit'>NEXT</button>
+
+                <div className='registration__wrapper'>
+                  <div className='registration__wrapper__line' />
+                  <p>OR</p>
+                  <div className='registration__wrapper__line' />
+                </div>
+
+                <div className='registration__wrapper registration__wrapper--btn'>
+                  <Button color='white' imgIcon={Google} />
+                  <Button color='blue' icon={['fab', 'facebook-f']} label='FACEBOOK' />
+                </div>
               </form>
-              <Checkbox
-                text={[
-                  <p key={uuidv4()}>
-                    By creating an account you agree to the{' '}
-                    <a href='' key={uuidv4()}>
-                      Terms of Service
-                    </a>{' '}
-                    and{' '}
-                    <a href='' key={uuidv4()}>
-                      Privacy Policy
-                    </a>
-                  </p>
-                ]}
-                id='terms'
-                type='checkbox'
-              />
-
-              <Button label='NEXT' size='extra-large' func={() => nextStep()} />
-
-              <div className='registration__wrapper'>
-                <div className='registration__wrapper__line' />
-                <p>OR</p>
-                <div className='registration__wrapper__line' />
-              </div>
-
-              <div className='registration__wrapper registration__wrapper--btn'>
-                <Button color='white' imgIcon={Google} />
-                <Button color='blue' icon={['fab', 'facebook-f']} label='FACEBOOK' />
-              </div>
             </div>
           </div>
         </div>
@@ -121,21 +174,22 @@ function RegistrationView() {
         <div className='centered-container'>
           <div className='registration__container'>
             <div className='registration__container--padding'>
-              <p className='step-counter'>Step {currentStep} of 5</p>
+              <Stepper currentStep={currentStep} />{' '}
               <form className='registration__form'>
                 <Input
                   icon={['fas', 'phone-square-alt']}
                   type='number'
-                  id='phone-number'
+                  id='phoneNumber'
                   text='PHONE NUMBER'
                   placeholder='+1800800800'
                 />
                 <Input
                   icon={['fas', 'calendar-alt']}
-                  type='number'
-                  id='age'
-                  text='AGE'
+                  type='date'
+                  id='dateOfBirth'
+                  text='DATE OF BIRTH'
                   placeholder='26'
+                  sizeWrapperText='small'
                 />
                 <Input
                   icon={['fas', 'flag']}
@@ -161,15 +215,14 @@ function RegistrationView() {
                 <Input
                   icon={['fas', 'address-card']}
                   type='text'
-                  id='posta-code'
+                  id='postaCode'
                   text='POSTAL CODE'
                   placeholder='L6Y 4N7'
                 />
               </form>
-
               <div className='registration__btn-wrapper'>
                 <Button label='PREV' func={() => prevStep()} />
-                <Button label='NEXT' func={() => nextStep()} />
+                <Button label='NEXT' func={() => nextStep()} typeBtn='submit' />
               </div>
             </div>
           </div>
@@ -179,7 +232,7 @@ function RegistrationView() {
         <div className='centered-container'>
           <div className='registration__container'>
             <div className='registration__container--padding registration__container--type-of-use'>
-              <p className='step-counter'>Step {currentStep} of 5</p>
+              <Stepper currentStep={currentStep} />
               <h2>Tell us a bit about yourself</h2>
               <p>What will you be using our app for?</p>
 
@@ -201,7 +254,7 @@ function RegistrationView() {
 
               <div className='registration__wrapper registration__wrapper--btn'>
                 <Button label='PREV' func={() => prevStep()} />
-                <Button color='turquoise' label='FINISH' />
+                <Button color='turquoise' label='FINISH' typeBtn='submit' />
               </div>
             </div>
           </div>
@@ -211,12 +264,12 @@ function RegistrationView() {
         <div className='centered-container'>
           <div className='registration__container'>
             <div className='registration__container--padding registration__container--profession'>
-              <p className='step-counter'>Last step</p>
+              <Stepper currentStep={currentStep} />
               <h2>What is your profession?</h2>
               <ProfessionsList />
               <div className='registration__wrapper registration__wrapper--btn'>
                 <Button label='PREV' func={() => prevStep()} />
-                <Button color='turquoise' label='FINISH' />
+                <Button color='turquoise' label='FINISH' typeBtn='submit' />
               </div>
             </div>
           </div>

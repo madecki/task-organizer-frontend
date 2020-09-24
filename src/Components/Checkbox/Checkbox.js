@@ -2,7 +2,7 @@ import React from 'react';
 import './Checkbox.css';
 import { PropTypes } from 'prop-types';
 
-function Checkbox({ text, id, category, type }) {
+function Checkbox({ text, id, category, type, hooksprop }) {
   let labelClass;
   let spanClass;
 
@@ -20,7 +20,7 @@ function Checkbox({ text, id, category, type }) {
     <>
       <label className={labelClass} htmlFor={id}>
         {text}
-        <input type={type} name={type} id={id} />
+        <input type={type} name={type} id={id} ref={hooksprop} />
         <span className={spanClass} />
       </label>
     </>
@@ -31,11 +31,13 @@ Checkbox.propTypes = {
   text: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.object), PropTypes.string]).isRequired,
   id: PropTypes.string.isRequired,
   category: PropTypes.string,
-  type: PropTypes.string.isRequired
+  type: PropTypes.string.isRequired,
+  hooksprop: PropTypes.oneOfType([PropTypes.func, PropTypes.string])
 };
 
 Checkbox.defaultProps = {
-  category: ''
+  category: '',
+  hooksprop: null
 };
 
 export default Checkbox;

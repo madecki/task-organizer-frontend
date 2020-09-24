@@ -25,7 +25,7 @@ function ProfessionsList() {
       ))}
       <div className='checkbox-and-input-wrapper'>
         <Checkbox text='Other (which?)' id='other-profession' category='round' type='radio' />
-        <Input type='text' placeholder='Work' id='type-of-profession' />
+        <Input type='text' placeholder='Work' id='typeOfProfession' />
       </div>
     </>
   );

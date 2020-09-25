@@ -38,6 +38,8 @@
     "react/jsx-one-expression-per-line": "off",
     "comma-dangle": ["error", "never"],
     "arrow-parens": [0, "requireForBlockBody"],
-    "react/button-has-type": "off"
+    "react/button-has-type": "off",
+    "implicit-arrow-linebreak": ["off", "beside"],
+    "operator-linebreak": ["off", "before"]
   }
 }

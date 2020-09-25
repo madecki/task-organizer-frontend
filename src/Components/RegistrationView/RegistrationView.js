@@ -12,6 +12,7 @@ import Stepper from './Stepper/Stepper';
 function RegistrationView() {
   const [currentStep, setCurrentStep] = useState(1);
   const { register, handleSubmit, errors } = useForm();
+  const [isValided, setIsValided] = useState(true);
 
   const nextStep = () => {
     let whichStep = currentStep;
@@ -35,9 +36,17 @@ function RegistrationView() {
     setCurrentStep(whichStep);
   };
 
-  const validatePassword = (passwordRep, password) => {
-    if (!passwordRep.value === password.value) return false;
-    return true;
+  const onSubmit = data => {
+    setIsValided(false);
+    if (data.password !== data.passwordRep) {
+      console.log('hasła są rozne', isValided);
+      return;
+    }
+    setIsValided(true);
+    if (data.password === data.passwordRep) {
+      console.log('git', isValided);
+      nextStep();
+    }
   };
 
   return (
@@ -48,7 +57,7 @@ function RegistrationView() {
             <div className='registration__container--padding'>
               <h1>Create Account</h1>
               <Stepper currentStep={currentStep} />
-              <form className='registration__form' onSubmit={handleSubmit()}>
+              <form className='registration__form' onSubmit={handleSubmit(onSubmit)}>
                 <Input
                   icon={['fas', 'user']}
                   type='text'
@@ -62,7 +71,7 @@ function RegistrationView() {
                   <p className='registration-error'>First name is required</p>
                 )}
                 {errors.firstName && errors.firstName.type === 'minLength' && (
-                  <p className='registration-error'>This is filed required min. length of 2</p>
+                  <p className='registration-error'>This field is required at least 2 signs</p>
                 )}
 
                 <Input
@@ -77,7 +86,7 @@ function RegistrationView() {
                   <p className='registration-error'>Last name is required</p>
                 )}
                 {errors.lastName && errors.lastName.type === 'minLength' && (
-                  <p className='registration-error'>This is filed required min. length of 2</p>
+                  <p className='registration-error'>This field is required at least 2 signs</p>
                 )}
                 <Input
                   icon={['fas', 'envelope']}
@@ -91,7 +100,7 @@ function RegistrationView() {
                   <p className='registration-error'>Email is required</p>
                 )}
                 {errors.email && errors.email.type === 'minLength' && (
-                  <p className='registration-error'>This is filed required min. length of 2</p>
+                  <p className='registration-error'>This field is required at least 2 signs</p>
                 )}
                 <Input
                   icon={['fas', 'lock']}
@@ -102,18 +111,22 @@ function RegistrationView() {
                   hooksprop={register({
                     required: true,
                     minLength: 8,
-                    validate: () => validatePassword()
+                    validate: value =>
+                      [/[a-z]/, /[A-Z]/, /[0-9]/].every(pattern => pattern.test(value))
                   })}
                 />
                 {errors.password && errors.password.type === 'required' && (
                   <p className='registration-error'>Password is required</p>
                 )}
                 {errors.password && errors.password.type === 'minLength' && (
-                  <p className='registration-error'>This is filed required min. length of 8</p>
+                  <p className='registration-error'>This field is required at least 8 signs</p>
                 )}
                 {errors.password && errors.password.type === 'validate' && (
-                  <p className='registration-error'>Passwords don&apos;t match</p>
+                  <p className='registration-error'>
+                    Password must includes min 8 signs, at least one big letter and one number
+                  </p>
                 )}
+
                 <Input
                   icon={['fas', 'lock']}
                   type='password'
@@ -121,10 +134,20 @@ function RegistrationView() {
                   text='REPEAT PASSWORD'
                   placeholder='A1234567'
                   name='passwordRep'
-                  hooksprop={register({ required: true, minLength: 8 })}
+                  hooksprop={register({
+                    required: true,
+                    minLength: 8,
+                    validate: isValided === true
+                  })}
                 />
-                {errors.passwordRep && errors.password.type === 'required' && (
-                  <p className='registration-error'>Repeat password is required</p>
+                {errors.passwordRep && errors.passwordRep.type === 'required' && (
+                  <p className='registration-error'>Password is required</p>
+                )}
+                {errors.passwordRep && errors.passwordRep.type === 'minLength' && (
+                  <p className='registration-error'>This field is required at least 8 signs</p>
+                )}
+                {errors.passwordRep && errors.passwordRep.type === 'validate' && (
+                  <p className='registration-error'>Password don&apos;t match</p>
                 )}
 
                 <div className='password-requirements'>
@@ -151,9 +174,13 @@ function RegistrationView() {
                   name='checkbox'
                   hooksprop={register({ required: true })}
                 />
-                {errors.checkbox && <p className='registration-error'>This checkox is required</p>}
+                {errors.checkbox && (
+                  <p className='registration-error'>
+                    You must agree to our terms of service and privacy policy
+                  </p>
+                )}
 
-                <button type='submit'>NEXT</button>
+                <Button label='NEXT' size='extra-large' typeBtn='submit' />
 
                 <div className='registration__wrapper'>
                   <div className='registration__wrapper__line' />

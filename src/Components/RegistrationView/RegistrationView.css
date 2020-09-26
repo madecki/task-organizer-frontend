@@ -68,6 +68,11 @@
   margin: 0 auto 5% auto;
 }
 
+.registration__container .container-label-square p {
+  color: var(--black);
+  font-size: 14px;
+}
+
 .registration__btn-wrapper {
   display: flex;
   justify-content: space-between;
@@ -113,6 +118,10 @@
   align-items: center;
   width: 30%;
   border: 2px solid var(--gray);
+}
+
+.paragraph-type-of-use {
+  margin: 3% 0 7% 0;
 }
 
 .registration-error {

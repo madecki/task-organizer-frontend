@@ -11,7 +11,7 @@ import Stepper from './Stepper/Stepper';
 
 function RegistrationView() {
   const [currentStep, setCurrentStep] = useState(1);
-  const { register, handleSubmit, errors, getValues } = useForm();
+  const { register, handleSubmit, errors, getValues } = useForm({ reValidateMode: 'onSubmit' });
   const errorText = 'This field is required';
 
   const nextStep = () => {
@@ -43,7 +43,7 @@ function RegistrationView() {
 
   return (
     <>
-      {currentStep === 1 && (
+      {currentStep === 4 && (
         <div className='centered-container'>
           <div className='registration__container'>
             <div className='registration__container--padding'>
@@ -335,7 +335,7 @@ function RegistrationView() {
           </div>
         </div>
       )}
-      {currentStep === 4 && (
+      {currentStep === 1 && (
         <div className='centered-container'>
           <div className='registration__container'>
             <div className='registration__container--padding registration__container--profession'>

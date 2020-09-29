@@ -6,7 +6,7 @@ import Checkbox from '../../Checkbox/Checkbox';
 import Input from '../../Input/Input';
 
 function ProfessionsList() {
-  const { register, handleSubmit, errors, getValues } = useForm({ reValidateMode: 'onSubmit' });
+  const { register, errors } = useForm({ reValidateMode: 'onSubmit' });
 
   const professions = [
     'Education',

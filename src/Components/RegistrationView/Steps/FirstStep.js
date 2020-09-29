@@ -1,0 +1,168 @@
+import React from 'react';
+import { useForm } from 'react-hook-form';
+import { v4 as uuidv4 } from 'uuid';
+import { PropTypes } from 'prop-types';
+import Stepper from '../Stepper/Stepper';
+import Button from '../../Button/Button';
+import Input from '../../Input/Input';
+import Checkbox from '../../Checkbox/Checkbox';
+import Google from '../../../Assets/Icon/google.png';
+
+function FirstStep({ currentStep, onSubmit, errorText }) {
+  const { register, handleSubmit, errors, getValues } = useForm({ reValidateMode: 'onSubmit' });
+
+  return (
+    <>
+      <h1>Create Account</h1>
+      <Stepper currentStep={currentStep} />
+      <form className='registration__form' onSubmit={handleSubmit(onSubmit)} noValidate>
+        <Input
+          icon={['fas', 'user']}
+          type='text'
+          id='firstName'
+          text='FIRST NAME'
+          placeholder='Bill'
+          hooksprop={register({ required: true, minLength: 2 })}
+        />
+        {errors.firstName && errors.firstName.type === 'required' && (
+          <p className='registration-error'>{errorText}</p>
+        )}
+        {errors.firstName && errors.firstName.type === 'minLength' && (
+          <p className='registration-error'>This field is required at least 2 signs</p>
+        )}
+
+        <Input
+          icon={['fas', 'user']}
+          type='text'
+          id='lastName'
+          text='LAST NAME'
+          placeholder='Gates'
+          hooksprop={register({ required: true, minLength: 2 })}
+        />
+        {errors.lastName && errors.lastName.type === 'required' && (
+          <p className='registration-error'>{errorText}</p>
+        )}
+        {errors.lastName && errors.lastName.type === 'minLength' && (
+          <p className='registration-error'>This field is required at least 2 signs</p>
+        )}
+        <Input
+          icon={['fas', 'envelope']}
+          type='email'
+          id='email'
+          text='E-MAIL'
+          placeholder='example@gmail.com'
+          hooksprop={register({
+            required: true,
+            pattern: {
+              value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i
+            }
+          })}
+        />
+        {errors.email && errors.email.type === 'required' && (
+          <p className='registration-error'>{errorText}</p>
+        )}
+        {errors.email && errors.email.type === 'minLength' && (
+          <p className='registration-error'>This field is required at least 2 signs</p>
+        )}
+        {errors.email && errors.email.type === 'pattern' && (
+          <p className='registration-error'>Invalid e-mail</p>
+        )}
+        <Input
+          icon={['fas', 'lock']}
+          type='password'
+          id='password'
+          text='PASSWORD'
+          placeholder='A1234567'
+          hooksprop={register({
+            required: true,
+            minLength: 8,
+            validate: value => [/[a-z]/, /[A-Z]/, /[0-9]/].every(pattern => pattern.test(value))
+          })}
+        />
+        {errors.password && errors.password.type === 'required' && (
+          <p className='registration-error'>{errorText}</p>
+        )}
+        {errors.password && errors.password.type === 'minLength' && (
+          <p className='registration-error'>This field is required at least 8 signs</p>
+        )}
+        {errors.password && errors.password.type === 'validate' && (
+          <p className='registration-error'>
+            Password must includes min 8 signs, at least one big letter and one number
+          </p>
+        )}
+        <Input
+          icon={['fas', 'lock']}
+          type='password'
+          id='passwordRep'
+          text='REPEAT PASSWORD'
+          placeholder='A1234567'
+          name='passwordRep'
+          hooksprop={register({
+            required: true,
+            minLength: 8,
+            validate: value => {
+              if (value === getValues().password) {
+                return true;
+              }
+              return false;
+            }
+          })}
+        />
+        {errors.passwordRep && errors.passwordRep.type === 'required' && (
+          <p className='registration-error'>{errorText}</p>
+        )}
+        {errors.passwordRep && errors.passwordRep.type === 'minLength' && (
+          <p className='registration-error'>This field is required at least 8 signs</p>
+        )}
+        {errors.passwordRep && errors.passwordRep.type === 'validate' && (
+          <p className='registration-error'>Password don&apos;t match</p>
+        )}
+        <div className='password-requirements'>
+          <h2>PASSWORD REQUIREMENTS</h2>
+          <p>Password must includes minimum 8 signs, at least one big letter and one number</p>
+        </div>
+        <Checkbox
+          text={[
+            <p key={uuidv4()}>
+              By creating an account you agree to the{' '}
+              <a href='' key={uuidv4()}>
+                Terms of Service
+              </a>{' '}
+              and{' '}
+              <a href='' key={uuidv4()}>
+                Privacy Policy
+              </a>
+            </p>
+          ]}
+          id='terms'
+          type='checkbox'
+          name='checkbox'
+          hooksprop={register({ required: true })}
+        />
+        {errors.checkbox && (
+          <p className='registration-error'>
+            You must agree to our terms of service and privacy policy
+          </p>
+        )}
+        <Button label='NEXT' size='extra-large' typeBtn='submit' />
+        <div className='registration__wrapper'>
+          <div className='registration__wrapper__line' />
+          <p>OR</p>
+          <div className='registration__wrapper__line' />
+        </div>
+        <div className='registration__wrapper registration__wrapper--btn'>
+          <Button color='white' imgIcon={Google} />
+          <Button color='blue' icon={['fab', 'facebook-f']} label='FACEBOOK' />
+        </div>
+      </form>
+    </>
+  );
+}
+
+FirstStep.propTypes = {
+  currentStep: PropTypes.number.isRequired,
+  onSubmit: PropTypes.func.isRequired,
+  errorText: PropTypes.string.isRequired
+};
+
+export default FirstStep;

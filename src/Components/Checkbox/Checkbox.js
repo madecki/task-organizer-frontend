@@ -20,7 +20,7 @@ function Checkbox({ text, id, category, type, hooksprop }) {
     <>
       <label className={labelClass} htmlFor={id}>
         {text}
-        <input type={type} name={id || type} id={id} ref={hooksprop} />
+        <input type={type} name={type} id={id} ref={hooksprop} />
         <span className={spanClass} />
       </label>
     </>

@@ -5,6 +5,7 @@ import { PropTypes } from 'prop-types';
 
 function Button({ label, color, icon, size, imgIcon, callBackFn, typeBtn }) {
   let btnColorClass;
+  let btnSizeClass;
 
   switch (color) {
     case 'turquoise':
@@ -19,8 +20,6 @@ function Button({ label, color, icon, size, imgIcon, callBackFn, typeBtn }) {
     default:
       btnColorClass = '';
   }
-
-  let btnSizeClass;
 
   switch (size) {
     case 'extra-large':

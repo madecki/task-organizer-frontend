@@ -1,11 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './Input.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { PropTypes } from 'prop-types';
 
 function Input({ icon, size, type, id, text, placeholder, sizeWrapperText, name, hooksprop }) {
-  const [inputValue, setInputValue] = useState('');
-
   return (
     <>
       <div className={`input-container ${size ? 'input-container--small' : ''}`}>
@@ -23,10 +21,6 @@ function Input({ icon, size, type, id, text, placeholder, sizeWrapperText, name,
             name={name || id}
             placeholder={placeholder}
             ref={hooksprop}
-            value={inputValue}
-            onChange={event => {
-              setInputValue(event.target.value);
-            }}
           />
         </div>
       </div>

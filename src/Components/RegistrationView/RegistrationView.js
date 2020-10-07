@@ -38,7 +38,7 @@ function RegistrationView() {
 
   return (
     <>
-      {currentStep === 1 && (
+      {currentStep === 3 && (
         <div className='centered-container'>
           <div className='registration__container'>
             <div className='registration__container--padding'>
@@ -61,7 +61,7 @@ function RegistrationView() {
           </div>
         </div>
       )}
-      {currentStep === 3 && (
+      {currentStep === 1 && (
         <div className='centered-container'>
           <div className='registration__container'>
             <div className='registration__container--padding registration__container--type-of-use'>

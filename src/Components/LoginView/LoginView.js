@@ -1,10 +1,17 @@
 import React from 'react';
 import './LoginView.css';
+import { useHistory } from 'react-router';
 import Button from '../Button/Button';
 import Google from '../../Assets/Icon/google.png';
 import Input from '../Input/Input';
 
 function LoginView() {
+  const history = useHistory();
+
+  const goToRegistation = () => {
+    history.push('/registration');
+  };
+
   return (
     <>
       <div className='centered-container'>
@@ -54,7 +61,7 @@ function LoginView() {
           <div className='login__sign-up-container'>
             <div className='login__sign-up-container__wrapper'>
               <p>Don&apos;t have an account?</p>
-              <Button label='SIGN UP FOR FREE' size='small' />
+              <Button label='SIGN UP FOR FREE' size='small' callBackFn={() => goToRegistation()} />
             </div>
           </div>
         </div>

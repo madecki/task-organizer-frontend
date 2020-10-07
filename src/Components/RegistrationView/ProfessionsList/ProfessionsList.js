@@ -31,6 +31,7 @@ function ProfessionsList() {
           category='round'
           type='radio'
           hooksprop={register({ required: true })}
+          value={prof}
         />
       ))}
       {errors.id && <p className='registration-error'>You have to make a choice</p>}

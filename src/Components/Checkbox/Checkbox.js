@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Checkbox.css';
 import { PropTypes } from 'prop-types';
 
 function Checkbox({ text, id, category, type, hooksprop }) {
+  const [checkboxValue, setCheckboxValue] = useState('');
   let labelClass;
   let spanClass;
 
@@ -16,11 +17,24 @@ function Checkbox({ text, id, category, type, hooksprop }) {
       spanClass = 'checkmark-square';
   }
 
+  const handleCheckboxClick = event => {
+    const checkId = event.target.id;
+    setCheckboxValue(checkId);
+    console.log(checkId);
+  };
+
   return (
     <>
       <label className={labelClass} htmlFor={id}>
         {text}
-        <input type={type} name={type} id={id} ref={hooksprop} />
+        <input
+          type={type}
+          name={type}
+          id={id}
+          ref={hooksprop}
+          value={checkboxValue}
+          onChange={event => handleCheckboxClick(event)}
+        />
         <span className={spanClass} />
       </label>
     </>

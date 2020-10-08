@@ -57,6 +57,16 @@
   margin-right: 5%;
 }
 
+.btn--selected {
+  background-color: var(--gray);
+  color: var(--white);
+}
+
+.btn--selected .fa-graduation-cap {
+  background-color: var(--gray);
+  color: var(--white);
+}
+
 @media (min-width: 375px) {
   .btn {
     padding: 16.5px 43px;

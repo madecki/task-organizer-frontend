@@ -1,9 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { PropTypes } from 'prop-types';
 import Stepper from '../Stepper/Stepper';
 import Button from '../../Button/Button';
 
 function ThirdStep({ currentStep, callBackFn, stepfunc }) {
+  const [selectedButton, setSelectedButton] = useState('');
+  const selectedType = () => {
+    const whichButton = 'btn--selected';
+    setSelectedButton(whichButton);
+  };
+  console.log(selectedButton);
   return (
     <>
       <Stepper currentStep={currentStep} />
@@ -14,7 +20,13 @@ function ThirdStep({ currentStep, callBackFn, stepfunc }) {
 
       <Button icon={['fas', 'user']} size='large' label='PERSONAL' callBackFn={stepfunc} />
 
-      <Button icon={['fas', 'graduation-cap']} size='large' label='SCHOOL' />
+      <Button
+        icon={['fas', 'graduation-cap']}
+        size='large'
+        label='SCHOOL'
+        callBackFn={event => selectedType(event)}
+        selectedButton={selectedButton}
+      />
 
       <div className='registration__wrapper registration__wrapper--btn'>
         <Button label='PREV' callBackFn={callBackFn} />

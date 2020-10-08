@@ -4,6 +4,7 @@ import { PropTypes } from 'prop-types';
 import Stepper from '../Stepper/Stepper';
 import Button from '../../Button/Button';
 import Input from '../../Input/Input';
+import Checkbox from '../../Checkbox/Checkbox';
 
 function SecondStep({ currentStep, onSubmit, errorText, callBackFn }) {
   const { register, handleSubmit, errors } = useForm({ reValidateMode: 'onSubmit' });
@@ -12,12 +13,37 @@ function SecondStep({ currentStep, onSubmit, errorText, callBackFn }) {
     <>
       <Stepper currentStep={currentStep} />{' '}
       <form className='registration__form' onSubmit={handleSubmit(onSubmit)}>
+        <div className='gender-wrapper'>
+          <p className='gender-paragraph'>GENDER:</p>
+          <Checkbox
+            text='female'
+            id='female'
+            category='round'
+            type='radio'
+            hooksprop={register({ required: true })}
+          />
+          <Checkbox
+            text='male'
+            id='male'
+            category='round'
+            type='radio'
+            hooksprop={register({ required: true })}
+          />
+          <Checkbox
+            text='other'
+            id='other'
+            category='round'
+            type='radio'
+            hooksprop={register({ required: true })}
+          />
+          {errors.radio && <p className='registration-error'>You have to make a choice</p>}
+        </div>
         <Input
           icon={['fas', 'phone-square-alt']}
           type='phone'
           id='phoneNumber'
           text='PHONE NUMBER'
-          placeholder='+1800800800'
+          placeholder='800800800'
           hooksprop={register({ required: true, minLength: 9, maxLength: 9 })}
         />
         {errors.phoneNumber && errors.phoneNumber.type === 'required' && (
@@ -41,6 +67,7 @@ function SecondStep({ currentStep, onSubmit, errorText, callBackFn }) {
         {errors.dateOfBirth && errors.dateOfBirth.type === 'required' && (
           <p className='registration-error'>{errorText}</p>
         )}
+
         <Input
           icon={['fas', 'flag']}
           type='text'

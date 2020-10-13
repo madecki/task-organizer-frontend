@@ -116,7 +116,7 @@ function SecondStep({ currentStep, onSubmit, errorText, callBackFn }) {
         {errors.postalCode && errors.postalCode.type === 'required' && (
           <p className='registration-error'>{errorText}</p>
         )}
-        <div className='registration__btn-wrapper'>
+        <div className='registration__wrapper registration__wrapper--btn'>
           <Button label='PREV' callBackFn={callBackFn} />
           <Button label='NEXT' typeBtn='submit' />
         </div>

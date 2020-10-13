@@ -14,7 +14,7 @@ function LoginView() {
 
   return (
     <>
-      <div className='centered-container'>
+      <div className='centered-container centered-container--login'>
         <div className='login__container'>
           <div className='login__container--padding'>
             <h1>Sign In</h1>

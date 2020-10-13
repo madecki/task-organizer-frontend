@@ -9,7 +9,7 @@ function ThirdStep({ currentStep, callBackFn, stepfunc }) {
     const whichButton = 'btn--selected';
     setSelectedButton(whichButton);
   };
-  console.log(selectedButton);
+
   return (
     <>
       <Stepper currentStep={currentStep} />

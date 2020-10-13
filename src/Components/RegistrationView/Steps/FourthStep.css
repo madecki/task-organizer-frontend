@@ -17,10 +17,8 @@
   display: none;
 }
 
-@media (min-width: 768px) {
-  .registration__container--profession .checkbox-and-input-wrapper label {
-    margin-right: 3%;
-  }
+.checkbox-and-input-wrapper .container-label-round {
+  margin-right: 1%;
 }
 
 @media (min-width: 1024px) {

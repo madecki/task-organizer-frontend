@@ -20,11 +20,11 @@
 }
 
 .registration__container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   padding: 15% 3% 10% 3%;
+}
+
+.registration__container--padding {
+  width: 100%;
 }
 
 .registration__container--type-of-use {
@@ -47,7 +47,6 @@
   flex-direction: column;
   justify-content: space-between;
   width: 100%;
-  padding-bottom: 10%;
 }
 
 .password-requirements {
@@ -73,12 +72,6 @@
 .registration__container .container-label-square p {
   color: var(--black);
   font-size: 14px;
-}
-
-.registration__btn-wrapper {
-  display: flex;
-  justify-content: space-between;
-  padding: 5% 0;
 }
 
 .registration__wrapper {
@@ -148,16 +141,16 @@
 
 @media (min-width: 500px) {
   .registration__container {
-    display: initial;
-    height: inherit;
+    width: 400px;
+    height: initial;
     margin: 5% 0;
     padding: 0;
-    width: 75%;
     box-shadow: 0 0 20px 1px var(--gray);
   }
 
   .registration__container--padding {
-    padding: 15% 6% 10% 6%;
+    width: initial;
+    padding: 10%;
   }
 
   .box-info {
@@ -168,34 +161,34 @@
 
 @media (min-width: 768px) {
   .registration__container {
-    width: 55%;
+    width: 475px;
   }
 
   .registration__container--padding {
-    padding: 5% 10% 10% 10%;
+    padding: 15% 20%;
   }
 
   .registration__form {
-    padding-bottom: 2%;
+    padding-bottom: 0;
   }
 }
 
 @media (min-width: 1024px) {
   .registration__container {
-    width: 45%;
+    width: 550px;
   }
 
   .registration__container--padding {
-    padding: 15%;
-  }
-
-  .registration__form {
-    padding-bottom: 8%;
+    padding: 15% 25%;
   }
 }
 
 @media (min-width: 1440px) {
   .registration__container {
-    width: 35%;
+    width: 700px;
+  }
+
+  .registration__container--padding {
+    padding: 15% 25%;
   }
 }

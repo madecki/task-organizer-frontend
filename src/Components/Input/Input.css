@@ -11,7 +11,7 @@
 }
 
 .input-container label {
-  padding-left: 17px;
+  padding: 0 17px;
   color: var(--gray);
   font-size: 12px;
   font-weight: 700;
@@ -45,7 +45,7 @@
 
 .input-container__wrapper__text {
   width: 100%;
-  padding: 15px 0 14px 0;
+  padding: 15px 15px 14px 0;
   background-color: var(--light-gray);
   border-radius: 0 20px 20px 0;
   border: 1.5px solid var(--border-gray);
@@ -65,7 +65,7 @@
   }
 
   .input-container__wrapper__text {
-    padding: 12px 0 11px 0;
+    padding: 12px 15px 11px 0;
   }
 
   .input-container__wrapper__text--small {

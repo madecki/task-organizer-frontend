@@ -8,7 +8,7 @@
   align-items: center;
   justify-content: center;
   height: 82%;
-  padding: 1% 1% 0 1%;
+  padding: 0 1%;
 }
 
 .login__container h1 {
@@ -83,6 +83,12 @@
   margin-top: 2%;
 }
 
+@media (min-width: 350px) {
+  .login__container--padding {
+    padding: 0 6%;
+  }
+}
+
 @media (min-width: 500px) {
   .centered-container {
     display: flex;
@@ -91,15 +97,19 @@
     height: 100%;
   }
 
+  .centered-container--login {
+    height: 100vh;
+  }
+
   .login__container {
-    width: 75%;
-    height: inherit;
+    width: 400px;
+    height: initial;
     margin: 5% 0;
     box-shadow: 0 0 20px 1px var(--gray);
   }
 
   .login__container--padding {
-    height: inherit;
+    height: initial;
     padding: 8% 8% 0 8%;
   }
 
@@ -122,7 +132,7 @@
 
 @media (min-width: 768px) {
   .login__container {
-    width: 55%;
+    width: 425px;
   }
 
   .login__container--padding {
@@ -132,13 +142,13 @@
 
 @media (min-width: 1024px) {
   .login__container {
-    width: 45%;
+    width: 380px;
   }
 }
 
 @media (min-width: 1440px) {
   .login__container {
-    width: 35%;
+    width: 525px;
   }
 
   .login__container--padding {

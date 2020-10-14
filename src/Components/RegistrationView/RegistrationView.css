@@ -72,6 +72,7 @@
 .registration__container .container-label-square p {
   color: var(--black);
   font-size: 14px;
+  letter-spacing: initial;
 }
 
 .registration__wrapper {

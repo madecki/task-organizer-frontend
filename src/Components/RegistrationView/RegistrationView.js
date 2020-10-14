@@ -31,8 +31,7 @@ function RegistrationView() {
     setCurrentStep(whichStep);
   };
 
-  const onSubmit = data => {
-    console.log(data);
+  const onSubmit = () => {
     nextStep();
   };
 

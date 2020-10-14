@@ -5,26 +5,24 @@ import { PropTypes } from 'prop-types';
 
 function Input({ icon, size, type, id, text, placeholder, sizeWrapperText, name, hooksprop }) {
   return (
-    <>
-      <div className={`input-container ${size ? 'input-container--small' : ''}`}>
-        <label htmlFor={id}>{text}</label>
-        <div className='input-container__wrapper'>
-          <div className='input-container__wrapper__icon'>
-            {icon ? <FontAwesomeIcon icon={icon} /> : null}
-          </div>
-          <input
-            className={`input-container__wrapper__text ${
-              sizeWrapperText ? 'input-container__wrapper__text--small' : ''
-            }`}
-            id={id}
-            type={type}
-            name={name || id}
-            placeholder={placeholder}
-            ref={hooksprop}
-          />
+    <div className={`input-container ${size ? 'input-container--small' : ''}`}>
+      <label htmlFor={id}>{text}</label>
+      <div className='input-container__wrapper'>
+        <div className='input-container__wrapper__icon'>
+          {icon ? <FontAwesomeIcon icon={icon} /> : null}
         </div>
+        <input
+          className={`input-container__wrapper__text ${
+            sizeWrapperText ? 'input-container__wrapper__text--small' : ''
+          }`}
+          id={id}
+          type={type}
+          name={name || id}
+          placeholder={placeholder}
+          ref={hooksprop}
+        />
       </div>
-    </>
+    </div>
   );
 }
 

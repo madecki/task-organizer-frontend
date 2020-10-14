@@ -52,8 +52,8 @@
 .password-requirements {
   width: 100%;
   color: var(--gray);
-  text-align: center;
   margin-bottom: 5%;
+  text-align: center;
 }
 
 .password-requirements h2,
@@ -65,8 +65,8 @@
 
 .registration__container .container-label-square {
   width: 80%;
-  text-align: center;
   margin: 0 auto 5% auto;
+  text-align: center;
 }
 
 .registration__container .container-label-square p {
@@ -143,8 +143,8 @@
   .registration__container {
     width: 400px;
     height: initial;
-    margin: 5% 0;
     padding: 0;
+    margin: 5% 0;
     box-shadow: 0 0 20px 1px var(--gray);
   }
 

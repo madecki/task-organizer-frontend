@@ -21,9 +21,9 @@
 
 .btn--google {
   padding: 9.5px 53px;
+  border: 2px solid var(--light-gray);
   background-color: var(--white);
   color: var(--black);
-  border: 2px solid var(--light-gray);
 }
 
 .btn--google img {
@@ -48,10 +48,10 @@
 
 .btn--type-of-use {
   width: 70%;
+  border: 1.5px solid var(--border-gray);
   margin-bottom: 5%;
   background: none;
   color: black;
-  border: 1.5px solid var(--border-gray);
 }
 
 .btn--type-of-use svg {
@@ -73,16 +73,16 @@
     padding: 16.5px 68px;
   }
 
+  .btn--sign-in {
+    padding: 16.5px 58px;
+  }
+
   .btn--google {
     padding: 9.5px 60px;
   }
 
   .btn--fb {
     padding: 16.5px 43px;
-  }
-
-  .btn--sign-in {
-    padding: 16.5px 58px;
   }
 
   .btn--small-padding {
@@ -99,16 +99,16 @@
     padding: 16.5px 80px;
   }
 
+  .btn--sign-in {
+    padding: 16.5px 70px;
+  }
+
   .btn--google {
     padding: 9.5px 74px;
   }
 
   .btn--fb {
     padding: 16.5px 57px;
-  }
-
-  .btn--sign-in {
-    padding: 16.5px 70px;
   }
 }
 
@@ -117,16 +117,16 @@
     padding: 16.5px 62px;
   }
 
+  .btn--sign-in {
+    padding: 16.5px 56px;
+  }
+
   .btn--google {
     padding: 9.5px 59px;
   }
 
   .btn--fb {
     padding: 16.5px 42px;
-  }
-
-  .btn--sign-in {
-    padding: 16.5px 56px;
   }
 
   .btn--small-padding {
@@ -138,9 +138,9 @@
   }
 
   .btn--type-of-use:hover {
-    transform: scale(1.1);
     background-color: var(--gray);
     color: var(--white);
+    transform: scale(1.1);
   }
 }
 

@@ -3,12 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.30",
+    "@fortawesome/free-brands-svg-icons": "^5.14.0",
+    "@fortawesome/free-solid-svg-icons": "^5.14.0",
+    "@fortawesome/react-fontawesome": "^0.1.11",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "eslint-config-airbnb": "^18.2.0",
     "eslint-config-airbnb-base": "^14.2.0",
     "eslint-config-prettier": "^6.11.0",
+    "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router": "^5.2.0",
@@ -46,9 +51,10 @@
     "lint-staged": "^10.3.0",
     "prettier": "^2.1.1"
   },
+
   "husky": {
     "hooks": {
-      "pre-push": "npx prettier src/*.{css,js} --write && npx eslint src/*.js --fix"
+      "pre-push": "npx prettier src/**/*.{css,js} --write && npx eslint src/**/*.js --fix"
     }
   }
 }

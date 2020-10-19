@@ -29,3 +29,8 @@
   font-weight: 700;
   line-height: 28px;
 }
+
+@media (min-width: 768px) {
+  .forecast__container {
+  }
+}

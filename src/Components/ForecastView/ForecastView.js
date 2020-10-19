@@ -4,20 +4,12 @@ import './ForecastView.css';
 function ForecastView() {
   return (
     <div className='forecast__container'>
-      <div className='forecast__container__city'>
-        <h2>New Delhi</h2>
-      </div>
+      <h2 className='forecast__container__city'>New Delhi</h2>
       <div className='hour-and-weather-wrapper'>
-        <div className='forecast__container__hour'>
-          <p>06:20 AM</p>
-        </div>
-        <div className='forecast__container__weather'>
-          <p>18°C</p>
-        </div>
+        <p className='forecast__container__hour'>06:20 AM</p>
+        <p className='forecast__container__weather'>18°C</p>
       </div>
-      <div className='forecast__container__date'>
-        <p>November 10.2020 | Wednesday</p>
-      </div>
+      <p className='forecast__container__date'>November 10.2020 | Wednesday</p>
     </div>
   );
 }

@@ -5,8 +5,8 @@
   color: var(--dark-blue);
 }
 
-.forecast__container__city h2,
-.forecast__container__date p {
+.forecast__container__city,
+.forecast__container__date {
   font-size: 14px;
   font-weight: 300;
   line-height: 140%;
@@ -18,19 +18,14 @@
   align-items: center;
 }
 
-.forecast__container__hour p {
+.forecast__container__hour {
   font-size: 30px;
   font-weight: 700;
   line-height: 35px;
 }
 
-.forecast__container__weather p {
+.forecast__container__weather {
   font-size: 24px;
   font-weight: 700;
   line-height: 28px;
-}
-
-@media (min-width: 768px) {
-  .forecast__container {
-  }
 }

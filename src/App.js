@@ -4,6 +4,7 @@ import './App.css';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab, faFacebookF, faGoogle } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons';
+import MainView from './Components/MainView/MainView';
 import LoginView from './Components/LoginView/LoginView';
 
 library.add(fab, faEnvelope, faLock, faFacebookF, faGoogle);
@@ -13,6 +14,9 @@ function App() {
     <>
       <Router>
         <Switch>
+          <Route path='/app'>
+            <MainView />
+          </Route>
           <Route>
             <LoginView />
           </Route>

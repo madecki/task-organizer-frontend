@@ -1,0 +1,23 @@
+.main__container {
+  display: grid;
+  grid-template-columns: 30% 30% 30%;
+  grid-template-rows: auto;
+  grid-column-gap: 5%;
+  grid-template-areas:
+    'forecast task task'
+    '. task task'
+    '. task task'
+    '. . .'
+    '. . .'
+    '. . .';
+  padding: 2%;
+  background-color: var(--light-gray);
+}
+
+.forecast__container {
+  grid-area: forecast;
+}
+
+.task__container {
+  grid-area: task;
+}

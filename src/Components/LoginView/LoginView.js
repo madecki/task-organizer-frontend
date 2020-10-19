@@ -47,12 +47,12 @@ function LoginView() {
             Forgot Password?
           </a>
 
-          <div className='login__wrapper'>
-            <div className='login__wrapper__line' />
+          <div className='login__separator'>
+            <div className='login__separator__line' />
             <p>OR</p>
-            <div className='login__wrapper__line' />
+            <div className='login__separator__line' />
           </div>
-          <div className='login__wrapper login__wrapper--btn'>
+          <div className='login__social-btns'>
             <Button color='white' imgIcon={Google} />
             <Button color='blue' icon={['fab', 'facebook-f']} label='FACEBOOK' />
           </div>

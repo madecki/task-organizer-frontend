@@ -14,6 +14,10 @@ p {
   margin: 0;
 }
 
+.svg-inline--fa {
+  vertical-align: 0;
+}
+
 .App {
   text-align: center;
 }

@@ -14,7 +14,7 @@ function App() {
     <>
       <Router>
         <Switch>
-          <Route exact path='/app'>
+          <Route exact path='/'>
             <MainView />
           </Route>
           <Route path='/login'>

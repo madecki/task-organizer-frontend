@@ -14,10 +14,10 @@ function App() {
     <>
       <Router>
         <Switch>
-          <Route path='/app'>
+          <Route exact path='/'>
             <MainView />
           </Route>
-          <Route>
+          <Route path='/login'>
             <LoginView />
           </Route>
         </Switch>

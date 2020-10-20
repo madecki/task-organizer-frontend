@@ -1,0 +1,31 @@
+.forecast__container {
+  padding: 30px;
+  border-radius: 30px;
+  background-color: var(--white);
+  color: var(--dark-blue);
+}
+
+.forecast__container__city,
+.forecast__container__date {
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 140%;
+}
+
+.hour-and-weather-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.forecast__container__hour {
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 35px;
+}
+
+.forecast__container__weather {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 28px;
+}

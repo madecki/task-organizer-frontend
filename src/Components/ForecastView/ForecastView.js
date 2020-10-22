@@ -1,11 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { getWeatherByCoordinates } from '../../request';
 import './ForecastView.css';
 
 function ForecastView() {
   const [weatherInfo, setWeatherInfo] = useState('');
-
-  navigator.geolocation.getCurrentPosition(success);
 
   function success(pos) {
     const crd = pos.coords;
@@ -21,6 +19,10 @@ function ForecastView() {
       setWeatherInfo(listOfWeatherInfo);
     });
   }
+
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition(success);
+  });
 
   const currentDate = date => {
     const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];

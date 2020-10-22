@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { getWeatherByCoordinates } from '../../request';
+import getWeatherByCoordinates from '../../request';
 import './ForecastView.css';
 
 function ForecastView() {

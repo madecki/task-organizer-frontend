@@ -1,7 +1,8 @@
 .btn {
+  width: 100%;
   padding: 17px 55px;
   border: 0;
-  border-radius: 20px;
+  border-radius: 30px;
   background-color: var(--royal-blue);
   color: var(--white);
   font-weight: 700;
@@ -20,14 +21,14 @@
 }
 
 .btn--google {
-  padding: 10px 53px;
+  padding: 10px 25px;
   border: 2px solid var(--light-gray);
   background-color: var(--white);
   color: var(--black);
 }
 
 .btn--google img {
-  width: 66%;
+  width: 25px;
 }
 
 .fa-facebook-f {
@@ -48,7 +49,7 @@
 
 .btn--type-of-use {
   width: 70%;
-  border: 1.5px solid var(--border-gray);
+  border: 1px solid var(--border-gray);
   margin-bottom: 5%;
   background: none;
   color: black;

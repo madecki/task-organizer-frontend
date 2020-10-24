@@ -1,39 +1,38 @@
 .login__container {
-  height: 100vh;
-}
-
-.login__container--padding {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 82%;
-  padding: 0 6%;
+  position: relative;
+  width: 96%;
+  margin: 10px auto;
+  box-shadow: 0 0 20px 1px var(--gray);
 }
 
 .login__container h1 {
-  margin: 0;
+  margin-bottom: 50px;
   font-size: 36px;
   font-weight: 900;
   text-align: center;
 }
 
-.login__form {
+.login__container__form-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 12px 25px 12px;
+}
+
+.login__container__form {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   width: 100%;
-  margin: 15% 0 10% 0;
 }
 
-.login__input-wrapper {
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-  align-items: center;
+.login__container__form .input-container,
+.login__container__form .btn {
+  margin-bottom: 25px;
 }
 
-.login__container .password-reminder {
+.login__container__form__reminder  {
   color: var(--black);
   font-size: 12px;
   font-weight: 700;
@@ -62,98 +61,42 @@
 
 .login__social-btns {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .login__social-btns button {
-  margin-bottom: 10px;
+  width: 47%;
 }
 
-.login__sign-up-container {
+.login__sign-up {
   display: flex;
   align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 150px;
+  flex-direction: column;
+  padding: 25px;
   background-color: var(--light-gray);
 }
 
-.login__sign-up-container p {
-  margin: 0;
+.login__sign-up p {
   font-size: 14px;
 }
 
-.login__sign-up-container__wrapper {
-  text-align: center;
+.login__sign-up .btn {
+  margin-top: 12px;
 }
 
-.login__sign-up-container__wrapper .btn {
-  margin-top: 2%;
-}
-
-@media (min-width: 500px) {
-  .centered-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-  }
-
-  .centered-container--login {
-    height: 100vh;
-  }
-
+@media (min-width: 576px) {
   .login__container {
-    width: 400px;
-    height: initial;
-    margin: 5% 0;
+    width: 480px;
+    margin: 50px auto;
     box-shadow: 0 0 20px 1px var(--gray);
   }
 
-  .login__container--padding {
-    height: initial;
-    padding: 8% 8% 0 8%;
+  .login__container__form-wrapper {
+    padding: 50px 50px 25px 50px;
   }
 
-  .login__form {
-    margin-bottom: 8%;
-  }
-
-  .login__container .password-reminder {
-    margin-bottom: 8%;
-  }
-
-  .login__wrapper--btn {
-    margin: 8% 0 12% 0;
-  }
-
-  .login__sign-up-container {
-    height: inherit;
-  }
-}
-
-@media (min-width: 768px) {
-  .login__container {
-    width: 425px;
-  }
-
-  .login__container--padding {
-    padding: 12% 12% 0 12%;
-  }
-}
-
-@media (min-width: 1024px) {
-  .login__container {
-    width: 380px;
-  }
-}
-
-@media (min-width: 1440px) {
-  .login__container {
-    width: 525px;
-  }
-
-  .login__container--padding {
-    padding: 15% 15% 0 15%;
+  .login__sign-up {
+    padding: 50px;
   }
 }

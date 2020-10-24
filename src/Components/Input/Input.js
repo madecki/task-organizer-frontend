@@ -6,7 +6,9 @@ import { PropTypes } from 'prop-types';
 function Input({ icon, size, type, id, text, placeholder, sizeWrapperText, name, hooksprop }) {
   return (
     <div className={`input-container ${size ? 'input-container--small' : ''}`}>
-      <label htmlFor={id}>{text}</label>
+      <label className='input-container__label' htmlFor={id}>
+        {text}
+      </label>
       <div className='input-container__wrapper'>
         <div className='input-container__wrapper__icon'>
           {icon ? <FontAwesomeIcon icon={icon} /> : null}

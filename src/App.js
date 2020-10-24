@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import './reset.css';
 import './App.css';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab, faFacebookF } from '@fortawesome/free-brands-svg-icons';

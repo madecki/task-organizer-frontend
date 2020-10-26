@@ -1,4 +1,23 @@
-.task__container {
+.tasks__container {
+  padding: 30px;
   border-radius: 30px;
   background-color: var(--white);
+  color: var(--dark-blue);
+}
+
+.tasks-list__title {
+  margin-bottom: 5px;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 35px;
+}
+
+.tasks-list__text {
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 140%;
+}
+
+.tasks-list__wrapper {
+  margin-top: 40px;
 }

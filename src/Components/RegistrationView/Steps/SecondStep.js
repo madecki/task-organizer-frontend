@@ -12,7 +12,7 @@ function SecondStep({ currentStep, onSubmit, errorText, callBackFn }) {
   return (
     <>
       <Stepper currentStep={currentStep} />{' '}
-      <form className='registration__form' onSubmit={handleSubmit(onSubmit)}>
+      <form className='registration__container__form' onSubmit={handleSubmit(onSubmit)}>
         <div className='gender-wrapper'>
           <p className='gender-paragraph'>GENDER:</p>
           <Checkbox

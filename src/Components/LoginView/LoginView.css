@@ -5,6 +5,10 @@
   box-shadow: 0 0 20px 1px var(--gray);
 }
 
+.login__container svg {
+  vertical-align: 0;
+}
+
 .login__container h1 {
   margin-bottom: 50px;
   font-size: 36px;
@@ -32,7 +36,7 @@
   margin-bottom: 25px;
 }
 
-.login__container__form__reminder  {
+.login__container__form__reminder {
   color: var(--black);
   font-size: 12px;
   font-weight: 700;
@@ -47,16 +51,16 @@
   margin: 30px 0;
 }
 
-.login__separator__line {
-  width: 45%;
-  height: 1px;
-  background-color: var(--light-gray);
-}
-
 .login__separator p {
   margin: 0;
   color: var(--gray);
   font-size: 10px;
+}
+
+.login__separator__line {
+  width: 45%;
+  height: 1px;
+  background-color: var(--light-gray);
 }
 
 .login__social-btns {
@@ -89,7 +93,6 @@
   .login__container {
     width: 480px;
     margin: 50px auto;
-    box-shadow: 0 0 20px 1px var(--gray);
   }
 
   .login__container__form-wrapper {

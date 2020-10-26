@@ -3,9 +3,9 @@ import './Input.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { PropTypes } from 'prop-types';
 
-function Input({ icon, size, type, id, text, placeholder, sizeWrapperText, name, hooksprop }) {
+function Input({ icon, type, id, text, placeholder, sizeWrapperText, name, hooksprop }) {
   return (
-    <div className={`input-container ${size ? 'input-container--small' : ''}`}>
+    <div className='input-container'>
       <label className='input-container__label' htmlFor={id}>
         {text}
       </label>
@@ -30,7 +30,6 @@ function Input({ icon, size, type, id, text, placeholder, sizeWrapperText, name,
 
 Input.propTypes = {
   icon: PropTypes.arrayOf(PropTypes.string),
-  size: PropTypes.string,
   type: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
   text: PropTypes.string,
@@ -42,7 +41,6 @@ Input.propTypes = {
 
 Input.defaultProps = {
   icon: null,
-  size: '',
   text: '',
   sizeWrapperText: '',
   name: '',

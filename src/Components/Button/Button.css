@@ -1,27 +1,31 @@
 .btn {
   width: 100%;
-  padding: 17px 55px;
+  padding: 19px 55px;
   border: 0;
   border-radius: 30px;
-  background-color: var(--royal-blue);
+  background-color: var(--sky-blue);
   color: var(--white);
   font-weight: 700;
 }
 
 .btn--sign-in {
-  padding: 17px 50px;
+  padding: 19px 50px;
   background-color: var(--turquoise);
   color: var(--white);
 }
 
 .btn--fb {
-  padding: 17px 36px;
+  padding: 12px 36px;
   background-color: var(--fb-blue);
   color: var(--white);
 }
 
+.btn--fb img {
+  width: 25px;
+}
+
 .btn--google {
-  padding: 10px 25px;
+  padding: 9px 25px;
   border: 2px solid var(--light-gray);
   background-color: var(--white);
   color: var(--black);
@@ -30,14 +34,10 @@
 .btn--google img {
   width: 25px;
 }
-
-.fa-facebook-f {
-  margin-right: 4px;
-}
-
+/* 
 .btn--small-padding {
   padding: 17px 21px;
-}
+} */
 
 .btn--extra-large {
   width: 100%;
@@ -81,25 +81,25 @@
 }
 
 @media (min-width: 375px) {
-  .btn {
+  /* .btn {
     padding: 17px 68px;
-  }
+  } */
 
-  .btn--sign-in {
+  /* .btn--sign-in {
     padding: 17px 58px;
-  }
+  } */
 
-  .btn--google {
+  /* .btn--google {
     padding: 10px 60px;
   }
 
   .btn--fb {
     padding: 17px 43px;
-  }
+  } */
 
-  .btn--small-padding {
+  /* .btn--small-padding {
     padding: 17px 29px;
-  }
+  } */
 
   .btn--type-of-use {
     width: 65%;
@@ -107,65 +107,65 @@
 }
 
 @media (min-width: 425px) {
-  .btn {
+  /* .btn {
     padding: 17px 80px;
-  }
+  } */
 
-  .btn--sign-in {
+  /* .btn--sign-in {
     padding: 17px 70px;
-  }
+  } */
 
-  .btn--google {
+  /* .btn--google {
     padding: 10px 74px;
   }
 
   .btn--fb {
     padding: 17px 57px;
-  }
+  } */
 }
 
 @media (min-width: 500px) {
-  .btn {
+  /* .btn {
     padding: 17px 62px;
-  }
+  } */
 
-  .btn--sign-in {
+  /* .btn--sign-in {
     padding: 17px 56px;
-  }
+  } */
 
-  .btn--google {
+  /* .btn--google {
     padding: 10px 59px;
   }
 
   .btn--fb {
     padding: 17px 39px;
-  }
+  } */
 
-  .btn--small-padding {
+  /* .btn--small-padding {
     padding: 17px 27px;
-  }
+  } */
 }
 
 @media (min-width: 768px) {
-  .btn {
+  /* .btn {
     padding: 14px 52px;
-  }
-
+  } */
+  /* 
   .btn--sign-in {
     padding: 14px 56px;
-  }
+  } */
 
-  .btn--google {
+  /* .btn--google {
     padding: 8px 53px;
   }
 
   .btn--fb {
     padding: 14px 27px;
-  }
+  } */
 
-  .btn--small-padding {
+  /* .btn--small-padding {
     padding: 14px 27px;
-  }
+  } */
 
   .btn--type-of-use {
     width: 70%;
@@ -173,25 +173,25 @@
 }
 
 @media (min-width: 1024px) {
-  .btn {
+  /* .btn {
     padding: 14px 50px;
-  }
+  } */
 
-  .btn--sign-in {
+  /* .btn--sign-in {
     padding: 14px 49px;
-  }
+  } */
 
-  .btn--google {
+  /* .btn--google {
     padding: 7px 49px;
   }
 
   .btn--fb {
     padding: 14px 26px;
-  }
+  } */
 
-  .btn--type-of-use {
+  /* .btn--type-of-use {
     width: 75%;
-  }
+  } */
 
   .btn--type-of-use svg {
     margin-right: 5%;
@@ -199,23 +199,23 @@
 }
 
 @media (min-width: 1440px) {
-  .btn {
+  /* .btn {
     padding: 14px 67px;
-  }
+  } */
 
-  .btn--sign-in {
+  /* .btn--sign-in {
     padding: 14px 66px;
-  }
-
+  } */
+  /* 
   .btn--google {
     padding: 7px 67px;
   }
 
   .btn--fb {
     padding: 14px 45px;
-  }
+  } */
 
-  .btn--small-padding {
+  /* .btn--small-padding {
     padding: 14px 37px;
-  }
+  } */
 }

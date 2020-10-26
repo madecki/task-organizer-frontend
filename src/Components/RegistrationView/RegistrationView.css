@@ -10,31 +10,33 @@
   transition: 1s;
 }
 
-.registration__form label,
-.gender-wrapper .gender-paragraph {
-  margin-bottom: 5%;
-  color: var(--gray);
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: 1px;
-}
-
 .registration__container {
-  padding: 15% 3% 10% 3%;
+  position: relative;
+  width: 96%;
+  margin: 10px auto;
+  box-shadow: 0 0 20px 1px var(--gray);
 }
 
-.registration__container--padding {
-  width: 100%;
-}
-
-.registration__container--type-of-use {
-  text-align: center;
+.registration__container svg {
+  vertical-align: 0;
 }
 
 .registration__container h1 {
-  margin-bottom: 10%;
+  margin-bottom: 50px;
   font-size: 36px;
   font-weight: 900;
+  text-align: center;
+}
+
+.registration__container__form-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 12px 25px 12px;
+}
+
+.registration__container--type-of-use {
   text-align: center;
 }
 
@@ -42,17 +44,14 @@
   text-align: center;
 }
 
-.registration__form {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 100%;
+.registration__container__form .input-container {
+  margin-bottom: 25px;
 }
 
 .password-requirements {
   width: 100%;
   color: var(--gray);
-  margin-bottom: 5%;
+  margin-bottom: 25px;
   text-align: center;
 }
 
@@ -65,7 +64,7 @@
 
 .registration__container .container-label-square {
   width: 80%;
-  margin: 0 auto 5% auto;
+  margin: 0 auto 25px auto;
   text-align: center;
 }
 
@@ -75,30 +74,34 @@
   letter-spacing: initial;
 }
 
-.registration__wrapper {
+.registration__separator {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
+  margin: 30px 0;
 }
 
-.registration__wrapper p {
+.registration__separator p {
   margin: 0;
   color: var(--gray);
-  font-size: 12px;
+  font-size: 10px;
 }
 
-.registration__container .btn--extra-large {
-  margin: 5% 0;
-}
-
-.registration__wrapper__line {
+.registration__separator__line {
   width: 45%;
   height: 1px;
   background-color: var(--light-gray);
 }
 
-.registration__wrapper--btn {
-  margin-top: 5%;
+.registration__social-btns {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.registration__social-btns button {
+  width: 47%;
 }
 
 .box-wrapper {
@@ -117,79 +120,55 @@
 }
 
 .paragraph-type-of-use {
-  margin: 3% 0 7% 0;
+  margin: 20px 0 30px 0;
 }
 
 .registration__container--profession h2 {
-  margin-bottom: 5%;
+  margin-bottom: 25px;
 }
 
 .registration-error {
-  padding-left: 5%;
-  margin-bottom: 3%;
+  padding-left: 17px;
+  margin-bottom: 20px;
   color: red;
   font-weight: 500;
   font-size: 14px;
 }
 
 .gender-wrapper {
-  margin-left: 5%;
+  margin: 0 0 25px 17px;
+}
+
+.gender-paragraph {
+  margin-bottom: 8px;
+  color: var(--gray);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.gender-wrapper label {
+  color: var(--gray);
+  font-size: 16px;
+  font-weight: 500;
 }
 
 .gender-wrapper .registration-error {
   padding-left: 0;
 }
 
-@media (min-width: 500px) {
+@media (min-width: 576px) {
   .registration__container {
-    width: 400px;
-    height: initial;
-    padding: 0;
-    margin: 5% 0;
-    box-shadow: 0 0 20px 1px var(--gray);
+    width: 480px;
+    margin: 50px auto;
   }
 
-  .registration__container--padding {
-    width: initial;
-    padding: 10%;
+  .registration__container__form-wrapper {
+    padding: 50px;
   }
 
   .box-info {
     width: 25%;
     padding: 2%;
-  }
-}
-
-@media (min-width: 768px) {
-  .registration__container {
-    width: 475px;
-  }
-
-  .registration__container--padding {
-    padding: 15% 20%;
-  }
-
-  .registration__form {
-    padding-bottom: 0;
-  }
-}
-
-@media (min-width: 1024px) {
-  .registration__container {
-    width: 550px;
-  }
-
-  .registration__container--padding {
-    padding: 15% 25%;
-  }
-}
-
-@media (min-width: 1440px) {
-  .registration__container {
-    width: 700px;
-  }
-
-  .registration__container--padding {
-    padding: 15% 25%;
   }
 }

@@ -3,6 +3,7 @@ import './LoginView.css';
 import { useHistory } from 'react-router';
 import Button from '../Button/Button';
 import Google from '../../Assets/Icon/google.png';
+import Facebook from '../../Assets/Icon/facebook.svg';
 import Input from '../Input/Input';
 
 function LoginView() {
@@ -28,7 +29,6 @@ function LoginView() {
 
           <Input
             icon={['fas', 'lock']}
-            size='small'
             type='password'
             id='password'
             text='PASSWORD'
@@ -49,7 +49,7 @@ function LoginView() {
         </div>
         <div className='login__social-btns'>
           <Button color='white' imgIcon={Google} />
-          <Button color='blue' icon={['fab', 'facebook-f']} />
+          <Button color='blue' imgIcon={Facebook} />
         </div>
       </div>
 

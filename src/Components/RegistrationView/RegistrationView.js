@@ -38,51 +38,43 @@ function RegistrationView() {
   return (
     <>
       {currentStep === 1 && (
-        <div className='centered-container'>
-          <div className='registration__container'>
-            <div className='registration__container--padding'>
-              <FirstStep currentStep={currentStep} onSubmit={onSubmit} errorText={errorText} />
-            </div>
+        <div className='registration__container'>
+          <div className='registration__container__form-wrapper'>
+            <FirstStep currentStep={currentStep} onSubmit={onSubmit} errorText={errorText} />
           </div>
         </div>
       )}{' '}
       {currentStep === 2 && (
-        <div className='centered-container'>
-          <div className='registration__container'>
-            <div className='registration__container--padding'>
-              <SecondStep
-                currentStep={currentStep}
-                onSubmit={onSubmit}
-                errorText={errorText}
-                callBackFn={() => prevStep()}
-              />
-            </div>
+        <div className='registration__container'>
+          <div className='registration__container__form-wrapper'>
+            <SecondStep
+              currentStep={currentStep}
+              onSubmit={onSubmit}
+              errorText={errorText}
+              callBackFn={() => prevStep()}
+            />
           </div>
         </div>
       )}
       {currentStep === 3 && (
-        <div className='centered-container'>
-          <div className='registration__container'>
-            <div className='registration__container--padding registration__container--type-of-use'>
-              <ThirdStep
-                currentStep={currentStep}
-                stepfunc={() => stepTypeOfProfession()}
-                callBackFn={() => prevStep()}
-              />
-            </div>
+        <div className='registration__container'>
+          <div className='registration__container__form-wrapper registration__container--type-of-use'>
+            <ThirdStep
+              currentStep={currentStep}
+              stepfunc={() => stepTypeOfProfession()}
+              callBackFn={() => prevStep()}
+            />
           </div>
         </div>
       )}
       {currentStep === 4 && (
-        <div className='centered-container'>
-          <div className='registration__container'>
-            <div className='registration__container--padding registration__container--profession'>
-              <FourthStep
-                currentStep={currentStep}
-                onSubmit={onSubmit}
-                callBackFn={() => prevStep()}
-              />
-            </div>
+        <div className='registration__container'>
+          <div className='registration__container__form-wrapper registration__container--profession'>
+            <FourthStep
+              currentStep={currentStep}
+              onSubmit={onSubmit}
+              callBackFn={() => prevStep()}
+            />
           </div>
         </div>
       )}

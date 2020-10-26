@@ -7,6 +7,7 @@ import Button from '../../Button/Button';
 import Input from '../../Input/Input';
 import Checkbox from '../../Checkbox/Checkbox';
 import Google from '../../../Assets/Icon/google.png';
+import Facebook from '../../../Assets/Icon/facebook.svg';
 
 function FirstStep({ currentStep, onSubmit, errorText }) {
   const { register, handleSubmit, errors, getValues } = useForm({ reValidateMode: 'onSubmit' });
@@ -15,7 +16,7 @@ function FirstStep({ currentStep, onSubmit, errorText }) {
     <>
       <h1>Create Account</h1>
       <Stepper currentStep={currentStep} />
-      <form className='registration__form' onSubmit={handleSubmit(onSubmit)} noValidate>
+      <form className='registration__container__form' onSubmit={handleSubmit(onSubmit)} noValidate>
         <Input
           icon={['fas', 'user']}
           type='text'
@@ -145,14 +146,14 @@ function FirstStep({ currentStep, onSubmit, errorText }) {
           </p>
         )}
         <Button label='NEXT' size='extra-large' typeBtn='submit' />
-        <div className='registration__wrapper'>
-          <div className='registration__wrapper__line' />
+        <div className='registration__separator'>
+          <div className='registration__separator__line' />
           <p>OR</p>
-          <div className='registration__wrapper__line' />
+          <div className='registration__separator__line' />
         </div>
-        <div className='registration__wrapper registration__wrapper--btn'>
+        <div className='registration__social-btns'>
           <Button color='white' imgIcon={Google} />
-          <Button color='blue' icon={['fab', 'facebook-f']} label='FACEBOOK' />
+          <Button color='blue' imgIcon={Facebook} />
         </div>
       </form>
     </>

@@ -1,7 +1,7 @@
 .first-step,
 .second-step,
 .third-step {
-  background-color: var(--royal-blue);
+  background-color: var(--sky-blue);
   color: var(--white);
 }
 
@@ -9,7 +9,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 10%;
+  width: 100%;
+  margin-bottom: 50px;
 }
 
 .number-of-step {
@@ -18,12 +19,12 @@
   align-items: center;
   width: 35px;
   height: 35px;
-  border: 1px solid var(--gray);
+  border: 1px solid var(--light-gray);
   border-radius: 50%;
 }
 
 .line {
-  width: 30%;
+  width: calc(50% - 55px);
   height: 2px;
-  background-color: var(--gray);
+  background-color: var(--light-gray);
 }

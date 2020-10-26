@@ -22,7 +22,7 @@ function ForecastView() {
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(success);
-  });
+  }, []);
 
   const currentDate = date => {
     const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];

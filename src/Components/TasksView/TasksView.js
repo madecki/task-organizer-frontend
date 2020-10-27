@@ -1,8 +1,8 @@
 import React from 'react';
 import Task from './Task/Task';
-import './TaskView.css';
+import './TasksView.css';
 
-function TaskView() {
+function TasksView() {
   return <div className='tasks__container' >
     <h2 className="tasks-list__title">Task to do</h2>
     <p className="tasks-list__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ornare pretium placerat ut platea. Purus blandit integer sagittis massa vel est hac. </p>
@@ -12,4 +12,4 @@ function TaskView() {
   </div>;
 }
 
-export default TaskView;
+export default TasksView;

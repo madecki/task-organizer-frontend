@@ -8,7 +8,7 @@ function Task() {
       <FontAwesomeIcon className="task__circle__check-icon" icon={['fas', 'check']}/>
     </div>
     <div className="task__content">Wireframing</div>
-    <FontAwesomeIcon className="task__delete_icon" icon={['fas', 'trash']} />
+    <FontAwesomeIcon className="task__delete-icon" icon={['fas', 'trash']} />
    </div>
 }
 

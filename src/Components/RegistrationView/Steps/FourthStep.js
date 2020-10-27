@@ -3,7 +3,6 @@ import { PropTypes } from 'prop-types';
 import { useForm } from 'react-hook-form';
 import Stepper from '../Stepper/Stepper';
 import Button from '../../Button/Button';
-import './FourthStep.css';
 import Checkbox from '../../Checkbox/Checkbox';
 
 function FourthStep({ currentStep, onSubmit, callBackFn }) {
@@ -51,7 +50,7 @@ function FourthStep({ currentStep, onSubmit, callBackFn }) {
           <p className='registration-error'>You have to enter the name of the profession</p>
         )}
 
-        <div className='registration__wrapper registration__wrapper--btn'>
+        <div className='registration__control-btns'>
           <Button label='PREV' callBackFn={callBackFn} />
           <Button color='turquoise' label='FINISH' typeBtn='submit' />
         </div>

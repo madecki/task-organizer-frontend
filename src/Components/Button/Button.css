@@ -1,6 +1,6 @@
 .btn {
   width: 100%;
-  padding: 19px 55px;
+  padding: 19px 44px;
   border: 0;
   border-radius: 30px;
   background-color: var(--sky-blue);
@@ -34,10 +34,6 @@
 .btn--google img {
   width: 25px;
 }
-/* 
-.btn--small-padding {
-  padding: 17px 21px;
-} */
 
 .btn--extra-large {
   width: 100%;
@@ -56,7 +52,7 @@
 }
 
 .btn--type-of-use svg {
-  margin-right: 5%;
+  margin-right: 4px;
 }
 
 .btn--selected {
@@ -69,153 +65,24 @@
   color: var(--white);
 }
 
-.btn--type-of-use:hover {
-  background-color: var(--gray);
-  color: var(--white);
-  transform: scale(1.1);
-  transition: 2s;
-}
-
-.btn--type-of-use {
-  transition: 1s;
-}
-
-@media (min-width: 375px) {
-  /* .btn {
-    padding: 17px 68px;
-  } */
-
-  /* .btn--sign-in {
-    padding: 17px 58px;
-  } */
-
-  /* .btn--google {
-    padding: 10px 60px;
-  }
-
-  .btn--fb {
-    padding: 17px 43px;
-  } */
-
-  /* .btn--small-padding {
-    padding: 17px 29px;
-  } */
-
-  .btn--type-of-use {
-    width: 65%;
-  }
-}
-
-@media (min-width: 425px) {
-  /* .btn {
-    padding: 17px 80px;
-  } */
-
-  /* .btn--sign-in {
-    padding: 17px 70px;
-  } */
-
-  /* .btn--google {
-    padding: 10px 74px;
-  }
-
-  .btn--fb {
-    padding: 17px 57px;
-  } */
-}
-
-@media (min-width: 500px) {
-  /* .btn {
-    padding: 17px 62px;
-  } */
-
-  /* .btn--sign-in {
-    padding: 17px 56px;
-  } */
-
-  /* .btn--google {
-    padding: 10px 59px;
-  }
-
-  .btn--fb {
-    padding: 17px 39px;
-  } */
-
-  /* .btn--small-padding {
-    padding: 17px 27px;
-  } */
-}
-
-@media (min-width: 768px) {
-  /* .btn {
-    padding: 14px 52px;
-  } */
-  /* 
-  .btn--sign-in {
-    padding: 14px 56px;
-  } */
-
-  /* .btn--google {
-    padding: 8px 53px;
-  }
-
-  .btn--fb {
-    padding: 14px 27px;
-  } */
-
-  /* .btn--small-padding {
-    padding: 14px 27px;
-  } */
-
-  .btn--type-of-use {
-    width: 70%;
-  }
-}
-
 @media (min-width: 1024px) {
-  /* .btn {
-    padding: 14px 50px;
-  } */
-
-  /* .btn--sign-in {
-    padding: 14px 49px;
-  } */
-
-  /* .btn--google {
-    padding: 7px 49px;
+  .btn:hover {
+    background-color: var(--cornflower-blue);
+    transition: 0.5s;
   }
 
-  .btn--fb {
-    padding: 14px 26px;
-  } */
-
-  /* .btn--type-of-use {
-    width: 75%;
-  } */
-
-  .btn--type-of-use svg {
-    margin-right: 5%;
-  }
-}
-
-@media (min-width: 1440px) {
-  /* .btn {
-    padding: 14px 67px;
-  } */
-
-  /* .btn--sign-in {
-    padding: 14px 66px;
-  } */
-  /* 
-  .btn--google {
-    padding: 7px 67px;
+  .btn {
+    transition: 0.5s;
   }
 
-  .btn--fb {
-    padding: 14px 45px;
-  } */
+  .btn--type-of-use:hover {
+    background-color: var(--gray);
+    color: var(--white);
+    transform: scale(1.1);
+    transition: 2s;
+  }
 
-  /* .btn--small-padding {
-    padding: 14px 37px;
-  } */
+  .btn--type-of-use {
+    transition: 2s;
+  }
 }

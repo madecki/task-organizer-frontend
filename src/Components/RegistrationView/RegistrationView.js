@@ -60,7 +60,7 @@ function RegistrationView() {
         <div className='registration__container'>
           <div
             className='registration__container__form-wrapper
-          registration__container--type-of-use'>
+            registration__container__form-wrapper--type-of-use'>
             <ThirdStep
               currentStep={currentStep}
               stepfunc={() => stepTypeOfProfession()}
@@ -73,7 +73,7 @@ function RegistrationView() {
         <div className='registration__container'>
           <div
             className='registration__container__form-wrapper
-          registration__container--profession'>
+          registration__container__form-wrapper--profession'>
             <FourthStep
               currentStep={currentStep}
               onSubmit={onSubmit}

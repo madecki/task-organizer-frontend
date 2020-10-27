@@ -3,13 +3,6 @@
   color: var(--gray);
 }
 
-.btn--type-of-use:hover .fa-graduation-cap,
-.btn--type-of-use:hover .fa-suitcase,
-.btn--type-of-use:hover .fa-user {
-  color: var(--white);
-  transition: 1s;
-}
-
 .registration__container {
   position: relative;
   width: 96%;
@@ -29,37 +22,30 @@
 }
 
 .registration__container__form-wrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 50px 12px 25px 12px;
+  padding: 50px 12px;
 }
 
-.registration__container--type-of-use {
-  text-align: center;
-}
-
+.registration__container__form-wrapper--type-of-use,
 .step-counter {
   text-align: center;
 }
 
 .registration__container__form .input-container {
-  margin-bottom: 25px;
+  margin-bottom: 20px;
 }
 
 .password-requirements {
   width: 100%;
-  color: var(--gray);
   margin-bottom: 25px;
+  color: var(--gray);
   text-align: center;
 }
 
 .password-requirements h2,
 .password-requirements p {
-  font-size: 14px;
   width: 80%;
   margin: 5px auto;
+  font-size: 14px;
 }
 
 .registration__container .container-label-square {
@@ -94,45 +80,20 @@
   background-color: var(--light-gray);
 }
 
-.registration__social-btns {
+.registration__social-btns,
+.registration__control-btns {
   display: flex;
   justify-content: space-between;
   width: 100%;
 }
 
-.registration__social-btns button {
+.registration__control-btns {
+  margin-top: 50px;
+}
+
+.registration__social-btns button,
+.registration__control-btns button {
   width: 47%;
-}
-
-.box-wrapper {
-  display: flex;
-  justify-content: space-between;
-  padding: 5% 0;
-  transition: 2s;
-}
-
-.box-info {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  width: 30%;
-  border: 2px solid var(--gray);
-}
-
-.paragraph-type-of-use {
-  margin: 20px 0 30px 0;
-}
-
-.registration__container--profession h2 {
-  margin-bottom: 25px;
-}
-
-.registration-error {
-  padding-left: 17px;
-  margin-bottom: 20px;
-  color: red;
-  font-weight: 500;
-  font-size: 14px;
 }
 
 .gender-wrapper {
@@ -155,6 +116,51 @@
 
 .gender-wrapper .registration-error {
   padding-left: 0;
+  margin-top: 20px;
+}
+
+.registration__container__form-wrapper--type-of-use h2 {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.paragraph-type-of-use {
+  margin: 20px 0 30px 0;
+}
+
+.registration__container__form-wrapper--profession h2 {
+  margin-bottom: 25px;
+}
+
+.registration__container__form-wrapper--profession .input-container__wrapper__icon {
+  padding: 24px 12px 25px 12px;
+}
+
+.checkbox-and-input-wrapper {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  margin-bottom: 20px;
+}
+
+.checkbox-and-input-wrapper .input-container__wrapper {
+  margin-top: 0;
+}
+
+.checkbox-and-input-wrapper .input-container label {
+  display: none;
+}
+
+.checkbox-and-input-wrapper .container-label-round {
+  margin-right: 3px;
+}
+
+.registration-error {
+  padding-left: 17px;
+  margin-bottom: 25px;
+  color: red;
+  font-weight: 500;
+  font-size: 14px;
 }
 
 @media (min-width: 576px) {
@@ -166,9 +172,13 @@
   .registration__container__form-wrapper {
     padding: 50px;
   }
+}
 
-  .box-info {
-    width: 25%;
-    padding: 2%;
+@media (min-width: 1024px) {
+  .btn--type-of-use:hover .fa-graduation-cap,
+  .btn--type-of-use:hover .fa-suitcase,
+  .btn--type-of-use:hover .fa-user {
+    color: var(--white);
+    transition: 2s;
   }
 }

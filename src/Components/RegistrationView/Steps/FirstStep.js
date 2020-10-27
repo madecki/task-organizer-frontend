@@ -22,7 +22,7 @@ function FirstStep({ currentStep, onSubmit, errorText }) {
           type='text'
           id='firstName'
           text='FIRST NAME'
-          placeholder='Bill'
+          placeholder='Kevin'
           hooksprop={register({ required: true, minLength: 2 })}
         />
         {errors.firstName && errors.firstName.type === 'required' && (
@@ -37,7 +37,7 @@ function FirstStep({ currentStep, onSubmit, errorText }) {
           type='text'
           id='lastName'
           text='LAST NAME'
-          placeholder='Gates'
+          placeholder='Walker'
           hooksprop={register({ required: true, minLength: 2 })}
         />
         {errors.lastName && errors.lastName.type === 'required' && (

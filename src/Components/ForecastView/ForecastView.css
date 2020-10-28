@@ -5,8 +5,8 @@
   color: var(--dark-blue);
 }
 
-.forecast__container__city,
-.forecast__container__date {
+.forecast__city,
+.forecast__date {
   font-size: 14px;
   font-weight: 300;
   line-height: 140%;
@@ -18,13 +18,15 @@
   align-items: center;
 }
 
-.forecast__container__hour {
+.forecast__hour {
   font-size: 30px;
   font-weight: 700;
   line-height: 35px;
 }
 
-.forecast__container__weather {
+.forecast__weather {
+  display: flex;
+  align-items: center;
   font-size: 24px;
   font-weight: 700;
   line-height: 28px;

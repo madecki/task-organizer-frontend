@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { format, getHours, getISODay, getMinutes } from 'date-fns';
 import getWeatherByCoordinates from '../../request';
 import './ForecastView.css';
 
@@ -14,51 +15,42 @@ function ForecastView() {
       const listOfWeatherInfo = {
         city: data.name,
         temp: Math.round(data.main.temp),
-        icon: data.weather[0].icon
+        icon: `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`,
+        desc: `${data.weather[0].description} icon`
       };
       setWeatherInfo(listOfWeatherInfo);
     });
   }
 
+  const currentTime = date => {
+    const hour = getHours(date);
+    const minutes = getMinutes(date);
+    return minutes.toString().length === 1 ? `${hour}:0${minutes}` : `${hour}:${minutes}`;
+  };
+
+  const dayOfWeek = date => {
+    const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    const day = days[getISODay(date)];
+    return day;
+  };
+
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(success);
   }, []);
 
-  const currentDate = date => {
-    const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-    const months = [
-      'January',
-      'February',
-      'March',
-      'April',
-      'May',
-      'June',
-      'July',
-      'August',
-      'September',
-      'October',
-      'November',
-      'December'
-    ];
-    const day = days[date.getDay()];
-    const month = months[date.getMonth()];
-    const year = date.getFullYear();
-    const numberOfMonth = date.getMonth() + 1;
-
-    return `${month} ${numberOfMonth}.${year} | ${day}`;
-  };
-
   return (
     <div className='forecast__container'>
-      <h2 className='forecast__container__city'>{weatherInfo.city}</h2>
+      <h2 className='forecast__city'>{weatherInfo.city}</h2>
       <div className='hour-and-weather-wrapper'>
-        <p className='forecast__container__hour'>06:20 AM</p>
-        <p className='forecast__container__weather'>
-          <img src={`http://openweathermap.org/img/wn/${weatherInfo.icon}@2x.png`} alt='' />
-          {weatherInfo.temp}° C
-        </p>
+        <p className='forecast__hour'>{currentTime(new Date())}</p>
+        <div className='forecast__weather'>
+          <img src={weatherInfo.icon} alt={weatherInfo.desc} />
+          <p>{weatherInfo.temp}°C</p>
+        </div>
       </div>
-      <p className='forecast__container__date'>{currentDate(new Date())}</p>
+      <p className='forecast__date'>
+        {`${format(new Date(), 'dd.MM.yyyy')} | ${dayOfWeek(new Date())}`}
+      </p>
     </div>
   );
 }

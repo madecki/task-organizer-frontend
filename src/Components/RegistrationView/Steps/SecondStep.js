@@ -60,7 +60,7 @@ function SecondStep({ currentStep, onSubmit, errorText, callBackFn }) {
           type='date'
           id='dateOfBirth'
           text='DATE OF BIRTH'
-          placeholder='26'
+          placeholder='01.01.1960'
           sizeWrapperText='small'
           hooksprop={register({ required: true })}
         />

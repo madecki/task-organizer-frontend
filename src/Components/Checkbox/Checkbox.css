@@ -31,7 +31,7 @@
 
 .container-label-round input:checked ~ .checkmark-round,
 .container-label-square input:checked ~ .checkmark-square {
-  background-color: #2196f3;
+  background-color: var(--sky-blue);
 }
 
 .checkmark-round:after,

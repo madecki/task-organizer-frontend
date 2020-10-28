@@ -35,7 +35,7 @@ function LoginView() {
             placeholder='A1234567'
           />
 
-          <Button color='turquoise' size='medium' label='SIGN IN' />
+          <Button color='turquoise' label='SIGN IN' />
         </form>
 
         <a href='#' className='login__container__form__reminder'>
@@ -55,7 +55,7 @@ function LoginView() {
 
       <div className='login__sign-up'>
         <p>Don&apos;t have an account?</p>
-        <Button label='SIGN UP FOR FREE' size='small' callBackFn={() => goToRegistation()} />
+        <Button label='SIGN UP FOR FREE' size='hover' callBackFn={() => goToRegistation()} />
       </div>
     </div>
   );

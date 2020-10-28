@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router';
 import './RegistrationView.css';
+import Button from '../Button/Button';
 import FirstStep from './Steps/FirstStep';
 import SecondStep from './Steps/SecondStep';
 import ThirdStep from './Steps/ThirdStep';
@@ -35,12 +37,22 @@ function RegistrationView() {
     nextStep();
   };
 
+  const history = useHistory();
+
+  const goToLogin = () => {
+    history.push('/');
+  };
+
   return (
     <>
       {currentStep === 1 && (
         <div className='registration__container'>
           <div className='registration__container__form-wrapper'>
             <FirstStep currentStep={currentStep} onSubmit={onSubmit} errorText={errorText} />
+          </div>
+          <div className='registration__sign-in'>
+            <p>Do you already have an account?</p>
+            <Button color='turquoise' label='SIGN IN' size='small' callBackFn={() => goToLogin()} />
           </div>
         </div>
       )}{' '}

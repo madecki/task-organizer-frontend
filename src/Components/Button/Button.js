@@ -22,14 +22,8 @@ function Button({ label, color, icon, size, imgIcon, callBackFn, typeBtn, select
   }
 
   switch (size) {
-    case 'extra-large':
-      btnSizeClass = 'btn--extra-large';
-      break;
-    case 'small':
-      btnSizeClass = 'btn--small-padding';
-      break;
-    case 'medium':
-      btnSizeClass = 'btn--sign-in';
+    case 'hover':
+      btnSizeClass = 'btn--hover';
       break;
     case 'large':
       btnSizeClass = 'btn--type-of-use';

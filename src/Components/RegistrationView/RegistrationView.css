@@ -22,7 +22,7 @@
 }
 
 .registration__container__form-wrapper {
-  padding: 50px 12px;
+  padding: 50px 12px 25px 12px;
 }
 
 .registration__container__form-wrapper--type-of-use,
@@ -94,6 +94,22 @@
 .registration__social-btns button,
 .registration__control-btns button {
   width: 47%;
+}
+
+.registration__sign-in {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 25px;
+  background-color: var(--light-gray);
+}
+
+.registration__sign-in p {
+  font-size: 14px;
+}
+
+.registration__sign-in .btn {
+  margin-top: 12px;
 }
 
 .gender-wrapper {
@@ -170,6 +186,10 @@
   }
 
   .registration__container__form-wrapper {
+    padding: 50px 50px 25px 50px;
+  }
+
+  .registration__sign-in {
     padding: 50px;
   }
 }

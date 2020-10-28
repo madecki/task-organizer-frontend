@@ -35,10 +35,6 @@
   width: 25px;
 }
 
-.btn--extra-large {
-  width: 100%;
-}
-
 .btn--turquoise {
   background-color: var(--turquoise);
 }
@@ -66,7 +62,7 @@
 }
 
 @media (min-width: 1024px) {
-  .btn:hover {
+  .btn--hover:hover {
     background-color: var(--cornflower-blue);
     transition: 0.5s;
   }

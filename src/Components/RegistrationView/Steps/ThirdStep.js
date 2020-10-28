@@ -29,7 +29,7 @@ function ThirdStep({ currentStep, callBackFn, stepfunc }) {
       />
 
       <div className='registration__control-btns'>
-        <Button label='PREV' callBackFn={callBackFn} />
+        <Button label='PREV' size='hover' callBackFn={callBackFn} />
         <Button color='turquoise' label='FINISH' typeBtn='submit' />
       </div>
     </>

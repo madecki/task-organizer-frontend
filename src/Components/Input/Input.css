@@ -54,3 +54,8 @@ input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
   box-shadow: 0 0 0 30px var(--light-gray) inset !important;
 }
+
+input:-webkit-autofill::first-line {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+}

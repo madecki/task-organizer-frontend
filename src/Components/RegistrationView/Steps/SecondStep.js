@@ -57,17 +57,32 @@ function SecondStep({ currentStep, onSubmit, errorText, callBackFn }) {
         )}
         <Input
           icon={['fas', 'calendar-alt']}
-          type='date'
+          type='text'
           id='dateOfBirth'
           text='DATE OF BIRTH'
           placeholder='01.01.1960'
           sizeWrapperText='small'
-          hooksprop={register({ required: true })}
+          hooksprop={register({
+            required: true,
+            minLength: 10,
+            maxLength: 10,
+            pattern: {
+              value: /[0-9][0-9][.][0-1][0-9][.][1-2][0-9][0-9][0-9]/
+            }
+          })}
         />
         {errors.dateOfBirth && errors.dateOfBirth.type === 'required' && (
           <p className='registration-error'>{errorText}</p>
         )}
-
+        {errors.dateOfBirth && errors.dateOfBirth.type === 'pattern' && (
+          <p className='registration-error'>Invalid date</p>
+        )}
+        {errors.dateOfBirth && errors.dateOfBirth.type === 'minLength' && (
+          <p className='registration-error'>This field is required at least 10 signs</p>
+        )}
+        {errors.dateOfBirth && errors.dateOfBirth.type === 'maxLength' && (
+          <p className='registration-error'>This field is required max 10 signs</p>
+        )}
         <Input
           icon={['fas', 'flag']}
           type='text'

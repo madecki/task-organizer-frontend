@@ -5,6 +5,11 @@ import './ForecastView.css';
 
 function ForecastView() {
   const [weatherInfo, setWeatherInfo] = useState('');
+  const [time, setTime] = useState(
+    getMinutes(new Date()).toString().length === 1
+      ? `${getHours(new Date())}:0${getMinutes(new Date())}`
+      : `${getHours(new Date())}:${getMinutes(new Date())}`
+  );
 
   function success(pos) {
     const crd = pos.coords;
@@ -12,6 +17,7 @@ function ForecastView() {
     const { longitude } = crd;
     getWeatherByCoordinates(latitude, longitude).then(resp => {
       const { data } = resp;
+      console.log(data);
       const listOfWeatherInfo = {
         city: data.name,
         temp: Math.round(data.main.temp),
@@ -22,11 +28,13 @@ function ForecastView() {
     });
   }
 
-  const currentTime = date => {
-    const hour = getHours(date);
-    const minutes = getMinutes(date);
-    return minutes.toString().length === 1 ? `${hour}:0${minutes}` : `${hour}:${minutes}`;
-  };
+  useEffect(() => {
+    setInterval(() => {
+      const hour = getHours(new Date());
+      const minutes = getMinutes(new Date());
+      setTime(minutes.toString().length === 1 ? `${hour}:0${minutes}` : `${hour}:${minutes}`);
+    }, 60000);
+  }, []);
 
   const dayOfWeek = date => {
     const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
@@ -42,7 +50,7 @@ function ForecastView() {
     <div className='forecast__container'>
       <h2 className='forecast__city'>{weatherInfo.city}</h2>
       <div className='hour-and-weather-wrapper'>
-        <p className='forecast__hour'>{currentTime(new Date())}</p>
+        <p className='forecast__hour'>{time}</p>
         <div className='forecast__weather'>
           <img src={weatherInfo.icon} alt={weatherInfo.desc} />
           <p>{weatherInfo.temp}°C</p>

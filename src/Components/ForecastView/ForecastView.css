@@ -5,6 +5,14 @@
   color: var(--dark-blue);
 }
 
+.forecast__container--warning {
+  text-align: center;
+}
+
+.forecast__container--warning img {
+  width: 70px;
+}
+
 .forecast__city,
 .forecast__date {
   font-size: 14px;

@@ -3,6 +3,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 14px;
+  margin: 12px 0;
   border-radius: 10px;
   background-color: var(--very-light-blue);
 }
@@ -13,8 +14,19 @@
   align-items: center;
   width: 42px;
   height: 42px;
+  border: none;
   border-radius: 50%;
   background-color: var(--white);
+  cursor: pointer;
+}
+
+.task__circle__circle-icon {
+  border-radius: 50%;
+  color: var(--light-blue)
+}
+
+.task__circle__circle-icon:hover {
+  background-color: var(--light-blue);
 }
 
 .task__circle__check-icon {

@@ -5,11 +5,12 @@ import './ForecastView.css';
 
 function ForecastView() {
   const [weatherInfo, setWeatherInfo] = useState('');
-  const [time, setTime] = useState(
-    getMinutes(new Date()).toString().length === 1
-      ? `${getHours(new Date())}:0${getMinutes(new Date())}`
-      : `${getHours(new Date())}:${getMinutes(new Date())}`
-  );
+  const currentTime = () => {
+    const hour = getHours(new Date());
+    const minutes = getMinutes(new Date());
+    return minutes.toString().length === 1 ? `${hour}:0${minutes}` : `${hour}:${minutes}`;
+  };
+  const [time, setTime] = useState(currentTime());
 
   function success(pos) {
     const crd = pos.coords;
@@ -17,7 +18,6 @@ function ForecastView() {
     const { longitude } = crd;
     getWeatherByCoordinates(latitude, longitude).then(resp => {
       const { data } = resp;
-      console.log(data);
       const listOfWeatherInfo = {
         city: data.name,
         temp: Math.round(data.main.temp),
@@ -30,9 +30,7 @@ function ForecastView() {
 
   useEffect(() => {
     setInterval(() => {
-      const hour = getHours(new Date());
-      const minutes = getMinutes(new Date());
-      setTime(minutes.toString().length === 1 ? `${hour}:0${minutes}` : `${hour}:${minutes}`);
+      setTime(currentTime());
     }, 60000);
   }, []);
 

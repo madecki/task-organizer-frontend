@@ -20,7 +20,6 @@ function ForecastView() {
   };
 
   function success(pos) {
-    setGeolocation(false);
     const crd = pos.coords;
     const { latitude } = crd;
     const { longitude } = crd;
@@ -33,8 +32,8 @@ function ForecastView() {
         desc: `${data.weather[0].description} icon`
       };
       setWeatherInfo(listOfWeatherInfo);
-      setGeolocation(true);
     });
+    setGeolocation(true);
   }
 
   useEffect(() => {
@@ -46,25 +45,25 @@ function ForecastView() {
 
   return (
     <>
-      {isGeolocation && (
-        <div className='forecast__container'>
-          <h2 className='forecast__city'>{weatherInfo.city}</h2>
-          <div className='hour-and-weather-wrapper'>
-            <p className='forecast__hour'>{time}</p>
-            <div className='forecast__weather'>
-              <img src={weatherInfo.icon} alt={weatherInfo.desc} />
-              <p>{weatherInfo.temp}°C</p>
-            </div>
-          </div>
-          <p className='forecast__date'>
-            {`${format(new Date(), 'dd.MM.yyyy')} | ${dayOfWeek(new Date())}`}
-          </p>
-        </div>
-      )}
       {!isGeolocation && (
         <div className='forecast__container forecast__container--warning'>
           <img src={warning} alt='warning icon' />
           <p>You do not allow the location, please change it to use the weather forecast</p>
+        </div>
+      )}
+      {isGeolocation && (
+        <div className='forecast__container'>
+          <div className='forecast__city-and-weather-wrapper'>
+            <h2 className='forecast__city'>{weatherInfo.city}</h2>
+            <div className='forecast__weather'>
+              <img className='weather-icon' src={weatherInfo.icon} alt={weatherInfo.desc} />
+              <p>{weatherInfo.temp}°C</p>
+            </div>
+          </div>
+          <p className='forecast__hour'>{time}</p>
+          <p className='forecast__date'>
+            {`${format(new Date(), 'dd.MM.yyyy')} | ${dayOfWeek(new Date())}`}
+          </p>
         </div>
       )}
     </>

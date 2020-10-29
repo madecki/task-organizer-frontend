@@ -1,5 +1,5 @@
 .forecast__container {
-  padding: 30px;
+  padding: 20px 30px 30px 30px;
   border-radius: 30px;
   background-color: var(--white);
   color: var(--dark-blue);
@@ -13,23 +13,17 @@
   width: 70px;
 }
 
-.forecast__city,
-.forecast__date {
-  font-size: 14px;
-  font-weight: 300;
-  line-height: 140%;
-}
-
-.hour-and-weather-wrapper {
+.forecast__city-and-weather-wrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.forecast__hour {
-  font-size: 30px;
-  font-weight: 700;
-  line-height: 35px;
+.forecast__city,
+.forecast__date {
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 140%;
 }
 
 .forecast__weather {
@@ -38,4 +32,18 @@
   font-size: 24px;
   font-weight: 700;
   line-height: 28px;
+}
+
+.weather-icon {
+  width: 50px;
+}
+
+.forecast__hour {
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 35px;
+}
+
+.forecast__date {
+  margin-top: 10px;
 }

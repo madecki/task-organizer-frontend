@@ -145,7 +145,7 @@ function FirstStep({ currentStep, onSubmit, errorText }) {
             You must agree to our terms of service and privacy policy
           </p>
         )}
-        <Button label='NEXT' size='hover' typeBtn='submit' />
+        <Button label='NEXT' uniqueBtn='hover' typeBtn='submit' />
         <div className='registration__separator'>
           <div className='registration__separator__line' />
           <p>OR</p>

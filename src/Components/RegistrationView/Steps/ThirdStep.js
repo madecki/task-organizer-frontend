@@ -16,20 +16,30 @@ function ThirdStep({ currentStep, callBackFn, stepfunc }) {
       <h2>Tell us a bit about yourself</h2>
       <p className='paragraph-type-of-use'>What will you be using our app for?</p>
 
-      <Button icon={['fas', 'suitcase']} size='large' label='WORK' callBackFn={stepfunc} />
+      <Button
+        icon={['fas', 'suitcase']}
+        uniqueBtn='type-of-use'
+        label='WORK'
+        callBackFn={stepfunc}
+      />
 
-      <Button icon={['fas', 'user']} size='large' label='PERSONAL' callBackFn={stepfunc} />
+      <Button
+        icon={['fas', 'user']}
+        uniqueBtn='type-of-use'
+        label='PERSONAL'
+        callBackFn={stepfunc}
+      />
 
       <Button
         icon={['fas', 'graduation-cap']}
-        size='large'
+        uniqueBtn='type-of-use'
         label='SCHOOL'
         callBackFn={event => selectedType(event)}
         selectedButton={selectedButton}
       />
 
       <div className='registration__control-btns'>
-        <Button label='PREV' size='hover' callBackFn={callBackFn} />
+        <Button label='PREV' uniqueBtn='hover' callBackFn={callBackFn} />
         <Button color='turquoise' label='FINISH' typeBtn='submit' />
       </div>
     </>

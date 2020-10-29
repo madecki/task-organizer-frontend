@@ -3,9 +3,9 @@ import './Button.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { PropTypes } from 'prop-types';
 
-function Button({ label, color, icon, size, imgIcon, callBackFn, typeBtn, selectedButton }) {
+function Button({ label, color, icon, uniqueBtn, imgIcon, callBackFn, typeBtn, selectedButton }) {
   let btnColorClass;
-  let btnSizeClass;
+  let btnUniqueClass;
 
   switch (color) {
     case 'turquoise':
@@ -21,20 +21,20 @@ function Button({ label, color, icon, size, imgIcon, callBackFn, typeBtn, select
       btnColorClass = '';
   }
 
-  switch (size) {
+  switch (uniqueBtn) {
     case 'hover':
-      btnSizeClass = 'btn--hover';
+      btnUniqueClass = 'btn--hover';
       break;
-    case 'large':
-      btnSizeClass = 'btn--type-of-use';
+    case 'type-of-use':
+      btnUniqueClass = 'btn--type-of-use';
       break;
     default:
-      btnSizeClass = '';
+      btnUniqueClass = '';
   }
 
   return (
     <button
-      className={`btn ${btnColorClass} ${btnSizeClass} ${selectedButton}`}
+      className={`btn ${btnColorClass} ${btnUniqueClass} ${selectedButton}`}
       type={typeBtn ? 'submit' : 'button'}
       onClick={callBackFn}>
       {icon ? <FontAwesomeIcon icon={icon} /> : null}
@@ -47,7 +47,7 @@ function Button({ label, color, icon, size, imgIcon, callBackFn, typeBtn, select
 Button.propTypes = {
   label: PropTypes.string,
   color: PropTypes.string,
-  size: PropTypes.string,
+  uniqueBtn: PropTypes.string,
   icon: PropTypes.arrayOf(PropTypes.string),
   imgIcon: PropTypes.string,
   callBackFn: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
@@ -58,7 +58,7 @@ Button.propTypes = {
 Button.defaultProps = {
   label: '',
   color: '',
-  size: '',
+  uniqueBtn: '',
   icon: null,
   imgIcon: null,
   callBackFn: null,

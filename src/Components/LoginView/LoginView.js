@@ -55,7 +55,7 @@ function LoginView() {
 
       <div className='login__sign-up'>
         <p>Don&apos;t have an account?</p>
-        <Button label='SIGN UP FOR FREE' size='hover' callBackFn={() => goToRegistation()} />
+        <Button label='SIGN UP FOR FREE' uniqueBtn='hover' callBackFn={() => goToRegistation()} />
       </div>
     </div>
   );

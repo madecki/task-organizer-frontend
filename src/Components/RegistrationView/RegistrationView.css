@@ -179,9 +179,9 @@
   font-size: 14px;
 }
 
-@media (min-width: 576px) {
+@media (min-width: 480px) {
   .registration__container {
-    width: 480px;
+    width: 420px;
     margin: 50px auto;
   }
 

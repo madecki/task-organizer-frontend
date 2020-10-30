@@ -1,21 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import { format, getHours, getISODay, getMinutes } from 'date-fns';
 import getWeatherByCoordinates from '../../request';
-import './ForecastView.css';
 import warning from '../../Assets/Icon/warning.svg';
+import './ForecastView.css';
 
 function ForecastView() {
   const [weatherInfo, setWeatherInfo] = useState('');
   const [isGeolocation, setGeolocation] = useState(false);
+
   const currentTime = () => {
     const hour = getHours(new Date());
     const minutes = getMinutes(new Date());
+
     return minutes.toString().length === 1 ? `${hour}:0${minutes}` : `${hour}:${minutes}`;
   };
+
   const [time, setTime] = useState(currentTime());
+
   const dayOfWeek = date => {
     const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     const day = days[getISODay(date)];
+
     return day;
   };
 
@@ -23,6 +28,7 @@ function ForecastView() {
     const crd = pos.coords;
     const { latitude } = crd;
     const { longitude } = crd;
+
     getWeatherByCoordinates(latitude, longitude).then(resp => {
       const { data } = resp;
       const listOfWeatherInfo = {
@@ -31,6 +37,7 @@ function ForecastView() {
         icon: `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`,
         desc: `${data.weather[0].description} icon`
       };
+
       setWeatherInfo(listOfWeatherInfo);
     });
     setGeolocation(true);
@@ -48,7 +55,7 @@ function ForecastView() {
       {!isGeolocation && (
         <div className='forecast__container forecast__container--warning'>
           <img src={warning} alt='warning icon' />
-          <p>You do not allow the location, please change it to use the weather forecast</p>
+          <p>You do not allow the location, please change it to use the weather forecast.</p>
         </div>
       )}
       {isGeolocation && (
@@ -60,7 +67,7 @@ function ForecastView() {
               <p>{weatherInfo.temp}°C</p>
             </div>
           </div>
-          <p className='forecast__hour'>{time}</p>
+          <p className='forecast__time'>{time}</p>
           <p className='forecast__date'>
             {`${format(new Date(), 'dd.MM.yyyy')} | ${dayOfWeek(new Date())}`}
           </p>

@@ -5,7 +5,7 @@
     "prettier/prettier": ["error", { "singleQuote": true }],
     "jsx-quotes": ["error", "prefer-single"],
     "quotes": ["error", "single", { "avoidEscape": true }],
-    "react/jsx-closing-bracket-location": [0, "after-props"],
+    "react/jsx-closing-bracket-location": [1, "after-props"],
     "jsx-a11y/anchor-is-valid": ["warn"],
     "object-curly-newline": [
       "error",
@@ -37,8 +37,8 @@
     "no-param-reassign": [2, { "props": false }],
     "react/jsx-one-expression-per-line": "off",
     "comma-dangle": ["error", "never"],
-    "arrow-parens": [0, "requireForBlockBody"],
-    "react/button-has-type": "off",
+    "arrow-parens": ["error", "as-needed"],
+    "arrow-body-style": ["error", "always"],
     "implicit-arrow-linebreak": ["off", "beside"],
     "operator-linebreak": ["off", "before"]
   }

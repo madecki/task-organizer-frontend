@@ -22,7 +22,7 @@
 
 .task__circle__circle-icon {
   border-radius: 50%;
-  color: var(--light-blue)
+  color: var(--light-blue);
 }
 
 .task__circle__circle-icon:hover {

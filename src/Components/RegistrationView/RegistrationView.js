@@ -1,28 +1,23 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router';
-import './RegistrationView.css';
 import Button from '../Button/Button';
 import FirstStep from './Steps/FirstStep';
 import SecondStep from './Steps/SecondStep';
 import ThirdStep from './Steps/ThirdStep';
 import FourthStep from './Steps/FourthStep';
+import './RegistrationView.css';
 
 function RegistrationView() {
   const [currentStep, setCurrentStep] = useState(1);
   const errorText = 'This field is required';
 
   const nextStep = () => {
-    let whichStep = currentStep;
-
-    whichStep = currentStep === 1 ? 2 : currentStep + 1;
-
+    const whichStep = currentStep === 1 ? 2 : currentStep + 1;
     setCurrentStep(whichStep);
   };
 
   const prevStep = () => {
-    let whichStep = currentStep;
-
-    whichStep = currentStep === 2 ? 1 : currentStep - 1;
+    const whichStep = currentStep === 2 ? 1 : currentStep - 1;
     setCurrentStep(whichStep);
   };
 
@@ -43,57 +38,51 @@ function RegistrationView() {
     history.push('/');
   };
 
+  const getWrapperClassName = () => {
+    if (currentStep === 3) {
+      return 'registration__container__form-wrapper registration__container__form-wrapper--type-of-use';
+    }
+    if (currentStep === 4) {
+      return 'registration__container__form-wrapper registration__container__form-wrapper--profession';
+    }
+    return 'registration__container__form-wrapper';
+  };
+
   return (
     <>
-      {currentStep === 1 && (
-        <div className='registration__container'>
-          <div className='registration__container__form-wrapper'>
+      <div className='registration__container'>
+        <div className={getWrapperClassName()}>
+          {currentStep === 1 && (
             <FirstStep currentStep={currentStep} onSubmit={onSubmit} errorText={errorText} />
-          </div>
-          <div className='registration__sign-in'>
-            <p>Do you already have an account?</p>
-            <Button color='turquoise' label='SIGN IN' size='small' callBackFn={() => goToLogin()} />
-          </div>
-        </div>
-      )}{' '}
-      {currentStep === 2 && (
-        <div className='registration__container'>
-          <div className='registration__container__form-wrapper'>
+          )}
+          {currentStep === 2 && (
             <SecondStep
               currentStep={currentStep}
               onSubmit={onSubmit}
               errorText={errorText}
               callBackFn={() => prevStep()}
             />
-          </div>
-        </div>
-      )}
-      {currentStep === 3 && (
-        <div className='registration__container'>
-          <div
-            className='registration__container__form-wrapper
-            registration__container__form-wrapper--type-of-use'>
+          )}
+          {currentStep === 3 && (
             <ThirdStep
               currentStep={currentStep}
               stepfunc={() => stepTypeOfProfession()}
               callBackFn={() => prevStep()}
             />
-          </div>
-        </div>
-      )}
-      {currentStep === 4 && (
-        <div className='registration__container'>
-          <div
-            className='registration__container__form-wrapper
-          registration__container__form-wrapper--profession'>
+          )}
+          {currentStep === 4 && (
             <FourthStep
               currentStep={currentStep}
               onSubmit={onSubmit}
               callBackFn={() => prevStep()}
             />
-          </div>
+          )}
         </div>
-      )}
+        <div className='registration__sign-in'>
+          <p>Do you already have an account?</p>
+          <Button color='turquoise' label='SIGN IN' size='small' callBackFn={() => goToLogin()} />
+        </div>
+      </div>
     </>
   );
 }

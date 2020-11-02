@@ -137,10 +137,10 @@ function FirstStep({ currentStep, onSubmit, errorText }) {
           ]}
           id='terms'
           type='checkbox'
-          name='checkbox'
+          name='terms'
           hooksprop={register({ required: true })}
         />
-        {errors.checkbox && (
+        {errors.terms && (
           <p className='registration-error'>
             You must agree to our terms of service and privacy policy
           </p>

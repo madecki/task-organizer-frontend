@@ -4,7 +4,7 @@ import { PropTypes } from 'prop-types';
 import Input from '../Input/Input';
 
 function Checkbox({ text, id, category, type, hooksprop, checked }) {
-  const [checkboxValue, setCheckboxValue] = useState('');
+  const [checkboxValue, setCheckboxValue] = useState(checked);
   let labelClass;
   let spanClass;
 

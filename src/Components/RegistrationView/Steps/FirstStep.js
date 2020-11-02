@@ -9,7 +9,7 @@ import Checkbox from '../../Checkbox/Checkbox';
 import Google from '../../../Assets/Icon/google.png';
 import Facebook from '../../../Assets/Icon/facebook.svg';
 
-function FirstStep({ currentStep, onSubmit, errorText }) {
+function FirstStep({ currentStep, onSubmit, errorText, formData }) {
   const { register, handleSubmit, errors, getValues } = useForm({ reValidateMode: 'onSubmit' });
 
   return (
@@ -24,6 +24,7 @@ function FirstStep({ currentStep, onSubmit, errorText }) {
           text='FIRST NAME'
           placeholder='Kevin'
           hooksprop={register({ required: true, minLength: 2 })}
+          value={formData.firstName}
         />
         {errors.firstName && errors.firstName.type === 'required' && (
           <p className='registration-error'>{errorText}</p>
@@ -39,6 +40,7 @@ function FirstStep({ currentStep, onSubmit, errorText }) {
           text='LAST NAME'
           placeholder='Walker'
           hooksprop={register({ required: true, minLength: 2 })}
+          value={formData.lastName}
         />
         {errors.lastName && errors.lastName.type === 'required' && (
           <p className='registration-error'>{errorText}</p>
@@ -58,6 +60,7 @@ function FirstStep({ currentStep, onSubmit, errorText }) {
               value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i
             }
           })}
+          value={formData.email}
         />
         {errors.email && errors.email.type === 'required' && (
           <p className='registration-error'>{errorText}</p>
@@ -80,6 +83,7 @@ function FirstStep({ currentStep, onSubmit, errorText }) {
             minLength: 8,
             validate: value => [/[a-z]/, /[A-Z]/, /[0-9]/].every(pattern => pattern.test(value))
           })}
+          value={formData.password}
         />
         {errors.password && errors.password.type === 'required' && (
           <p className='registration-error'>{errorText}</p>
@@ -110,6 +114,7 @@ function FirstStep({ currentStep, onSubmit, errorText }) {
               return false;
             }
           })}
+          value={formData.passwordRep}
         />
         {errors.passwordRep && errors.passwordRep.type === 'required' && (
           <p className='registration-error'>{errorText}</p>
@@ -141,13 +146,14 @@ function FirstStep({ currentStep, onSubmit, errorText }) {
           type='checkbox'
           name='terms'
           hooksprop={register({ required: true })}
+          checked={!!formData.terms}
         />
         {errors.terms && (
           <p className='registration-error'>
             You must agree to our terms of service and privacy policy
           </p>
         )}
-        <Button label='NEXT' uniqueBtn='hover' typeBtn='submit' />
+        <Button label='NEXT' uniqueBtn='hover' type='submit' />
         <div className='registration__separator'>
           <div className='registration__separator__line' />
           <p>OR</p>
@@ -165,7 +171,8 @@ function FirstStep({ currentStep, onSubmit, errorText }) {
 FirstStep.propTypes = {
   currentStep: PropTypes.number.isRequired,
   onSubmit: PropTypes.func.isRequired,
-  errorText: PropTypes.string.isRequired
+  errorText: PropTypes.string.isRequired,
+  formData: PropTypes.objectOf(PropTypes.string).isRequired
 };
 
 export default FirstStep;

@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Input.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { PropTypes } from 'prop-types';
 
-function Input({ icon, type, id, text, placeholder, name, hooksprop, autocomplete }) {
+function Input({ icon, type, id, text, placeholder, name, hooksprop, autocomplete, value }) {
+  const [inputValue, setInputValue] = useState(value);
+
   return (
     <>
       <label className='input__label' htmlFor={id}>
@@ -19,6 +21,10 @@ function Input({ icon, type, id, text, placeholder, name, hooksprop, autocomplet
           placeholder={placeholder}
           ref={hooksprop}
           autoComplete={autocomplete}
+          onChange={event => {
+            setInputValue(event.target.value);
+          }}
+          value={inputValue}
         />
       </div>
     </>
@@ -33,7 +39,8 @@ Input.propTypes = {
   placeholder: PropTypes.string.isRequired,
   name: PropTypes.string,
   hooksprop: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-  autocomplete: PropTypes.bool
+  autocomplete: PropTypes.string,
+  value: PropTypes.string
 };
 
 Input.defaultProps = {
@@ -41,7 +48,8 @@ Input.defaultProps = {
   text: '',
   name: '',
   hooksprop: null,
-  autocomplete: ''
+  autocomplete: '',
+  value: ''
 };
 
 export default Input;

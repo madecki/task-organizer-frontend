@@ -3,7 +3,7 @@ import './Button.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { PropTypes } from 'prop-types';
 
-function Button({ label, color, icon, uniqueBtn, imgIcon, callBackFn, typeBtn, selectedButton }) {
+function Button({ label, color, icon, uniqueBtn, imgIcon, callBackFn, type, selectedButton }) {
   let btnColorClass;
   let btnUniqueClass;
 
@@ -35,7 +35,7 @@ function Button({ label, color, icon, uniqueBtn, imgIcon, callBackFn, typeBtn, s
   return (
     <button
       className={`btn ${btnColorClass} ${btnUniqueClass} ${selectedButton}`}
-      type={typeBtn ? 'submit' : 'button'}
+      type={type ? 'submit' : 'button'}
       onClick={callBackFn}>
       {icon ? <FontAwesomeIcon icon={icon} /> : null}
       {imgIcon ? <img src={imgIcon} alt={`${imgIcon} logo`} /> : null}
@@ -51,7 +51,7 @@ Button.propTypes = {
   icon: PropTypes.arrayOf(PropTypes.string),
   imgIcon: PropTypes.string,
   callBackFn: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
-  typeBtn: PropTypes.string,
+  type: PropTypes.string,
   selectedButton: PropTypes.string
 };
 
@@ -62,7 +62,7 @@ Button.defaultProps = {
   icon: null,
   imgIcon: null,
   callBackFn: null,
-  typeBtn: '',
+  type: '',
   selectedButton: ''
 };
 

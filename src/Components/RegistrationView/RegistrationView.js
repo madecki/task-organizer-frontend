@@ -9,6 +9,7 @@ import './RegistrationView.css';
 
 function RegistrationView() {
   const [currentStep, setCurrentStep] = useState(1);
+  const [registrationData, setRegistrationData] = useState({});
   const errorText = 'This field is required';
 
   const nextStep = () => {
@@ -28,7 +29,11 @@ function RegistrationView() {
     setCurrentStep(whichStep);
   };
 
-  const onSubmit = () => {
+  const onSubmit = currentStepFields => {
+    let formData = registrationData;
+    formData = { ...formData, ...currentStepFields };
+
+    setRegistrationData(formData);
     nextStep();
   };
 
@@ -55,7 +60,12 @@ function RegistrationView() {
       <div className='registration__container'>
         <div className={getWrapperClassName()}>
           {currentStep === 1 && (
-            <FirstStep currentStep={currentStep} onSubmit={onSubmit} errorText={errorText} />
+            <FirstStep
+              currentStep={currentStep}
+              onSubmit={onSubmit}
+              errorText={errorText}
+              formData={registrationData}
+            />
           )}
           {currentStep === 2 && (
             <SecondStep
@@ -63,6 +73,7 @@ function RegistrationView() {
               onSubmit={onSubmit}
               errorText={errorText}
               callBackFn={() => prevStep()}
+              formData={registrationData}
             />
           )}
           {currentStep === 3 && (
@@ -70,6 +81,7 @@ function RegistrationView() {
               currentStep={currentStep}
               stepfunc={() => stepTypeOfProfession()}
               callBackFn={() => prevStep()}
+              formData={registrationData}
             />
           )}
           {currentStep === 4 && (
@@ -77,6 +89,7 @@ function RegistrationView() {
               currentStep={currentStep}
               onSubmit={onSubmit}
               callBackFn={() => prevStep()}
+              formData={registrationData}
             />
           )}
         </div>

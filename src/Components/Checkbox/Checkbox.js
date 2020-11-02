@@ -3,7 +3,7 @@ import './Checkbox.css';
 import { PropTypes } from 'prop-types';
 import Input from '../Input/Input';
 
-function Checkbox({ text, id, category, type, hooksprop }) {
+function Checkbox({ text, id, category, type, hooksprop, checked }) {
   const [checkboxValue, setCheckboxValue] = useState('');
   let labelClass;
   let spanClass;
@@ -34,6 +34,7 @@ function Checkbox({ text, id, category, type, hooksprop }) {
           ref={hooksprop}
           value={checkboxValue}
           onChange={event => handleChange(event)}
+          checked={checkboxValue}
         />
         <span className={spanClass} />
       </label>
@@ -49,12 +50,14 @@ Checkbox.propTypes = {
   id: PropTypes.string.isRequired,
   category: PropTypes.string,
   type: PropTypes.string.isRequired,
-  hooksprop: PropTypes.oneOfType([PropTypes.func, PropTypes.string])
+  hooksprop: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+  checked: PropTypes.bool
 };
 
 Checkbox.defaultProps = {
   category: '',
-  hooksprop: null
+  hooksprop: null,
+  checked: false
 };
 
 export default Checkbox;

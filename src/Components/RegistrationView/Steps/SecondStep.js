@@ -132,7 +132,7 @@ function SecondStep({ currentStep, onSubmit, errorText, callBackFn }) {
         )}
         <div className='registration__control-btns'>
           <Button label='PREV' uniqueBtn='hover' callBackFn={callBackFn} />
-          <Button label='NEXT' uniqueBtn='hover' typeBtn='submit' />
+          <Button label='NEXT' uniqueBtn='hover' type='submit' />
         </div>
       </form>
     </>

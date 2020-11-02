@@ -52,7 +52,7 @@ function FourthStep({ currentStep, onSubmit, callBackFn }) {
 
         <div className='registration__control-btns'>
           <Button label='PREV' uniqueBtn='hover' callBackFn={callBackFn} />
-          <Button color='turquoise' label='FINISH' typeBtn='submit' />
+          <Button color='turquoise' label='FINISH' type='submit' />
         </div>
       </form>
     </>

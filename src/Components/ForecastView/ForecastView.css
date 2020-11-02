@@ -29,6 +29,9 @@
 .forecast__weather {
   display: flex;
   align-items: center;
+}
+
+.forecast__weather p {
   font-size: 24px;
   font-weight: 700;
   line-height: 28px;

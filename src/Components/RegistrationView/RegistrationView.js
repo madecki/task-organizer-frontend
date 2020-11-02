@@ -40,10 +40,12 @@ function RegistrationView() {
 
   const getWrapperClassName = () => {
     if (currentStep === 3) {
-      return 'registration__container__form-wrapper registration__container__form-wrapper--type-of-use';
+      return `registration__container__form-wrapper 
+      registration__container__form-wrapper--type-of-use`;
     }
     if (currentStep === 4) {
-      return 'registration__container__form-wrapper registration__container__form-wrapper--profession';
+      return `registration__container__form-wrapper 
+      registration__container__form-wrapper--profession`;
     }
     return 'registration__container__form-wrapper';
   };

@@ -3,28 +3,25 @@ import './Input.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { PropTypes } from 'prop-types';
 
-function Input({ icon, type, id, text, placeholder, sizeWrapperText, name, hooksprop }) {
+function Input({ icon, type, id, text, placeholder, name, hooksprop, autocomplete }) {
   return (
-    <div className='input-container'>
-      <label className='input-container__label' htmlFor={id}>
+    <>
+      <label className='input__label' htmlFor={id}>
         {text}
       </label>
-      <div className='input-container__wrapper'>
-        <div className='input-container__wrapper__icon'>
-          {icon ? <FontAwesomeIcon icon={icon} /> : null}
-        </div>
+      <div className='input__wrapper'>
+        <div className='input__icon'>{icon ? <FontAwesomeIcon icon={icon} /> : null}</div>
         <input
-          className={`input-container__wrapper__text ${
-            sizeWrapperText ? 'input-container__wrapper__text--small' : ''
-          }`}
+          className='input'
           id={id}
           type={type}
           name={name || id}
           placeholder={placeholder}
           ref={hooksprop}
+          autoComplete={autocomplete}
         />
       </div>
-    </div>
+    </>
   );
 }
 
@@ -34,17 +31,17 @@ Input.propTypes = {
   id: PropTypes.string.isRequired,
   text: PropTypes.string,
   placeholder: PropTypes.string.isRequired,
-  sizeWrapperText: PropTypes.string,
   name: PropTypes.string,
-  hooksprop: PropTypes.oneOfType([PropTypes.func, PropTypes.string])
+  hooksprop: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+  autocomplete: PropTypes.bool
 };
 
 Input.defaultProps = {
   icon: null,
   text: '',
-  sizeWrapperText: '',
   name: '',
-  hooksprop: null
+  hooksprop: null,
+  autocomplete: ''
 };
 
 export default Input;

@@ -74,6 +74,7 @@ function FirstStep({ currentStep, onSubmit, errorText }) {
           id='password'
           text='PASSWORD'
           placeholder='A1234567'
+          autocomplete='new-password'
           hooksprop={register({
             required: true,
             minLength: 8,
@@ -98,6 +99,7 @@ function FirstStep({ currentStep, onSubmit, errorText }) {
           text='REPEAT PASSWORD'
           placeholder='A1234567'
           name='passwordRep'
+          autocomplete='new-password'
           hooksprop={register({
             required: true,
             minLength: 8,

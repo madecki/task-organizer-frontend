@@ -61,7 +61,6 @@ function SecondStep({ currentStep, onSubmit, errorText, callBackFn }) {
           id='dateOfBirth'
           text='DATE OF BIRTH'
           placeholder='01.01.1960'
-          sizeWrapperText='small'
           hooksprop={register({
             required: true,
             minLength: 10,

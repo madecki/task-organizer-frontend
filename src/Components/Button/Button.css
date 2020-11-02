@@ -1,0 +1,62 @@
+.btn {
+  padding: 15px 45px;
+  border: 0;
+  border-radius: 20px;
+  background-color: var(--fb-blue);
+  color: var(--white);
+  font-weight: 700;
+}
+
+.btn--sign-in {
+  background-color: var(--turquoise);
+  color: var(--white);
+}
+
+.btn--fb {
+  background-color: var(--fb-blue);
+  color: var(--white);
+}
+
+.btn--default {
+  background-color: var(--royal-blue);
+  color: var(--white);
+}
+
+.btn--google {
+  background-color: var(--white);
+  color: var(--black);
+  border: 1px solid var(--black);
+}
+
+.fa-google,
+.fa-facebook-f {
+  margin-right: 6px;
+}
+
+.btn--large {
+  padding: 15px 53px;
+}
+
+.btn--free-sign-up {
+  padding: 15px 43px;
+}
+
+@media (min-width: 375px) {
+  .btn {
+    padding: 15px 50px;
+  }
+}
+
+@media (min-width: 500px) {
+  .btn {
+    padding: 15px 70px;
+  }
+
+  .btn--large {
+    padding: 15px 53px;
+  }
+
+  .btn--free-sign-up {
+    padding: 15px 43px;
+  }
+}

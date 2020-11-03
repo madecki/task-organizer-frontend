@@ -48,6 +48,10 @@
   font-size: 14px;
 }
 
+.password-requirements p {
+  font-weight: 300;
+}
+
 .registration__container .container-label-square {
   width: 80%;
   margin: 0 auto 25px auto;

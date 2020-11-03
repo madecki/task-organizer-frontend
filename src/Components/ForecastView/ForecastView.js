@@ -34,7 +34,7 @@ function ForecastView() {
       const listOfWeatherInfo = {
         city: data.name,
         temp: Math.round(data.main.temp),
-        icon: `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`,
+        icon: `http://openweathermap.org/img/wn/${data.weather[0].icon}@2d.png`,
         desc: `${data.weather[0].description} icon`
       };
 

@@ -42,11 +42,18 @@
 }
 
 .forecast__time {
-  font-size: 30px;
-  font-weight: 700;
-  line-height: 35px;
+  display: none;
 }
 
-.forecast__date {
-  margin-top: 10px;
+@media (min-width: 768px) {
+  .forecast__time {
+    display: initial;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 35px;
+  }
+
+  .forecast__date {
+    margin-top: 15px;
+  }
 }

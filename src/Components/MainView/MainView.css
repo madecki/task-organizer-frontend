@@ -3,8 +3,8 @@
 }
 
 .main__container {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr;
   padding: 2%;
 }
 
@@ -12,7 +12,7 @@
   .main__container {
     display: grid;
     grid-template-columns: 1fr 2fr;
-    grid-column-gap: 2%;
+    column-gap: 2%;
   }
 
   .forecast__container {
@@ -28,5 +28,11 @@
   .main__container {
     width: 960px;
     margin: 0 auto;
+  }
+}
+
+@media (min-width: 1200px) {
+  .main__container {
+    width: 1140px;
   }
 }

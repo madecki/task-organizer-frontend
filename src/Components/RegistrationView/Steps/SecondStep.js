@@ -4,7 +4,7 @@ import { PropTypes } from 'prop-types';
 import Stepper from '../Stepper/Stepper';
 import Button from '../../Button/Button';
 import Input from '../../Input/Input';
-import Checkbox from '../../Checkbox/Checkbox';
+import Radio from '../../Radio/Radio';
 
 function SecondStep({ currentStep, onSubmit, errorText, callBackFn }) {
   const { register, handleSubmit, errors } = useForm({ reValidateMode: 'onSubmit' });
@@ -13,29 +13,11 @@ function SecondStep({ currentStep, onSubmit, errorText, callBackFn }) {
     <>
       <Stepper currentStep={currentStep} />{' '}
       <form className='registration__container__form' onSubmit={handleSubmit(onSubmit)}>
-        <div className='gender-wrapper'>
+        <div className='gender-radio'>
           <p className='gender-paragraph'>GENDER:</p>
-          <Checkbox
-            text='female'
-            id='female'
-            category='round'
-            type='radio'
-            hooksprop={register({ required: true })}
-          />
-          <Checkbox
-            text='male'
-            id='male'
-            category='round'
-            type='radio'
-            hooksprop={register({ required: true })}
-          />
-          <Checkbox
-            text='other'
-            id='other'
-            category='round'
-            type='radio'
-            hooksprop={register({ required: true })}
-          />
+          <Radio text='female' id='female' name='gender' hooksprop={register({ required: true })} />
+          <Radio text='male' id='male' name='gender' hooksprop={register({ required: true })} />
+          <Radio text='other' id='other' name='gender' hooksprop={register({ required: true })} />
           {errors.radio && <p className='registration-error'>You have to make a choice</p>}
         </div>
         <Input

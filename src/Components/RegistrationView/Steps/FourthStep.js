@@ -3,7 +3,8 @@ import { PropTypes } from 'prop-types';
 import { useForm } from 'react-hook-form';
 import Stepper from '../Stepper/Stepper';
 import Button from '../../Button/Button';
-import Checkbox from '../../Checkbox/Checkbox';
+import Radio from '../../Radio/Radio';
+// import Input from '../../Input/Input';
 
 function FourthStep({ currentStep, onSubmit, callBackFn }) {
   const { register, handleSubmit, errors } = useForm({ reValidateMode: 'onSubmit' });
@@ -27,23 +28,23 @@ function FourthStep({ currentStep, onSubmit, callBackFn }) {
       <h2>What is your profession?</h2>
       <form onSubmit={handleSubmit(onSubmit)}>
         {professions.map(prof => (
-          <Checkbox
+          <Radio
             key={prof}
             text={prof}
             id={prof}
-            category='round'
-            type='radio'
+            name='profession'
             hooksprop={register({ required: true })}
           />
         ))}
         <div className='checkbox-and-input-wrapper'>
-          <Checkbox
+          <Radio
+            key='other-profession'
             text='Other (which?)'
             id='other-profession'
-            category='round'
-            type='radio'
+            name='profession'
             hooksprop={register({ required: true })}
           />
+          {/* <Input type='text' id='typeOfProfession' placeholder='Work' /> */}
         </div>
         {errors.radio && <p className='registration-error'>You have to make a choice</p>}
         {errors.typeOfProfession && (

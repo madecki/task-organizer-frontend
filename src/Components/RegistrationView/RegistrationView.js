@@ -8,7 +8,7 @@ import FourthStep from './Steps/FourthStep';
 import './RegistrationView.css';
 
 function RegistrationView() {
-  const [currentStep, setCurrentStep] = useState(4);
+  const [currentStep, setCurrentStep] = useState(1);
   const [registrationData, setRegistrationData] = useState({});
   const errorText = 'This field is required';
 

@@ -1,13 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { PropTypes } from 'prop-types';
 import { useForm } from 'react-hook-form';
 import Stepper from '../Stepper/Stepper';
 import Button from '../../Button/Button';
 import Radio from '../../Radio/Radio';
-// import Input from '../../Input/Input';
+import Input from '../../Input/Input';
 
 function FourthStep({ currentStep, onSubmit, callBackFn }) {
   const { register, handleSubmit, errors } = useForm({ reValidateMode: 'onSubmit' });
+  const [isRadioSelected, setRadioState] = useState(false);
 
   const professions = [
     'Education',
@@ -21,6 +22,10 @@ function FourthStep({ currentStep, onSubmit, callBackFn }) {
     'Trade',
     'Transport'
   ];
+
+  const textInputVisibilityChanger = () => {
+    setRadioState(true);
+  };
 
   return (
     <>
@@ -43,8 +48,9 @@ function FourthStep({ currentStep, onSubmit, callBackFn }) {
             id='other-profession'
             name='profession'
             hooksprop={register({ required: true })}
+            onChange={() => textInputVisibilityChanger()}
           />
-          {/* <Input type='text' id='typeOfProfession' placeholder='Work' /> */}
+          {isRadioSelected && <Input type='text' id='typeOfProfession' placeholder='Work' />}
         </div>
         {errors.radio && <p className='registration-error'>You have to make a choice</p>}
         {errors.typeOfProfession && (

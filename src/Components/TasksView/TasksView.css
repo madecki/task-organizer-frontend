@@ -8,25 +8,21 @@
 }
 
 .tasks-list__title {
-  margin-bottom: 15px;
   font-size: 30px;
   font-weight: 700;
   line-height: 35px;
 }
 
 .tasks-list__text {
+  margin: 10px 0 40px 0;
   font-size: 14px;
   font-weight: 300;
   line-height: 140%;
 }
 
-.tasks-list__wrapper {
-  margin-top: 15px;
-}
-
 .tasks-list__add-task--btn {
   position: fixed;
-  bottom: 45px;
+  bottom: 30px;
   right: 45px;
   align-self: flex-end;
   padding: 30px;
@@ -34,6 +30,7 @@
   border-radius: 50%;
   background-color: var(--dark-blue);
   cursor: pointer;
+  outline: none;
 }
 
 .tasks-list__add-task--btn__plus-icon {

@@ -10,11 +10,11 @@ function Task({ text }) {
 
   return (
     <div className='task__container'>
-      <button type='button' className='task__circle' onClick={() => iconSwitch()}>
+      <button type='button' className='task__btn' onClick={() => iconSwitch()}>
         {!isDone ? (
-          <FontAwesomeIcon className='task__circle__circle-icon' icon={['far', 'circle']} />
+          <FontAwesomeIcon className='task__btn__circle-icon' icon={['far', 'circle']} />
         ) : (
-          <FontAwesomeIcon className='task__circle__check-icon' icon={['fas', 'check']} />
+          <FontAwesomeIcon className='task__btn__check-icon' icon={['fas', 'check']} />
         )}{' '}
       </button>
       <h3 className='task__content'>{text}</h3>

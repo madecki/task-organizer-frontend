@@ -68,24 +68,29 @@ function ForecastView() {
       )}
       {isGeolocation && (
         <div className='forecast__container'>
-          <h2 className='forecast__city'>{weatherInfo.city}</h2>
-          <div className='forecast__time-and-weather'>
-            <p className='forecast__time'>{time}</p>
-            <div className='forecast__weather'>
-              {isError && (
-                <>
+          {isError && (
+            <>
+              <div className='forecast__time-and-weather'>
+                <p className='forecast__time'>{time}</p>
+                <div className='forecast__weather'>
                   <img className='warning-icon' src={warning} alt='warning icon' />
                   <p className='warning-info'>No weather data</p>
-                </>
-              )}
-              {!isError && (
-                <>
+                </div>
+              </div>
+            </>
+          )}
+          {!isError && (
+            <>
+              <h2 className='forecast__city'>{weatherInfo.city}</h2>
+              <div className='forecast__time-and-weather'>
+                <p className='forecast__time'>{time}</p>
+                <div className='forecast__weather'>
                   <img className='weather-icon' src={weatherInfo.icon} alt={weatherInfo.desc} />
                   <p>{weatherInfo.temp}° C</p>
-                </>
-              )}
-            </div>
-          </div>
+                </div>
+              </div>
+            </>
+          )}
           <p className='forecast__date'>
             {`${format(new Date(), 'dd.MM.yyyy')} | ${dayOfWeek(new Date())}`}
           </p>

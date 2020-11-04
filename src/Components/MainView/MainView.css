@@ -5,14 +5,15 @@
 .main__container {
   display: grid;
   grid-template-columns: 1fr;
-  padding: 2%;
+  padding: 15px;
+  gap: 15px;
 }
 
 @media (min-width: 768px) {
   .main__container {
     display: grid;
     grid-template-columns: 300px 2fr;
-    column-gap: 2%;
+    column-gap: 15px;
   }
 
   .forecast__container {

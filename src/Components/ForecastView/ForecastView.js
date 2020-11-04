@@ -6,7 +6,8 @@ import './ForecastView.css';
 
 function ForecastView() {
   const [weatherInfo, setWeatherInfo] = useState('');
-  const [isGeolocation, setGeolocation] = useState(false);
+  const [isGeolocation, setGeolocationState] = useState(false);
+  const [isError, setErrorState] = useState(false);
 
   const currentTime = () => {
     const hour = getHours(new Date());
@@ -29,18 +30,25 @@ function ForecastView() {
     const { latitude } = crd;
     const { longitude } = crd;
 
-    getWeatherByCoordinates(latitude, longitude).then(resp => {
-      const { data } = resp;
-      const listOfWeatherInfo = {
-        city: data.name,
-        temp: Math.round(data.main.temp),
-        icon: `http://openweathermap.org/img/wn/${data.weather[0].icon}@2d.png`,
-        desc: `${data.weather[0].description} icon`
-      };
+    getWeatherByCoordinates(latitude, longitude)
+      .then(resp => {
+        const { data } = resp;
+        const listOfWeatherInfo = {
+          city: data.name,
+          temp: Math.round(data.main.temp),
+          icon: `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`,
+          desc: `${data.weather[0].description} icon`
+        };
 
-      setWeatherInfo(listOfWeatherInfo);
-    });
-    setGeolocation(true);
+        setWeatherInfo(listOfWeatherInfo);
+      })
+      .catch(() => {
+        setErrorState(true);
+      });
+
+    setErrorState(false);
+
+    setGeolocationState(true);
   }
 
   useEffect(() => {
@@ -60,14 +68,24 @@ function ForecastView() {
       )}
       {isGeolocation && (
         <div className='forecast__container'>
-          <div className='forecast__city-and-weather-wrapper'>
-            <h2 className='forecast__city'>{weatherInfo.city}</h2>
+          <h2 className='forecast__city'>{weatherInfo.city}</h2>
+          <div className='forecast__time-and-weather'>
+            <p className='forecast__time'>{time}</p>
             <div className='forecast__weather'>
-              <img className='weather-icon' src={weatherInfo.icon} alt={weatherInfo.desc} />
-              <p>{weatherInfo.temp}°C</p>
+              {isError && (
+                <>
+                  <img className='warning-icon' src={warning} alt='warning icon' />
+                  <p className='warning-info'>No weather data</p>
+                </>
+              )}
+              {!isError && (
+                <>
+                  <img className='weather-icon' src={weatherInfo.icon} alt={weatherInfo.desc} />
+                  <p>{weatherInfo.temp}° C</p>
+                </>
+              )}
             </div>
           </div>
-          <p className='forecast__time'>{time}</p>
           <p className='forecast__date'>
             {`${format(new Date(), 'dd.MM.yyyy')} | ${dayOfWeek(new Date())}`}
           </p>

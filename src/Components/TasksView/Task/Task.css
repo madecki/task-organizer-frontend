@@ -1,0 +1,48 @@
+.task__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px;
+  margin-top: 12px;
+  border-radius: 10px;
+  background-color: var(--very-light-blue);
+}
+
+.task__container:first-child {
+  margin: 0;
+}
+
+.task__btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 42px;
+  height: 42px;
+  border: none;
+  border-radius: 50%;
+  background-color: var(--white);
+  cursor: pointer;
+  outline: none;
+}
+
+.task__btn__circle-icon {
+  border-radius: 50%;
+  color: var(--light-blue);
+}
+
+.task__btn__check-icon {
+  color: var(--green);
+  font-size: 12px;
+}
+
+.task__content {
+  flex-grow: 1;
+  margin: 0 14px;
+  font-size: 20px;
+  line-height: 23px;
+}
+
+.task__delete-icon {
+  color: var(--light-blue);
+  font-size: 20px;
+}

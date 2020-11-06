@@ -1,30 +1,39 @@
-.main__container {
-  display: flex;
-  flex-direction: column;
-  padding: 2%;
+.main {
   background-color: var(--light-gray);
+}
+
+.main__container {
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: 15px;
+  gap: 15px;
 }
 
 @media (min-width: 768px) {
   .main__container {
     display: grid;
-    grid-template-columns: 32% 32% 32%;
-    grid-template-rows: auto;
-    grid-column-gap: 2%;
-    grid-template-areas:
-      'forecast task .'
-      '. task .'
-      '. task .'
-      '. . .'
-      '. . .'
-      '. . .';
+    grid-template-columns: 300px 2fr;
+    column-gap: 15px;
   }
 
   .forecast__container {
-    grid-area: forecast;
+    grid-row: 1;
   }
 
   .task__container {
-    grid-area: task;
+    grid-row: 1 / 3;
+  }
+}
+
+@media (min-width: 1024px) {
+  .main__container {
+    width: 960px;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 1200px) {
+  .main__container {
+    width: 1140px;
   }
 }

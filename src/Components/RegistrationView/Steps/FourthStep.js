@@ -23,9 +23,13 @@ function FourthStep({ currentStep, onSubmit, callBackFn }) {
     'Transport'
   ];
 
-  const textInputVisibilityChanger = () => {
-    setRadioState(true);
-  };
+  // const textInputVisibilityChanger = () => {
+  //   if (isRadioSelected === false) {
+  //     setRadioState(true);
+  //   } else {
+  //     setRadioState(true);
+  //   }
+  // };
 
   return (
     <>
@@ -41,14 +45,17 @@ function FourthStep({ currentStep, onSubmit, callBackFn }) {
             hooksprop={register({ required: true })}
           />
         ))}
-        <div className='checkbox-and-input-wrapper'>
+        <div
+          className='checkbox-and-input-wrapper'
+          onChange={() => (!isRadioSelected ? setRadioState(true) : setRadioState(false))}>
+          {/* W TYM MIEJSCU WPISANY onChange DZIAŁA ALE TYLKO W JEDNĄ STRONĘ. PO 'ODZNACZENIU' TEGO RADIO POZOSTAJE WIDOCZNE POLE TEKSTOWE */}
           <Radio
             key='other-profession'
             text='Other (which?)'
             id='other-profession'
             name='profession'
             hooksprop={register({ required: true })}
-            onChange={() => textInputVisibilityChanger()}
+            // onChange={() => (!isRadioSelected ? setRadioState(true) : setRadioState(false))} W TYM MIEJSCU WPISANY onChange NIE DZIAŁA
           />
           {isRadioSelected && <Input type='text' id='typeOfProfession' placeholder='Work' />}
         </div>

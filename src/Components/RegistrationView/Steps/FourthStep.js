@@ -8,7 +8,7 @@ import Input from '../../Input/Input';
 
 function FourthStep({ currentStep, onSubmit, callBackFn }) {
   const { register, handleSubmit, errors } = useForm({ reValidateMode: 'onSubmit' });
-  const [ selectedProfession , selectProfession] = useState('');
+  const [selectedProfession, selectProfession] = useState('');
 
   const professions = [
     'Education',
@@ -25,8 +25,8 @@ function FourthStep({ currentStep, onSubmit, callBackFn }) {
   ];
 
   useEffect(() => {
-    console.log('selected changed', selectedProfession)
-  }, [selectedProfession])
+    console.log('selected changed', selectedProfession);
+  }, [selectedProfession]);
 
   return (
     <>
@@ -40,14 +40,18 @@ function FourthStep({ currentStep, onSubmit, callBackFn }) {
             name='profession'
             hooksprop={register({ required: true })}
             isChecked={prof === selectedProfession}
-            onChange={prof => {selectProfession(prof) }}
+            onChange={profSelected => {
+              selectProfession(profSelected);
+            }}
           />
         ))}
 
         <div className='checkbox-and-input-wrapper'>
-          {selectedProfession === 'Other' && <Input type='text' id='typeOfProfession' placeholder='Work' />}
+          {selectedProfession === 'Other' && (
+            <Input type='text' id='typeOfProfession' placeholder='Work' />
+          )}
         </div>
-        
+
         {errors.radio && <p className='registration-error'>You have to make a choice</p>}
         {errors.typeOfProfession && (
           <p className='registration-error'>You have to enter the name of the profession</p>

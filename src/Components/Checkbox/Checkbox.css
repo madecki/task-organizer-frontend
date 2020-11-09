@@ -1,4 +1,3 @@
-.container-label-round,
 .container-label-square {
   position: relative;
   display: block;
@@ -7,7 +6,6 @@
   cursor: pointer;
 }
 
-.container-label-round input,
 .container-label-square input {
   position: absolute;
   width: 0;
@@ -16,7 +14,6 @@
   cursor: pointer;
 }
 
-.checkmark-round,
 .checkmark-square {
   position: absolute;
   top: 0;
@@ -24,46 +21,22 @@
   background-color: #eee;
 }
 
-.container-label-round:hover input ~ .checkmark-round,
 .container-label-square:hover input ~ .checkmark-square {
   background-color: #ccc;
 }
 
-.container-label-round input:checked ~ .checkmark-round,
 .container-label-square input:checked ~ .checkmark-square {
   background-color: var(--sky-blue);
 }
 
-.checkmark-round:after,
 .checkmark-square:after {
   position: absolute;
   display: none;
   content: '';
 }
 
-.container-label-round input:checked ~ .checkmark-round:after,
 .container-label-square input:checked ~ .checkmark-square:after {
   display: block;
-}
-
-.container-label-round {
-  font-size: 14px;
-  font-weight: 300;
-}
-
-.checkmark-round {
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-}
-
-.container-label-round .checkmark-round:after {
-  left: 5px;
-  top: 5px;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: white;
 }
 
 .container-label-square {

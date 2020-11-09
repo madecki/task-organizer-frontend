@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { PropTypes } from 'prop-types';
 import Stepper from '../Stepper/Stepper';
@@ -8,6 +8,9 @@ import Radio from '../../Radio/Radio';
 
 function SecondStep({ currentStep, onSubmit, errorText, callBackFn }) {
   const { register, handleSubmit, errors } = useForm({ reValidateMode: 'onSubmit' });
+  const [selectedGender, selectGender] = useState('');
+
+  const gender = ['male', 'female', 'other'];
 
   return (
     <>
@@ -15,10 +18,19 @@ function SecondStep({ currentStep, onSubmit, errorText, callBackFn }) {
       <form className='registration__container__form' onSubmit={handleSubmit(onSubmit)}>
         <div className='gender-radio'>
           <p className='gender-paragraph'>GENDER:</p>
-          <Radio text='female' id='female' name='gender' hooksprop={register({ required: true })} />
-          <Radio text='male' id='male' name='gender' hooksprop={register({ required: true })} />
-          <Radio text='other' id='other' name='gender' hooksprop={register({ required: true })} />
-          {errors.radio && <p className='registration-error'>You have to make a choice</p>}
+          {gender.map(sex => (
+            <Radio
+              key={sex}
+              name='gender'
+              label={sex}
+              hooksprop={register({ required: true })}
+              isChecked={sex === selectedGender}
+              onChange={sexSelected => {
+                selectGender(sexSelected);
+              }}
+            />
+          ))}
+          {errors.gender && <p className='registration-error'>You have to make a choice</p>}
         </div>
         <Input
           icon={['fas', 'phone-square-alt']}

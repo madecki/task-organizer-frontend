@@ -1,5 +1,4 @@
-.container-label-round,
-.container-label-square {
+.container-label-round {
   position: relative;
   display: block;
   padding-left: 35px;
@@ -7,8 +6,7 @@
   cursor: pointer;
 }
 
-.container-label-round input,
-.container-label-square input {
+.container-label-round input {
   position: absolute;
   width: 0;
   height: 0;
@@ -16,33 +14,28 @@
   cursor: pointer;
 }
 
-.checkmark-round,
-.checkmark-square {
+.checkmark-round {
   position: absolute;
   top: 0;
   left: 0;
   background-color: #eee;
 }
 
-.container-label-round:hover input ~ .checkmark-round,
-.container-label-square:hover input ~ .checkmark-square {
+.container-label-round:hover input ~ .checkmark-round{
   background-color: #ccc;
 }
 
-.container-label-round input:checked ~ .checkmark-round,
-.container-label-square input:checked ~ .checkmark-square {
+.container-label-round input:checked ~ .checkmark-round {
   background-color: var(--sky-blue);
 }
 
-.checkmark-round:after,
-.checkmark-square:after {
+.checkmark-round:after {
   position: absolute;
   display: none;
   content: '';
 }
 
-.container-label-round input:checked ~ .checkmark-round:after,
-.container-label-square input:checked ~ .checkmark-square:after {
+.container-label-round input:checked ~ .checkmark-round:after {
   display: block;
 }
 
@@ -64,48 +57,4 @@
   height: 6px;
   border-radius: 50%;
   background: white;
-}
-
-.container-label-square {
-  font-size: 22px;
-}
-
-.container-label-square p {
-  font-size: 14px;
-  font-weight: 300;
-}
-
-.container-label-square a {
-  color: var(--black);
-  font-weight: 500;
-}
-
-.checkmark-square {
-  width: 25px;
-  height: 25px;
-  border-radius: 5px;
-}
-
-.container-label-square .checkmark-square:after {
-  left: 9px;
-  top: 5px;
-  width: 5px;
-  height: 10px;
-  border: solid white;
-  border-width: 0 3px 3px 0;
-  -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  transform: rotate(45deg);
-}
-
-@media (min-width: 500px) {
-  .checkmark-square {
-    width: 20px;
-    height: 20px;
-  }
-
-  .container-label-square .checkmark-square:after {
-    left: 6px;
-    top: 2px;
-  }
 }

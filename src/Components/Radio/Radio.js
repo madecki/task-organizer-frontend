@@ -25,7 +25,7 @@ Radio.propTypes = {
   hooksprop: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
   name: PropTypes.string.isRequired,
   isChecked: PropTypes.bool,
-  onChange: PropTypes.func,
+  onChange: PropTypes.func
 };
 
 Radio.defaultProps = {

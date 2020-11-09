@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { PropTypes } from 'prop-types';
 import { useForm } from 'react-hook-form';
 import Stepper from '../Stepper/Stepper';
@@ -24,9 +24,9 @@ function FourthStep({ currentStep, onSubmit, callBackFn }) {
     'Other'
   ];
 
-  useEffect(() => {
-    console.log('selected changed', selectedProfession);
-  }, [selectedProfession]);
+  // useEffect(() => {
+  //   console.log('selected changed', selectedProfession);
+  // }, [selectedProfession]);
 
   return (
     <>
@@ -45,14 +45,13 @@ function FourthStep({ currentStep, onSubmit, callBackFn }) {
             }}
           />
         ))}
-
         <div className='checkbox-and-input-wrapper'>
           {selectedProfession === 'Other' && (
             <Input type='text' id='typeOfProfession' placeholder='Work' />
           )}
         </div>
 
-        {errors.radio && <p className='registration-error'>You have to make a choice</p>}
+        {errors.profession && <p className='registration-error'>You have to make a choice</p>}
         {errors.typeOfProfession && (
           <p className='registration-error'>You have to enter the name of the profession</p>
         )}

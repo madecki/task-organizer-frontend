@@ -2,37 +2,34 @@ import React, { useState } from 'react';
 import './Radio.css';
 import { PropTypes } from 'prop-types';
 
-function Radio({ text, id, hooksprop, name }) {
-  const [selectedRadio, setRadioState] = useState('');
-
+function Radio({ label, hooksprop, name, isChecked, onChange }) {
   return (
-    <>
-      <label className='container-label-round' htmlFor={id}>
-        {text}
+    <label className='container-label-round' htmlFor={`${name}-${label}`}>
+      {label}
         <input
           type='radio'
           name={name}
-          id={id}
+          id={`${name}-${label}`}
           ref={hooksprop}
-          value={text}
-          checked={selectedRadio === id}
-          onChange={() => setRadioState(id)}
+          value={label}
+          checked={isChecked}
+          onChange={() => onChange(label)}
         />
-        <span className='checkmark-round' />
-      </label>
-    </>
+      <span className='checkmark-round' />
+    </label>
   );
 }
 
 Radio.propTypes = {
-  text: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.object), PropTypes.string]).isRequired,
-  id: PropTypes.string.isRequired,
+  label: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.object), PropTypes.string]).isRequired,
+  hooksprop: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
   name: PropTypes.string.isRequired,
-  hooksprop: PropTypes.oneOfType([PropTypes.func, PropTypes.string])
+  isChecked: PropTypes.bool,
 };
 
 Radio.defaultProps = {
-  hooksprop: null
+  hooksprop: null,
+  isChecked: false
 };
 
 export default Radio;

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { PropTypes } from 'prop-types';
 import { useForm } from 'react-hook-form';
 import Stepper from '../Stepper/Stepper';
@@ -8,7 +8,7 @@ import Input from '../../Input/Input';
 
 function FourthStep({ currentStep, onSubmit, callBackFn }) {
   const { register, handleSubmit, errors } = useForm({ reValidateMode: 'onSubmit' });
-  const [isRadioSelected, setRadioState] = useState(false);
+  const [ selectedProfession , selectProfession] = useState('');
 
   const professions = [
     'Education',
@@ -20,16 +20,13 @@ function FourthStep({ currentStep, onSubmit, callBackFn }) {
     'IT',
     'Office worker',
     'Trade',
-    'Transport'
+    'Transport',
+    'Other'
   ];
 
-  // const textInputVisibilityChanger = () => {
-  //   if (isRadioSelected === false) {
-  //     setRadioState(true);
-  //   } else {
-  //     setRadioState(true);
-  //   }
-  // };
+  useEffect(() => {
+    console.log('selected changed', selectedProfession)
+  }, [selectedProfession])
 
   return (
     <>
@@ -39,26 +36,18 @@ function FourthStep({ currentStep, onSubmit, callBackFn }) {
         {professions.map(prof => (
           <Radio
             key={prof}
-            text={prof}
-            id={prof}
+            label={prof}
             name='profession'
             hooksprop={register({ required: true })}
+            isChecked={prof === selectedProfession}
+            onChange={prof => {selectProfession(prof) }}
           />
         ))}
-        <div
-          className='checkbox-and-input-wrapper'
-          onChange={() => (!isRadioSelected ? setRadioState(true) : setRadioState(false))}>
-          {/* W TYM MIEJSCU WPISANY onChange DZIAŁA ALE TYLKO W JEDNĄ STRONĘ. PO 'ODZNACZENIU' TEGO RADIO POZOSTAJE WIDOCZNE POLE TEKSTOWE */}
-          <Radio
-            key='other-profession'
-            text='Other (which?)'
-            id='other-profession'
-            name='profession'
-            hooksprop={register({ required: true })}
-            // onChange={() => (!isRadioSelected ? setRadioState(true) : setRadioState(false))} W TYM MIEJSCU WPISANY onChange NIE DZIAŁA
-          />
-          {isRadioSelected && <Input type='text' id='typeOfProfession' placeholder='Work' />}
+
+        <div className='checkbox-and-input-wrapper'>
+          {selectedProfession === 'Other' && <Input type='text' id='typeOfProfession' placeholder='Work' />}
         </div>
+        
         {errors.radio && <p className='registration-error'>You have to make a choice</p>}
         {errors.typeOfProfession && (
           <p className='registration-error'>You have to enter the name of the profession</p>

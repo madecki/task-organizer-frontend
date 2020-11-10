@@ -21,7 +21,7 @@
   background-color: #eee;
 }
 
-.container-label-round:hover input ~ .checkmark-round{
+.container-label-round:hover input ~ .checkmark-round {
   background-color: #ccc;
 }
 

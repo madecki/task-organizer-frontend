@@ -1,48 +1,48 @@
-import React, { useState } from 'react';
-import './Checkbox.css';
+import React, { useEffect, useState } from 'react';
 import { PropTypes } from 'prop-types';
-import Input from '../Input/Input';
+import './Checkbox.css';
 
-function Checkbox({ text, id, type, hooksprop, checked }) {
-  const [checkboxValue, setCheckboxValue] = useState(checked);
-  const handleChange = event => {
-    const checkId = event.target.id;
-    setCheckboxValue(checkId);
-  };
+function Checkbox({ text, id, name, value, hooksprop, onChange }) {
+  const [checked, setChecked] = useState(undefined);
+
+  useEffect(() => {
+    if (onChange) {
+      onChange(checked);
+    }
+  }, [checked, onChange]);
 
   return (
-    <>
-      <label className='container-label-square' htmlFor={id}>
-        {text}
-        <input
-          type={type}
-          name={type}
-          id={id}
-          ref={hooksprop}
-          value={checkboxValue}
-          onChange={event => handleChange(event)}
-          checked={checkboxValue}
-        />
-        <span className='checkmark-square' />
-      </label>
-      {id === 'other-profession' && checkboxValue === 'other-profession' && (
-        <Input type='text' id='typeOfProfession' placeholder='Work' hooksprop={hooksprop} />
-      )}
-    </>
+    <label className='container-label-square' htmlFor={id}>
+      {text}
+      <input
+        type='ckeckbox'
+        name={name}
+        id={id}
+        ref={hooksprop}
+        value={value}
+        onClick={() => setChecked(!checked)}
+        checked={checked}
+        onChange={event => {
+          setChecked(event.target.checked);
+        }}
+      />
+      <span className='checkmark-square' />
+    </label>
   );
 }
 
 Checkbox.propTypes = {
   text: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.object), PropTypes.string]).isRequired,
   id: PropTypes.string.isRequired,
-  type: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
   hooksprop: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-  checked: PropTypes.bool
+  onChange: PropTypes.func
 };
 
 Checkbox.defaultProps = {
   hooksprop: null,
-  checked: false
+  onChange: () => {}
 };
 
 export default Checkbox;

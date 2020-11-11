@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import { PropTypes } from 'prop-types';
 import { useForm } from 'react-hook-form';
-import Stepper from '../Stepper/Stepper';
 import Button from '../../Button/Button';
 import Radio from '../../Radio/Radio';
 import Input from '../../Input/Input';
 
-function FourthStep({ currentStep, onSubmit, callBackFn }) {
+function FourthStep({ onSubmit, callBackFn }) {
   const { register, handleSubmit, errors } = useForm({ reValidateMode: 'onSubmit' });
   const [selectedProfession, selectProfession] = useState('');
 
@@ -30,7 +29,6 @@ function FourthStep({ currentStep, onSubmit, callBackFn }) {
 
   return (
     <>
-      <Stepper currentStep={currentStep} />
       <h2>What is your profession?</h2>
       <form onSubmit={handleSubmit(onSubmit)}>
         {professions.map(prof => (
@@ -66,7 +64,6 @@ function FourthStep({ currentStep, onSubmit, callBackFn }) {
 }
 
 FourthStep.propTypes = {
-  currentStep: PropTypes.number.isRequired,
   onSubmit: PropTypes.func.isRequired,
   callBackFn: PropTypes.func.isRequired
 };

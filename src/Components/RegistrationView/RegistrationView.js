@@ -5,6 +5,7 @@ import FirstStep from './Steps/FirstStep';
 import SecondStep from './Steps/SecondStep';
 import ThirdStep from './Steps/ThirdStep';
 import FourthStep from './Steps/FourthStep';
+import Stepper from './Stepper/Stepper';
 import './RegistrationView.css';
 
 function RegistrationView() {
@@ -15,6 +16,8 @@ function RegistrationView() {
   const nextStep = () => {
     const whichStep = currentStep === 1 ? 2 : currentStep + 1;
     setCurrentStep(whichStep);
+
+    console.log(registrationData);
   };
 
   const prevStep = () => {
@@ -59,17 +62,12 @@ function RegistrationView() {
     <>
       <div className='registration__container'>
         <div className={getWrapperClassName()}>
+          <Stepper currentStep={currentStep} />
           {currentStep === 1 && (
-            <FirstStep
-              currentStep={currentStep}
-              onSubmit={onSubmit}
-              errorText={errorText}
-              formData={registrationData}
-            />
+            <FirstStep onSubmit={onSubmit} errorText={errorText} formData={registrationData} />
           )}
           {currentStep === 2 && (
             <SecondStep
-              currentStep={currentStep}
               onSubmit={onSubmit}
               errorText={errorText}
               callBackFn={() => prevStep()}
@@ -78,7 +76,6 @@ function RegistrationView() {
           )}
           {currentStep === 3 && (
             <ThirdStep
-              currentStep={currentStep}
               stepfunc={() => stepTypeOfProfession()}
               callBackFn={() => prevStep()}
               formData={registrationData}

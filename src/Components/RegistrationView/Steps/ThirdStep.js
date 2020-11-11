@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { PropTypes } from 'prop-types';
-import Stepper from '../Stepper/Stepper';
 import Button from '../../Button/Button';
 
-function ThirdStep({ currentStep, callBackFn, stepfunc }) {
+function ThirdStep({ callBackFn, stepfunc }) {
   const [selectedButton, setSelectedButton] = useState('');
   const selectedType = () => {
     const whichButton = 'btn--selected';
@@ -12,7 +11,6 @@ function ThirdStep({ currentStep, callBackFn, stepfunc }) {
 
   return (
     <>
-      <Stepper currentStep={currentStep} />
       <h2>Tell us a bit about yourself</h2>
       <p className='paragraph-type-of-use'>What will you be using our app for?</p>
 
@@ -47,7 +45,6 @@ function ThirdStep({ currentStep, callBackFn, stepfunc }) {
 }
 
 ThirdStep.propTypes = {
-  currentStep: PropTypes.number.isRequired,
   callBackFn: PropTypes.func.isRequired,
   stepfunc: PropTypes.func.isRequired
 };

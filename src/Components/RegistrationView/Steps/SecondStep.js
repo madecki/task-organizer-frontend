@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { PropTypes } from 'prop-types';
-import Stepper from '../Stepper/Stepper';
 import Button from '../../Button/Button';
 import Input from '../../Input/Input';
 import Radio from '../../Radio/Radio';
 
-function SecondStep({ currentStep, onSubmit, errorText, callBackFn }) {
+function SecondStep({ onSubmit, errorText, callBackFn }) {
   const { register, handleSubmit, errors } = useForm({ reValidateMode: 'onSubmit' });
   const [selectedGender, selectGender] = useState('');
 
@@ -14,7 +13,6 @@ function SecondStep({ currentStep, onSubmit, errorText, callBackFn }) {
 
   return (
     <>
-      <Stepper currentStep={currentStep} />{' '}
       <form className='registration__container__form' onSubmit={handleSubmit(onSubmit)}>
         <div className='gender-radio'>
           <p className='gender-paragraph'>GENDER:</p>
@@ -142,7 +140,6 @@ function SecondStep({ currentStep, onSubmit, errorText, callBackFn }) {
 }
 
 SecondStep.propTypes = {
-  currentStep: PropTypes.number.isRequired,
   onSubmit: PropTypes.func.isRequired,
   errorText: PropTypes.string.isRequired,
   callBackFn: PropTypes.func.isRequired

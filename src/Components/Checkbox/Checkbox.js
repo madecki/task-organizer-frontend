@@ -1,8 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { PropTypes } from 'prop-types';
 import './Checkbox.css';
 
 function Checkbox({ label, id, name, hooksprop, isChecked, onChange }) {
+  const [checked, changeChecboxState] = useState(isChecked);
+
+  const toggleCheckbox = () => {
+    changeChecboxState(!checked);
+    onChange();
+  };
+
   return (
     <label className='container-label-square' htmlFor={id}>
       {label}
@@ -11,8 +18,8 @@ function Checkbox({ label, id, name, hooksprop, isChecked, onChange }) {
         name={name}
         id={id}
         ref={hooksprop}
-        checked={isChecked}
-        onChange={() => onChange(isChecked)}
+        checked={checked}
+        onChange={toggleCheckbox}
       />
       <span className='checkmark-square' />
     </label>
@@ -24,12 +31,13 @@ Checkbox.propTypes = {
   id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   hooksprop: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-  isChecked: PropTypes.bool.isRequired,
+  isChecked: PropTypes.bool,
   onChange: PropTypes.func
 };
 
 Checkbox.defaultProps = {
   hooksprop: null,
+  isChecked: false,
   onChange: () => {}
 };
 

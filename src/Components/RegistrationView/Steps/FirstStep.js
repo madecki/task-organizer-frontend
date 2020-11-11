@@ -2,21 +2,19 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { v4 as uuidv4 } from 'uuid';
 import { PropTypes } from 'prop-types';
-import Stepper from '../Stepper/Stepper';
 import Button from '../../Button/Button';
 import Input from '../../Input/Input';
 import Checkbox from '../../Checkbox/Checkbox';
 import Google from '../../../Assets/Icon/google.png';
 import Facebook from '../../../Assets/Icon/facebook.svg';
 
-function FirstStep({ currentStep, onSubmit, errorText, formData }) {
+function FirstStep({ onSubmit, errorText, formData }) {
   const { register, handleSubmit, errors, getValues } = useForm({ reValidateMode: 'onSubmit' });
   const [checked, setChecked] = useState(false);
 
   return (
     <>
       <h1>Create Account</h1>
-      <Stepper currentStep={currentStep} />
       <form className='registration__container__form' onSubmit={handleSubmit(onSubmit)} noValidate>
         <Input
           icon={['fas', 'user']}
@@ -146,7 +144,7 @@ function FirstStep({ currentStep, onSubmit, errorText, formData }) {
           id='terms'
           name='terms'
           hooksprop={register({ required: true })}
-          isChecked={checked}
+          isChecked={formData.terms}
           onChange={() => setChecked(!checked)}
         />
         {errors.terms && (
@@ -170,10 +168,9 @@ function FirstStep({ currentStep, onSubmit, errorText, formData }) {
 }
 
 FirstStep.propTypes = {
-  currentStep: PropTypes.number.isRequired,
   onSubmit: PropTypes.func.isRequired,
   errorText: PropTypes.string.isRequired,
-  formData: PropTypes.objectOf(PropTypes.string).isRequired
+  formData: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.string, PropTypes.bool])).isRequired
 };
 
 export default FirstStep;

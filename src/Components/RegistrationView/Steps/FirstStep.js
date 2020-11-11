@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useForm } from 'react-hook-form';
 import { v4 as uuidv4 } from 'uuid';
 import { PropTypes } from 'prop-types';
@@ -11,7 +11,6 @@ import Facebook from '../../../Assets/Icon/facebook.svg';
 
 function FirstStep({ currentStep, onSubmit, errorText, formData }) {
   const { register, handleSubmit, errors, getValues } = useForm({ reValidateMode: 'onSubmit' });
-  const [checked, setChecked] = useState(false);
 
   return (
     <>
@@ -131,7 +130,7 @@ function FirstStep({ currentStep, onSubmit, errorText, formData }) {
           <p>Password must includes minimum 8 signs, at least one big letter and one number</p>
         </div>
         <Checkbox
-          text={[
+          label={[
             <p key={uuidv4()}>
               By creating an account you agree to the{' '}
               <a href='' key={uuidv4()}>
@@ -145,10 +144,7 @@ function FirstStep({ currentStep, onSubmit, errorText, formData }) {
           ]}
           id='terms'
           name='terms'
-          type='checkbox'
           hooksprop={register({ required: true })}
-          checked={checked}
-          onChange={event => setChecked(event.target.checked)}
         />
         {errors.terms && (
           <p className='registration-error'>

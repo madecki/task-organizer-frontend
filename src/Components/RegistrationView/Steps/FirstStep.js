@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { v4 as uuidv4 } from 'uuid';
 import { PropTypes } from 'prop-types';
@@ -11,6 +11,7 @@ import Facebook from '../../../Assets/Icon/facebook.svg';
 
 function FirstStep({ currentStep, onSubmit, errorText, formData }) {
   const { register, handleSubmit, errors, getValues } = useForm({ reValidateMode: 'onSubmit' });
+  const [checked, setChecked] = useState(false);
 
   return (
     <>
@@ -145,6 +146,8 @@ function FirstStep({ currentStep, onSubmit, errorText, formData }) {
           id='terms'
           name='terms'
           hooksprop={register({ required: true })}
+          isChecked={checked}
+          onChange={() => setChecked(!checked)}
         />
         {errors.terms && (
           <p className='registration-error'>

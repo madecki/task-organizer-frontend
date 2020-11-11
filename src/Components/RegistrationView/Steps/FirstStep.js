@@ -11,7 +11,7 @@ import Facebook from '../../../Assets/Icon/facebook.svg';
 
 function FirstStep({ currentStep, onSubmit, errorText, formData }) {
   const { register, handleSubmit, errors, getValues } = useForm({ reValidateMode: 'onSubmit' });
-  const [isChecked, setIsChecked] = useState('');
+  const [checked, setChecked] = useState(false);
 
   return (
     <>
@@ -145,10 +145,10 @@ function FirstStep({ currentStep, onSubmit, errorText, formData }) {
           ]}
           id='terms'
           name='terms'
+          type='checkbox'
           hooksprop={register({ required: true })}
-          value
-          // isChecked={!!formData.terms}
-          // checked={isChecked}
+          checked={checked}
+          onChange={event => setChecked(event.target.checked)}
         />
         {errors.terms && (
           <p className='registration-error'>

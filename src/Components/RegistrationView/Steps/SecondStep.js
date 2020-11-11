@@ -38,7 +38,12 @@ function SecondStep({ currentStep, onSubmit, errorText, callBackFn }) {
           id='phoneNumber'
           text='PHONE NUMBER'
           placeholder='800800800'
-          hooksprop={register({ required: true, minLength: 9, maxLength: 9 })}
+          hooksprop={register({
+            required: true,
+            minLength: 9,
+            maxLength: 9,
+            pattern: { value: /[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]/ }
+          })}
         />
         {errors.phoneNumber && errors.phoneNumber.type === 'required' && (
           <p className='registration-error'>{errorText}</p>
@@ -48,6 +53,9 @@ function SecondStep({ currentStep, onSubmit, errorText, callBackFn }) {
         )}
         {errors.phoneNumber && errors.phoneNumber.type === 'maxLength' && (
           <p className='registration-error'>This field is required max 9 signs</p>
+        )}
+        {errors.phoneNumber && errors.phoneNumber.type === 'pattern' && (
+          <p className='registration-error'>Invalid phone number</p>
         )}
         <Input
           icon={['fas', 'calendar-alt']}

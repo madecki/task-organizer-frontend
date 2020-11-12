@@ -6,6 +6,7 @@
   background-color: var(--sky-blue);
   color: var(--white);
   font-weight: 700;
+  cursor: pointer;
 }
 
 .btn--sign-in {
@@ -40,11 +41,14 @@
 }
 
 .btn--type-of-use {
+  display: flex;
+  justify-content: center;
   width: 70%;
   border: 1px solid var(--border-gray);
+  margin: 0 auto;
   margin-bottom: 5%;
   background: none;
-  color: black;
+  color: var(--gray);
 }
 
 .btn--type-of-use svg {
@@ -72,13 +76,13 @@
   }
 
   .btn--type-of-use:hover {
-    background-color: var(--gray);
+    background-color: var(--sky-blue);
     color: var(--white);
     transform: scale(1.1);
-    transition: 2s;
+    transition: .5s;
   }
 
   .btn--type-of-use {
-    transition: 2s;
+    transition: .5s;
   }
 }

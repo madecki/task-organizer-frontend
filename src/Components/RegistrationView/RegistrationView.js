@@ -9,15 +9,13 @@ import Stepper from './Stepper/Stepper';
 import './RegistrationView.css';
 
 function RegistrationView() {
-  const [currentStep, setCurrentStep] = useState(1);
+  const [currentStep, setCurrentStep] = useState(3);
   const [registrationData, setRegistrationData] = useState({});
   const errorText = 'This field is required';
 
   const nextStep = () => {
     const whichStep = currentStep === 1 ? 2 : currentStep + 1;
     setCurrentStep(whichStep);
-
-    console.log(registrationData);
   };
 
   const prevStep = () => {

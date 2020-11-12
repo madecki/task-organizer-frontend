@@ -203,6 +203,6 @@
   .btn--type-of-use:hover .fa-suitcase,
   .btn--type-of-use:hover .fa-user {
     color: var(--white);
-    transition: 2s;
+    transition: .5s;
   }
 }

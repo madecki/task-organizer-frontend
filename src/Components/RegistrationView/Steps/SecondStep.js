@@ -38,9 +38,9 @@ function SecondStep({ onSubmit, errorText, callBackFn, formData }) {
           placeholder='800800800'
           hooksprop={register({
             required: true,
-            minLength: 9,
-            maxLength: 9,
-            pattern: { value: /[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]/ }
+            minLength: 5,
+            maxLength: 11,
+            pattern: { value: /[0-9]/ }
           })}
           value={formData.phoneNumber}
         />
@@ -67,7 +67,7 @@ function SecondStep({ onSubmit, errorText, callBackFn, formData }) {
             minLength: 10,
             maxLength: 10,
             pattern: {
-              value: /[0-9][0-9][.][0-1][0-9][.][1-2][0-9][0-9][0-9]/
+              value: /[0-9][.][0-1][0-9][.][1-2][0-9][0-9][0-9]/
             }
           })}
           value={formData.dateOfBirth}

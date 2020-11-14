@@ -14,19 +14,19 @@ function RegistrationView() {
   const errorText = 'This field is required';
 
   const nextStep = () => {
-    const whichStep = currentStep === 1 ? 2 : currentStep + 1;
+    const whichStep = currentStep === 0 ? 1 : currentStep + 1;
     setCurrentStep(whichStep);
   };
 
   const prevStep = () => {
-    const whichStep = currentStep === 2 ? 1 : currentStep - 1;
+    const whichStep = currentStep === 1 ? 0 : currentStep - 1;
     setCurrentStep(whichStep);
   };
 
   const stepTypeOfProfession = () => {
     let whichStep = currentStep;
 
-    whichStep = currentStep === 3 ? 4 : currentStep === 4;
+    whichStep = currentStep === 2 ? 3 : currentStep === 3;
     setCurrentStep(whichStep);
   };
 
@@ -45,11 +45,11 @@ function RegistrationView() {
   };
 
   const getWrapperClassName = () => {
-    if (currentStep === 3) {
+    if (currentStep === 2) {
       return `registration__container__form-wrapper 
       registration__container__form-wrapper--type-of-use`;
     }
-    if (currentStep === 4) {
+    if (currentStep === 3) {
       return `registration__container__form-wrapper 
       registration__container__form-wrapper--profession`;
     }
@@ -61,10 +61,10 @@ function RegistrationView() {
       <div className='registration__container'>
         <div className={getWrapperClassName()}>
           <Stepper currentStep={currentStep} />
-          {currentStep === 1 && (
+          {currentStep === 0 && (
             <FirstStep onSubmit={onSubmit} errorText={errorText} formData={registrationData} />
           )}
-          {currentStep === 2 && (
+          {currentStep === 1 && (
             <SecondStep
               onSubmit={onSubmit}
               errorText={errorText}
@@ -72,14 +72,14 @@ function RegistrationView() {
               formData={registrationData}
             />
           )}
-          {currentStep === 3 && (
+          {currentStep === 2 && (
             <ThirdStep
               stepfunc={() => stepTypeOfProfession()}
               callBackFn={() => prevStep()}
               formData={registrationData}
             />
           )}
-          {currentStep === 4 && (
+          {currentStep === 3 && (
             <FourthStep
               currentStep={currentStep}
               onSubmit={onSubmit}

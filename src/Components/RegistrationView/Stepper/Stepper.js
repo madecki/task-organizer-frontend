@@ -8,14 +8,14 @@ function Stepper({ currentStep }) {
       <div className='number-of-step first-step'>1</div>
       <div className='line' />
       <div
-        className={`number-of-step ${currentStep === 2 ? 'second-step' : ''} ${
-          currentStep === 3 || currentStep === 4 ? 'second-step' : ''
+        className={`number-of-step ${currentStep === 1 ? 'second-step' : ''} ${
+          currentStep === 2 || currentStep === 3 ? 'second-step' : ''
         }`}>
         2
       </div>
       <div className='line' />
       <div
-        className={`number-of-step ${currentStep === 3 || currentStep === 4 ? 'third-step' : ''}`}>
+        className={`number-of-step ${currentStep === 2 || currentStep === 3 ? 'third-step' : ''}`}>
         3
       </div>
     </div>

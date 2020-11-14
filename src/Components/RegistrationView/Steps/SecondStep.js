@@ -5,26 +5,26 @@ import Button from '../../Button/Button';
 import Input from '../../Input/Input';
 import Radio from '../../Radio/Radio';
 
-function SecondStep({ onSubmit, errorText, callBackFn }) {
+function SecondStep({ onSubmit, errorText, callBackFn, formData }) {
   const { register, handleSubmit, errors } = useForm({ reValidateMode: 'onSubmit' });
-  const [selectedGender, selectGender] = useState('');
+  const [selectedGender, selectGender] = useState(formData.gender ? formData.gender : '');
 
-  const gender = ['male', 'female', 'other'];
+  const availableGender = ['male', 'female', 'other'];
 
   return (
     <>
       <form className='registration__container__form' onSubmit={handleSubmit(onSubmit)}>
         <div className='gender-radio'>
           <p className='gender-paragraph'>GENDER:</p>
-          {gender.map(sex => (
+          {availableGender.map(gender => (
             <Radio
-              key={sex}
+              key={gender}
               name='gender'
-              label={sex}
+              label={gender}
               hooksprop={register({ required: true })}
-              isChecked={sex === selectedGender}
-              onChange={sexSelected => {
-                selectGender(sexSelected);
+              isChecked={gender === selectedGender}
+              onChange={genderSelected => {
+                selectGender(genderSelected);
               }}
             />
           ))}
@@ -42,6 +42,7 @@ function SecondStep({ onSubmit, errorText, callBackFn }) {
             maxLength: 9,
             pattern: { value: /[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]/ }
           })}
+          value={formData.phoneNumber}
         />
         {errors.phoneNumber && errors.phoneNumber.type === 'required' && (
           <p className='registration-error'>{errorText}</p>
@@ -69,6 +70,7 @@ function SecondStep({ onSubmit, errorText, callBackFn }) {
               value: /[0-9][0-9][.][0-1][0-9][.][1-2][0-9][0-9][0-9]/
             }
           })}
+          value={formData.dateOfBirth}
         />
         {errors.dateOfBirth && errors.dateOfBirth.type === 'required' && (
           <p className='registration-error'>{errorText}</p>
@@ -89,6 +91,7 @@ function SecondStep({ onSubmit, errorText, callBackFn }) {
           text='COUNTRY'
           placeholder='USA'
           hooksprop={register({ required: true })}
+          value={formData.country}
         />
         {errors.country && errors.country.type === 'required' && (
           <p className='registration-error'>{errorText}</p>
@@ -100,6 +103,7 @@ function SecondStep({ onSubmit, errorText, callBackFn }) {
           text='CITY'
           placeholder='Washington'
           hooksprop={register({ required: true })}
+          value={formData.city}
         />
         {errors.city && errors.city.type === 'required' && (
           <p className='registration-error'>{errorText}</p>
@@ -113,6 +117,7 @@ function SecondStep({ onSubmit, errorText, callBackFn }) {
           hooksprop={register({
             required: true
           })}
+          value={formData.street}
         />
         {errors.street && errors.street.type === 'required' && (
           <p className='registration-error'>{errorText}</p>
@@ -126,6 +131,7 @@ function SecondStep({ onSubmit, errorText, callBackFn }) {
           hooksprop={register({
             required: true
           })}
+          value={formData.postalCode}
         />
         {errors.postalCode && errors.postalCode.type === 'required' && (
           <p className='registration-error'>{errorText}</p>
@@ -142,7 +148,8 @@ function SecondStep({ onSubmit, errorText, callBackFn }) {
 SecondStep.propTypes = {
   onSubmit: PropTypes.func.isRequired,
   errorText: PropTypes.string.isRequired,
-  callBackFn: PropTypes.func.isRequired
+  callBackFn: PropTypes.func.isRequired,
+  formData: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.string, PropTypes.bool])).isRequired
 };
 
 export default SecondStep;

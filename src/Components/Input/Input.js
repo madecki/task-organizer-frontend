@@ -8,13 +8,19 @@ function Input({ icon, type, id, text, placeholder, name, hooksprop, autocomplet
 
   return (
     <>
-      <label className='input__label' htmlFor={id}>
-        {text}
-      </label>
+      {text ? (
+        <label className='input__label' htmlFor={id}>
+          {text}
+        </label>
+      ) : null}
       <div className='input__wrapper'>
-        <div className='input__icon'>{icon ? <FontAwesomeIcon icon={icon} /> : null}</div>
+        {icon ? (
+          <div className='input__icon'>
+            <FontAwesomeIcon icon={icon} />
+          </div>
+        ) : null}
         <input
-          className='input'
+          className={icon ? 'input' : 'input input__full'}
           id={id}
           type={type}
           name={name || id}

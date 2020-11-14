@@ -43,12 +43,9 @@ function FourthStep({ onSubmit, callBackFn }) {
             }}
           />
         ))}
-        <div className='checkbox-and-input-wrapper'>
-          {selectedProfession === 'Other' && (
-            <Input type='text' id='typeOfProfession' placeholder='Work' />
-          )}
-        </div>
-
+        {selectedProfession === 'Other' && (
+          <Input type='text' id='typeOfProfession' placeholder='Please specify' />
+        )}
         {errors.profession && <p className='registration-error'>You have to make a choice</p>}
         {errors.typeOfProfession && (
           <p className='registration-error'>You have to enter the name of the profession</p>

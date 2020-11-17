@@ -19,6 +19,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import LoginView from './Components/LoginView/LoginView';
 import RegistrationView from './Components/RegistrationView/RegistrationView';
+import MainView from './Components/MainView/MainView';
 
 library.add(
   fab,
@@ -42,6 +43,9 @@ function App() {
       <Router>
         <Switch>
           <Route exact path='/'>
+            <MainView />
+          </Route>
+          <Route path='/login'>
             <LoginView />
           </Route>
           <Route path='/registration'>

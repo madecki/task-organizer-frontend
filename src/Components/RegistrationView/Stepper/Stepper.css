@@ -1,0 +1,30 @@
+.first-step,
+.second-step,
+.third-step {
+  background-color: var(--sky-blue);
+  color: var(--white);
+}
+
+.stepper-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 50px;
+}
+
+.number-of-step {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35px;
+  height: 35px;
+  border: 1px solid var(--light-gray);
+  border-radius: 50%;
+}
+
+.line {
+  width: calc(50% - 55px);
+  height: 2px;
+  background-color: var(--light-gray);
+}

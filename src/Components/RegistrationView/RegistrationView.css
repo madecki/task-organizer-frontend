@@ -1,0 +1,208 @@
+.fa-graduation-cap,
+.fa-suitcase {
+  color: var(--gray);
+}
+
+.registration__container {
+  position: relative;
+  width: 96%;
+  margin: 10px auto;
+  box-shadow: 0 0 20px 1px var(--gray);
+}
+
+.registration__container svg {
+  vertical-align: 0;
+}
+
+.registration__container h1 {
+  margin-bottom: 50px;
+  font-size: 36px;
+  font-weight: 900;
+  text-align: center;
+}
+
+.registration__container__form-wrapper {
+  padding: 50px 12px 25px 12px;
+}
+
+.registration__container__form-wrapper--type-of-use,
+.step-counter {
+  text-align: center;
+}
+
+.registration__container__form .input-container {
+  margin-bottom: 20px;
+}
+
+.password-requirements {
+  width: 100%;
+  margin-bottom: 25px;
+  color: var(--gray);
+  text-align: center;
+}
+
+.password-requirements h2,
+.password-requirements p {
+  width: 80%;
+  margin: 5px auto;
+  font-size: 14px;
+}
+
+.password-requirements p {
+  font-weight: 300;
+}
+
+.registration__container .container-label-square {
+  width: 80%;
+  margin: 0 auto 25px auto;
+  text-align: center;
+}
+
+.registration__container .container-label-square p {
+  color: var(--black);
+  font-size: 14px;
+  letter-spacing: initial;
+}
+
+.registration__separator {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin: 30px 0;
+}
+
+.registration__separator p {
+  margin: 0;
+  color: var(--gray);
+  font-size: 10px;
+}
+
+.registration__separator__line {
+  width: 45%;
+  height: 1px;
+  background-color: var(--light-gray);
+}
+
+.registration__social-btns,
+.registration__control-btns {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.registration__control-btns {
+  margin-top: 50px;
+}
+
+.registration__social-btns button,
+.registration__control-btns button {
+  width: 47%;
+}
+
+.registration__sign-in {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 25px;
+  background-color: var(--light-gray);
+}
+
+.registration__sign-in p {
+  font-size: 14px;
+}
+
+.registration__sign-in .btn {
+  margin-top: 12px;
+}
+
+.gender-radio {
+  margin: 0 0 25px 17px;
+}
+
+.gender-paragraph {
+  margin-bottom: 8px;
+  color: var(--gray);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.gender-radio label {
+  color: var(--gray);
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.gender-radio .registration-error {
+  padding-left: 0;
+  margin-top: 20px;
+}
+
+.registration__container__form-wrapper--type-of-use h2 {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.paragraph-type-of-use {
+  margin: 20px 0 30px 0;
+}
+
+.registration__container__form-wrapper--profession h2 {
+  margin-bottom: 25px;
+}
+
+.registration__container__form-wrapper--profession .input-container__wrapper__icon {
+  padding: 24px 12px 25px 12px;
+}
+
+.checkbox-and-input-wrapper {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  margin-bottom: 20px;
+}
+
+.checkbox-and-input-wrapper .input-container__wrapper {
+  margin-top: 0;
+}
+
+.checkbox-and-input-wrapper .input-container label {
+  display: none;
+}
+
+.checkbox-and-input-wrapper .container-label-round {
+  margin-right: 3px;
+}
+
+.registration-error {
+  padding-left: 17px;
+  margin-bottom: 25px;
+  color: red;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+@media (min-width: 480px) {
+  .registration__container {
+    width: 420px;
+    margin: 50px auto;
+  }
+
+  .registration__container__form-wrapper {
+    padding: 50px 50px 25px 50px;
+  }
+
+  .registration__sign-in {
+    padding: 50px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .btn--type-of-use:hover .fa-graduation-cap,
+  .btn--type-of-use:hover .fa-suitcase,
+  .btn--type-of-use:hover .fa-user {
+    color: var(--white);
+    transition: 0.5s;
+  }
+}

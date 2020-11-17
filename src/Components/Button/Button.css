@@ -1,62 +1,88 @@
 .btn {
-  padding: 15px 45px;
+  width: 100%;
+  padding: 19px 44px;
   border: 0;
-  border-radius: 20px;
-  background-color: var(--fb-blue);
+  border-radius: 30px;
+  background-color: var(--sky-blue);
   color: var(--white);
   font-weight: 700;
+  cursor: pointer;
 }
 
 .btn--sign-in {
+  padding: 19px 50px;
   background-color: var(--turquoise);
   color: var(--white);
 }
 
 .btn--fb {
+  padding: 12px 36px;
   background-color: var(--fb-blue);
   color: var(--white);
 }
 
-.btn--default {
-  background-color: var(--royal-blue);
-  color: var(--white);
+.btn--fb img {
+  width: 25px;
 }
 
 .btn--google {
+  padding: 9px 25px;
+  border: 2px solid var(--light-gray);
   background-color: var(--white);
   color: var(--black);
-  border: 1px solid var(--black);
 }
 
-.fa-google,
-.fa-facebook-f {
-  margin-right: 6px;
+.btn--google img {
+  width: 25px;
 }
 
-.btn--large {
-  padding: 15px 53px;
+.btn--turquoise {
+  background-color: var(--turquoise);
 }
 
-.btn--free-sign-up {
-  padding: 15px 43px;
+.btn--type-of-use {
+  display: flex;
+  justify-content: center;
+  width: 70%;
+  border: 1px solid var(--border-gray);
+  margin: 0 auto;
+  margin-bottom: 5%;
+  background: none;
+  color: var(--gray);
 }
 
-@media (min-width: 375px) {
+.btn--type-of-use svg {
+  margin-right: 4px;
+}
+
+.btn--selected {
+  background-color: var(--sky-blue);
+  color: var(--white);
+}
+
+.btn--selected .fa-graduation-cap {
+  background-color: var(--sky-blue);
+  color: var(--white);
+}
+
+@media (min-width: 1024px) {
+  .btn--hover:hover {
+    background-color: var(--cornflower-blue);
+    transition: 0.5s;
+  }
+
   .btn {
-    padding: 15px 50px;
-  }
-}
-
-@media (min-width: 500px) {
-  .btn {
-    padding: 15px 70px;
+    transition: 0.5s;
   }
 
-  .btn--large {
-    padding: 15px 53px;
+  .btn--type-of-use:hover {
+    background-color: var(--sky-blue);
+    color: var(--white);
+    transform: scale(1.1);
+    transition: 0.5s;
   }
 
-  .btn--free-sign-up {
-    padding: 15px 43px;
+  .btn--type-of-use {
+    transition: 0.5s;
   }
 }

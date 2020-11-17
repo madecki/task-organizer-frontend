@@ -1,0 +1,60 @@
+.container-label-round {
+  position: relative;
+  display: block;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+}
+
+.container-label-round input {
+  position: absolute;
+  width: 0;
+  height: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.checkmark-round {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #eee;
+}
+
+.container-label-round:hover input ~ .checkmark-round {
+  background-color: #ccc;
+}
+
+.container-label-round input:checked ~ .checkmark-round {
+  background-color: var(--sky-blue);
+}
+
+.checkmark-round:after {
+  position: absolute;
+  display: none;
+  content: '';
+}
+
+.container-label-round input:checked ~ .checkmark-round:after {
+  display: block;
+}
+
+.container-label-round {
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.checkmark-round {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+}
+
+.container-label-round .checkmark-round:after {
+  left: 5px;
+  top: 5px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: white;
+}

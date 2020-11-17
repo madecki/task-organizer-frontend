@@ -1,13 +1,41 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import './reset.css';
 import './App.css';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { fab, faFacebookF, faGoogle } from '@fortawesome/free-brands-svg-icons';
-import { faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons';
-import MainView from './Components/MainView/MainView';
+import { fab, faFacebookF } from '@fortawesome/free-brands-svg-icons';
+import {
+  faEnvelope,
+  faLock,
+  faUser,
+  faFlag,
+  faCity,
+  faHome,
+  faAddressCard,
+  faPhoneSquareAlt,
+  faSuitcase,
+  faGraduationCap,
+  faCalendarAlt
+} from '@fortawesome/free-solid-svg-icons';
 import LoginView from './Components/LoginView/LoginView';
+import RegistrationView from './Components/RegistrationView/RegistrationView';
+import MainView from './Components/MainView/MainView';
 
-library.add(fab, faEnvelope, faLock, faFacebookF, faGoogle);
+library.add(
+  fab,
+  faEnvelope,
+  faLock,
+  faFacebookF,
+  faUser,
+  faFlag,
+  faCity,
+  faHome,
+  faAddressCard,
+  faPhoneSquareAlt,
+  faSuitcase,
+  faGraduationCap,
+  faCalendarAlt
+);
 
 function App() {
   return (
@@ -19,6 +47,9 @@ function App() {
           </Route>
           <Route path='/login'>
             <LoginView />
+          </Route>
+          <Route path='/registration'>
+            <RegistrationView />
           </Route>
         </Switch>
       </Router>

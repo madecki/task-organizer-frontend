@@ -1,59 +1,63 @@
 import React from 'react';
 import './LoginView.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useHistory } from 'react-router';
 import Button from '../Button/Button';
+import Google from '../../Assets/Icon/google.png';
+import Facebook from '../../Assets/Icon/facebook.svg';
+import Input from '../Input/Input';
 
 function LoginView() {
+  const history = useHistory();
+
+  const goToRegistation = () => {
+    history.push('/registration');
+  };
+
   return (
-    <>
-      <div className='login__container'>
+    <div className='login__container'>
+      <div className='login__container__form-wrapper'>
         <h1>Sign In</h1>
 
-        <form className='login__form'>
-          <label htmlFor='email'>YOUR E-MAIL</label>
-          <div className='login__input-wrapper--mail'>
-            <div className='login__input-wrapper__icon'>
-              <FontAwesomeIcon icon='envelope' />
-            </div>
-            <input className='login__input-wrapper__text' id='email' type='email' />
-          </div>
+        <form className='login__container__form'>
+          <Input
+            icon={['fas', 'envelope']}
+            type='email'
+            id='email'
+            text='YOUR E-MAIL'
+            placeholder='example@gmail.com'
+          />
 
-          <label htmlFor='password'>PASSWORD</label>
-          <div className='login__input-wrapper'>
-            <div className='login__input-wrapper--password'>
-              <div className='login__input-wrapper__icon'>
-                <FontAwesomeIcon icon='lock' />
-              </div>
-              <input className='login__input-wrapper__text' id='password' type='email' />
-            </div>
-            <div className='login__input-wrapper__btn'>
-              <Button color='turquoise' label='SIGN IN' />
-            </div>
-          </div>
+          <Input
+            icon={['fas', 'lock']}
+            type='password'
+            id='password'
+            text='PASSWORD'
+            placeholder='A1234567'
+          />
+
+          <Button color='turquoise' label='SIGN IN' />
         </form>
 
-        <a href='#' className='password-reminder'>
+        <a href='#' className='login__container__form__reminder'>
           Forgot Password?
         </a>
 
-        <div className='login__wrapper'>
-          <div className='login__wrapper__line' />
+        <div className='login__separator'>
+          <div className='login__separator__line' />
           <p>OR</p>
-          <div className='login__wrapper__line' />
+          <div className='login__separator__line' />
         </div>
-        <div className='login__wrapper login__wrapper--btn'>
-          <Button color='white' icon={['fab', 'google']} label='GOOGLE' />
-          <Button color='blue' icon={['fab', 'facebook-f']} label='FACEBOOK' />
+        <div className='login__social-btns'>
+          <Button color='white' imgIcon={Google} />
+          <Button color='blue' imgIcon={Facebook} />
         </div>
       </div>
 
-      <div className='login__container login__container--bottom'>
-        <div className='login__container__wrapper'>
-          <p>Don&apos;t have an account</p>
-          <Button label='SIGN UP FOR FREE' size='small-padding' />
-        </div>
+      <div className='login__sign-up'>
+        <p>Don&apos;t have an account?</p>
+        <Button label='SIGN UP FOR FREE' uniqueBtn='hover' callBackFn={() => goToRegistation()} />
       </div>
-    </>
+    </div>
   );
 }
 

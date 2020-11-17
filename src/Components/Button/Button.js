@@ -3,12 +3,13 @@ import './Button.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { PropTypes } from 'prop-types';
 
-function Button({ label, color, icon, size }) {
+function Button({ label, color, icon, uniqueBtn, imgIcon, callBackFn, type, selectedButton }) {
   let btnColorClass;
+  let btnUniqueClass;
 
   switch (color) {
     case 'turquoise':
-      btnColorClass = 'btn--sign-in';
+      btnColorClass = 'btn--turquoise';
       break;
     case 'blue':
       btnColorClass = 'btn--fb';
@@ -17,30 +18,52 @@ function Button({ label, color, icon, size }) {
       btnColorClass = 'btn--google';
       break;
     default:
-      btnColorClass = 'btn--default';
+      btnColorClass = '';
+  }
+
+  switch (uniqueBtn) {
+    case 'hover':
+      btnUniqueClass = 'btn--hover';
+      break;
+    case 'type-of-use':
+      btnUniqueClass = 'btn--type-of-use';
+      break;
+    default:
+      btnUniqueClass = '';
   }
 
   return (
     <button
-      className={`btn ${btnColorClass} ${icon ? 'btn--large' : ''} ${
-        size ? 'btn--free-sign-up' : ' '
-      }`}
-      type='button'>
-      {icon ? <FontAwesomeIcon icon={icon} /> : null} {label}
+      className={`btn ${btnColorClass} ${btnUniqueClass} ${selectedButton}`}
+      type={type ? 'submit' : 'button'}
+      onClick={callBackFn}>
+      {icon ? <FontAwesomeIcon icon={icon} /> : null}
+      {imgIcon ? <img src={imgIcon} alt={`${imgIcon} logo`} /> : null}
+      {label}
     </button>
   );
 }
 
 Button.propTypes = {
-  label: PropTypes.string.isRequired,
+  label: PropTypes.string,
   color: PropTypes.string,
-  size: PropTypes.string,
-  icon: PropTypes.arrayOf(PropTypes.string)
+  uniqueBtn: PropTypes.string,
+  icon: PropTypes.arrayOf(PropTypes.string),
+  imgIcon: PropTypes.string,
+  callBackFn: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+  type: PropTypes.string,
+  selectedButton: PropTypes.string
 };
+
 Button.defaultProps = {
+  label: '',
   color: '',
-  size: '',
-  icon: null
+  uniqueBtn: '',
+  icon: null,
+  imgIcon: null,
+  callBackFn: null,
+  type: '',
+  selectedButton: ''
 };
 
 export default Button;

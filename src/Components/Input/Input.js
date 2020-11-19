@@ -7,6 +7,12 @@ import './Input.css';
 function Input({ icon, type, id, text, placeholder, name, hooksprop, autocomplete, value }) {
   const [inputValue, setInputValue] = useState(value);
   const [isVisible, setVisibility] = useState(false);
+  const [inputType, changeInputType] = useState('password');
+
+  const showHidePassword = () => {
+    setVisibility(!isVisible);
+    changeInputType(inputType === 'password' ? 'text' : 'password');
+  };
 
   return (
     <>
@@ -21,32 +27,11 @@ function Input({ icon, type, id, text, placeholder, name, hooksprop, autocomplet
             <FontAwesomeIcon icon={icon} />
           </div>
         ) : null}
-        {type === 'password' ? (
-          <>
-            <input
-              className={icon ? 'input' : 'input input__full'}
-              id={id}
-              type={isVisible ? 'text' : 'password'}
-              name={name || id}
-              placeholder={placeholder}
-              ref={hooksprop}
-              autoComplete={autocomplete}
-              onChange={event => {
-                setInputValue(event.target.value);
-              }}
-              value={inputValue}
-            />
-            {isVisible ? (
-              <FontAwesomeIcon icon={faEyeSlash} onClick={() => setVisibility(false)} />
-            ) : (
-              <FontAwesomeIcon icon={faEye} onClick={() => setVisibility(true)} />
-            )}
-          </>
-        ) : (
+        <>
           <input
             className={icon ? 'input' : 'input input__full'}
             id={id}
-            type={type}
+            type={type === 'password' ? inputType : type}
             name={name || id}
             placeholder={placeholder}
             ref={hooksprop}
@@ -56,7 +41,13 @@ function Input({ icon, type, id, text, placeholder, name, hooksprop, autocomplet
             }}
             value={inputValue}
           />
-        )}
+          {type === 'password' &&
+            (isVisible ? (
+              <FontAwesomeIcon icon={faEyeSlash} onClick={() => showHidePassword()} />
+            ) : (
+              <FontAwesomeIcon icon={faEye} onClick={() => showHidePassword()} />
+            ))}
+        </>
       </div>
     </>
   );

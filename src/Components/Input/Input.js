@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-import './Input.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { PropTypes } from 'prop-types';
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+import './Input.css';
 
 function Input({ icon, type, id, text, placeholder, name, hooksprop, autocomplete, value }) {
   const [inputValue, setInputValue] = useState(value);
+  const [isVisible, setVisibility] = useState(false);
 
   return (
     <>
@@ -19,19 +21,42 @@ function Input({ icon, type, id, text, placeholder, name, hooksprop, autocomplet
             <FontAwesomeIcon icon={icon} />
           </div>
         ) : null}
-        <input
-          className={icon ? 'input' : 'input input__full'}
-          id={id}
-          type={type}
-          name={name || id}
-          placeholder={placeholder}
-          ref={hooksprop}
-          autoComplete={autocomplete}
-          onChange={event => {
-            setInputValue(event.target.value);
-          }}
-          value={inputValue}
-        />
+        {type === 'password' ? (
+          <>
+            <input
+              className={icon ? 'input' : 'input input__full'}
+              id={id}
+              type={isVisible ? 'text' : 'password'}
+              name={name || id}
+              placeholder={placeholder}
+              ref={hooksprop}
+              autoComplete={autocomplete}
+              onChange={event => {
+                setInputValue(event.target.value);
+              }}
+              value={inputValue}
+            />
+            {isVisible ? (
+              <FontAwesomeIcon icon={faEyeSlash} onClick={() => setVisibility(false)} />
+            ) : (
+              <FontAwesomeIcon icon={faEye} onClick={() => setVisibility(true)} />
+            )}
+          </>
+        ) : (
+          <input
+            className={icon ? 'input' : 'input input__full'}
+            id={id}
+            type={type}
+            name={name || id}
+            placeholder={placeholder}
+            ref={hooksprop}
+            autoComplete={autocomplete}
+            onChange={event => {
+              setInputValue(event.target.value);
+            }}
+            value={inputValue}
+          />
+        )}
       </div>
     </>
   );

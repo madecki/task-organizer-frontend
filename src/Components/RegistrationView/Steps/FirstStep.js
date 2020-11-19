@@ -101,7 +101,6 @@ function FirstStep({ onSubmit, errorText, formData }) {
           id='passwordRep'
           text='REPEAT PASSWORD'
           placeholder='A1234567'
-          name='passwordRep'
           autocomplete='new-password'
           hooksprop={register({
             required: true,

@@ -7,6 +7,7 @@
 }
 
 .input__wrapper {
+  position: relative;
   display: flex;
   align-items: center;
   margin-top: 8px;
@@ -47,7 +48,9 @@
 .fa-home,
 .fa-address-card,
 .fa-phone-square-alt,
-.fa-calendar-alt {
+.fa-calendar-alt,
+.fa-eye,
+.fa-eye-slash {
   color: var(--gray);
 }
 
@@ -61,4 +64,13 @@ input:-webkit-autofill:active {
 input:-webkit-autofill::first-line {
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
+}
+
+.fa-eye,
+.fa-eye-slash {
+  position: absolute;
+  top: 50%;
+  right: 18px;
+  transform: translateY(-50%);
+  cursor: pointer;
 }

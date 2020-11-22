@@ -52,11 +52,14 @@ function ForecastView() {
   }
 
   useEffect(() => {
-    setInterval(() => {
+    const timer = setInterval(() => {
       setTime(currentTime());
-    }, 60000);
+    }, 6000);
     navigator.geolocation.getCurrentPosition(success);
-  }, []);
+    return () => {
+      return clearInterval(timer);
+    };
+  }, [time]);
 
   return (
     <>

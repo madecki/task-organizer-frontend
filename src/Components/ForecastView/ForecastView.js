@@ -8,15 +8,15 @@ function ForecastView() {
   const [weatherInfo, setWeatherInfo] = useState('');
   const [isGeolocation, setGeolocationState] = useState(false);
   const [isError, setErrorState] = useState(false);
+  const [interval, setIntervalState] = useState();
+  const [time, setTime] = useState(currentTime());
 
-  const currentTime = () => {
+  function currentTime() {
     const hour = getHours(new Date());
     const minutes = getMinutes(new Date());
 
     return minutes.toString().length === 1 ? `${hour}:0${minutes}` : `${hour}:${minutes}`;
-  };
-
-  const [time, setTime] = useState(currentTime());
+  }
 
   const dayOfWeek = date => {
     const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
@@ -25,7 +25,7 @@ function ForecastView() {
     return day;
   };
 
-  function success(pos) {
+  function onCoordinatesLoaded(pos) {
     const crd = pos.coords;
     const { latitude } = crd;
     const { longitude } = crd;
@@ -51,15 +51,19 @@ function ForecastView() {
     setGeolocationState(true);
   }
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setTime(currentTime());
-    }, 6000);
-    navigator.geolocation.getCurrentPosition(success);
+  const intervalSetup = () => {
+    setIntervalState(
+      setInterval(() => {
+        setTime(currentTime());
+      }, 60000)
+    );
+    navigator.geolocation.getCurrentPosition(onCoordinatesLoaded);
     return () => {
-      return clearInterval(timer);
+      clearInterval(interval);
     };
-  }, [time]);
+  };
+
+  useEffect(intervalSetup, []);
 
   return (
     <>

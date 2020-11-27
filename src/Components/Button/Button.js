@@ -1,7 +1,7 @@
 import React from 'react';
-import './Button.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { PropTypes } from 'prop-types';
+import './Button.css';
 
 function Button({ label, color, icon, size }) {
   let btnColorClass;
@@ -26,7 +26,8 @@ function Button({ label, color, icon, size }) {
         size ? 'btn--free-sign-up' : ' '
       }`}
       type='button'>
-      {icon ? <FontAwesomeIcon icon={icon} /> : null} {label}
+      {icon ? <FontAwesomeIcon icon={icon} /> : null}
+      {label}
     </button>
   );
 }

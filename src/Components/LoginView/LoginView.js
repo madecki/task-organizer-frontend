@@ -1,7 +1,7 @@
 import React from 'react';
-import './LoginView.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Button from '../Button/Button';
+import './LoginView.css';
 
 function LoginView() {
   return (

@@ -5,9 +5,11 @@ import './MainView.css';
 
 function MainView() {
   return (
-    <div className='main__container'>
-      <ForecastView />
-      <TaskView />
+    <div className='main'>
+      <div className='main__container'>
+        <ForecastView />
+        <TaskView />
+      </div>
     </div>
   );
 }

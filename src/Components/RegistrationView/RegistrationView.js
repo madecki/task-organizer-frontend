@@ -1,6 +1,6 @@
 import React from 'react';
-import './RegistrationView.css';
 import Button from '../Button/Button';
+import './RegistrationView.css';
 
 function RegistrationView() {
   return <Button />;

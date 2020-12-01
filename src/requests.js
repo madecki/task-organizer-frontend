@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export const submitRegistrationData = data => {
+export default function submitRegistrationData(data) {
   axios
     .post('localhost:3210/users/register', {
       firstName: data.firstName,
@@ -17,4 +17,4 @@ export const submitRegistrationData = data => {
     .then(response => {
       console.log(response);
     });
-};
+}

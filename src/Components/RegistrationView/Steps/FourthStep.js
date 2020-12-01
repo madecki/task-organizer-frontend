@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form';
 import Button from '../../Button/Button';
 import Radio from '../../Radio/Radio';
 import Input from '../../Input/Input';
-import { submitRegistrationData } from '../../../requests';
+import submitRegistrationData from '../../../requests';
 
 function FourthStep({ onSubmit, callBackFn, formData }) {
   const { register, handleSubmit, errors } = useForm({ reValidateMode: 'onSubmit' });

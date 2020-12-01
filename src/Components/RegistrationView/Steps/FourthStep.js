@@ -4,8 +4,9 @@ import { useForm } from 'react-hook-form';
 import Button from '../../Button/Button';
 import Radio from '../../Radio/Radio';
 import Input from '../../Input/Input';
+import { submitRegistrationData } from '../../../requests';
 
-function FourthStep({ onSubmit, callBackFn }) {
+function FourthStep({ onSubmit, callBackFn, formData }) {
   const { register, handleSubmit, errors } = useForm({ reValidateMode: 'onSubmit' });
   const [selectedProfession, selectProfession] = useState('');
 
@@ -22,6 +23,10 @@ function FourthStep({ onSubmit, callBackFn }) {
     'Transport',
     'Other'
   ];
+
+  const finishAndSendUserData = () => {
+    submitRegistrationData(formData);
+  };
 
   // useEffect(() => {
   //   console.log('selected changed', selectedProfession);
@@ -53,7 +58,12 @@ function FourthStep({ onSubmit, callBackFn }) {
 
         <div className='registration__control-btns'>
           <Button label='PREV' uniqueBtn='hover' callBackFn={callBackFn} />
-          <Button color='turquoise' label='FINISH' type='submit' />
+          <Button
+            color='turquoise'
+            label='FINISH'
+            type='submit'
+            onClick={finishAndSendUserData()}
+          />
         </div>
       </form>
     </>
@@ -62,7 +72,8 @@ function FourthStep({ onSubmit, callBackFn }) {
 
 FourthStep.propTypes = {
   onSubmit: PropTypes.func.isRequired,
-  callBackFn: PropTypes.func.isRequired
+  callBackFn: PropTypes.func.isRequired,
+  formData: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.string, PropTypes.bool])).isRequired
 };
 
 export default FourthStep;

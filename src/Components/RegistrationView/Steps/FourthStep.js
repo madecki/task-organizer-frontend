@@ -4,11 +4,13 @@ import { useForm } from 'react-hook-form';
 import Button from '../../Button/Button';
 import Radio from '../../Radio/Radio';
 import Input from '../../Input/Input';
-import submitRegistrationData from '../../../requests';
 
 function FourthStep({ onSubmit, callBackFn, formData }) {
   const { register, handleSubmit, errors } = useForm({ reValidateMode: 'onSubmit' });
-  const [selectedProfession, selectProfession] = useState('');
+  // const [selectedProfession, selectProfession] = useState('');
+  const [selectedProfession, selectProfession] = useState(
+    formData.proffession ? formData.proffession : ''
+  );
 
   const professions = [
     'Education',
@@ -23,10 +25,6 @@ function FourthStep({ onSubmit, callBackFn, formData }) {
     'Transport',
     'Other'
   ];
-
-  const finishAndSendUserData = () => {
-    submitRegistrationData(formData);
-  };
 
   // useEffect(() => {
   //   console.log('selected changed', selectedProfession);
@@ -58,12 +56,7 @@ function FourthStep({ onSubmit, callBackFn, formData }) {
 
         <div className='registration__control-btns'>
           <Button label='PREV' uniqueBtn='hover' callBackFn={callBackFn} />
-          <Button
-            color='turquoise'
-            label='FINISH'
-            type='submit'
-            onClick={finishAndSendUserData()}
-          />
+          <Button color='turquoise' label='FINISH' type='submit' />
         </div>
       </form>
     </>

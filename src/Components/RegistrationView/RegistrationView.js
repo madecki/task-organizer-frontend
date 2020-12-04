@@ -5,11 +5,12 @@ import FirstStep from './Steps/FirstStep';
 import SecondStep from './Steps/SecondStep';
 import ThirdStep from './Steps/ThirdStep';
 import FourthStep from './Steps/FourthStep';
+import FifthStep from './Steps/FifthStep';
 import Stepper from './Stepper/Stepper';
 import './RegistrationView.css';
 
 function RegistrationView() {
-  const [currentStep, setCurrentStep] = useState(0);
+  const [currentStep, setCurrentStep] = useState(3);
   const [registrationData, setRegistrationData] = useState({});
   const errorText = 'This field is required';
 
@@ -60,7 +61,7 @@ function RegistrationView() {
     <>
       <div className='registration__container'>
         <div className={getWrapperClassName()}>
-          <Stepper currentStep={currentStep} />
+          {currentStep !== 4 && <Stepper currentStep={currentStep} />}
           {currentStep === 0 && (
             <FirstStep onSubmit={onSubmit} errorText={errorText} formData={registrationData} />
           )}
@@ -87,9 +88,10 @@ function RegistrationView() {
               formData={registrationData}
             />
           )}
+          {currentStep === 4 && <FifthStep currentStep={currentStep} formData={registrationData} />}
         </div>
         <div className='registration__sign-in'>
-          <p>Do you already have an account?</p>
+          {currentStep !== 4 && <p>Do you already have an account?</p>}
           <Button color='turquoise' label='SIGN IN' size='small' callBackFn={() => goToLogin()} />
         </div>
       </div>

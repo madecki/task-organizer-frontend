@@ -17,7 +17,8 @@ import {
   faGraduationCap,
   faCalendarAlt,
   faEye,
-  faEyeSlash
+  faEyeSlash,
+  faSyncAlt
 } from '@fortawesome/free-solid-svg-icons';
 import LoginView from './Components/LoginView/LoginView';
 import RegistrationView from './Components/RegistrationView/RegistrationView';
@@ -38,7 +39,8 @@ library.add(
   faGraduationCap,
   faCalendarAlt,
   faEye,
-  faEyeSlash
+  faEyeSlash,
+  faSyncAlt
 );
 
 function App() {

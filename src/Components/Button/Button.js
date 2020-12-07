@@ -48,7 +48,7 @@ Button.propTypes = {
   label: PropTypes.string,
   color: PropTypes.string,
   uniqueBtn: PropTypes.string,
-  icon: PropTypes.arrayOf(PropTypes.string),
+  icon: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
   imgIcon: PropTypes.string,
   callBackFn: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   type: PropTypes.string,

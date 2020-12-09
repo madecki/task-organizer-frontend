@@ -88,14 +88,20 @@ function RegistrationView() {
               formData={registrationData}
             />
           )}
-          {currentStep === 4 && <FifthStep currentStep={currentStep} formData={registrationData} onSubmit={() => goToLogin()}/>}
+          {currentStep === 4 && (
+            <FifthStep
+              currentStep={currentStep}
+              formData={registrationData}
+              onSubmit={() => goToLogin()}
+            />
+          )}
         </div>
-        {currentStep !== 4 && 
-<div className='registration__sign-in'>
-          <p>Do you already have an account?</p>
-          <Button color='turquoise' label='SIGN IN' size='small' callBackFn={() => goToLogin()} />
-        </div>
-}
+        {currentStep !== 4 && (
+          <div className='registration__sign-in'>
+            <p>Do you already have an account?</p>
+            <Button color='turquoise' label='SIGN IN' size='small' callBackFn={() => goToLogin()} />
+          </div>
+        )}
       </div>
     </>
   );

@@ -183,14 +183,14 @@
   font-size: 14px;
 }
 
-.data-request-error-message, 
+.data-request-error-message,
 .data-request-success-message {
   margin-bottom: 20px;
   font-size: 14px;
   text-align: center;
 }
 
-.data-request-error-message+.btn {
+.data-request-error-message + .btn {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -198,7 +198,7 @@
 }
 
 .data-request-error-message {
-  color: var(--error-red)
+  color: var(--error-red);
 }
 
 .fa-sync-alt {

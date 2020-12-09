@@ -7,7 +7,6 @@ import Input from '../../Input/Input';
 
 function FourthStep({ onSubmit, callBackFn, formData }) {
   const { register, handleSubmit, errors } = useForm({ reValidateMode: 'onSubmit' });
-  // const [selectedProfession, selectProfession] = useState('');
   const [selectedProfession, selectProfession] = useState(
     formData.proffession ? formData.proffession : ''
   );
@@ -25,10 +24,6 @@ function FourthStep({ onSubmit, callBackFn, formData }) {
     'Transport',
     'Other'
   ];
-
-  // useEffect(() => {
-  //   console.log('selected changed', selectedProfession);
-  // }, [selectedProfession]);
 
   return (
     <>

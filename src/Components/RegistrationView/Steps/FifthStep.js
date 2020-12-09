@@ -6,25 +6,25 @@ import submitRegistrationData from '../../../requests';
 
 function FifthStep({ formData, onSubmit }) {
   const [backendConnectionError, setErrorState] = useState(false);
-  const [connectionMessage, setConnectionMessage] = useState('');
-  const messageClassName =
-    connectionMessage === 'Data submited. Redirecting to Login'
-      ? 'data-request-success-message'
-      : 'data-request-error-message';
+  const [connectionState, setConnectionState] = useState('');
   const [counter, setCounter] = useState(5);
+  const messages = {
+    error: 'Data submited. Redirecting to Login',
+    success: 'Connection with backend failed. Data not saved. Please reload and try again!'
+  };
+  const messageClassName =
+    connectionState === 1 ? 'data-request-success-message' : 'data-request-error-message';
 
   const sendRequestAndDisplayState = async () => {
     submitRegistrationData(formData);
     await Promise.resolve('Success')
       .then(() => {
-        setConnectionMessage('Data submited. Redirecting to Login');
+        setConnectionState(1);
         startCountdownAndRedirect();
       })
       .catch(() => {
         setErrorState(true);
-        setConnectionMessage(
-          'Connection with backend failed. Data not saved. Please reload and try again!'
-        );
+        setConnectionState(2);
       });
   };
 
@@ -40,7 +40,9 @@ function FifthStep({ formData, onSubmit }) {
   sendRequestAndDisplayState();
   return (
     <>
-      <h2 className={messageClassName}>{connectionMessage}</h2>
+      <h2 className={messageClassName}>
+        {connectionState === 1 ? messages.error : messages.success}
+      </h2>
       {backendConnectionError && (
         <Button label='RELOAD' icon={faSyncAlt} onSubmit={() => console.log('działa')} />
       )}

@@ -2,12 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { PropTypes } from 'prop-types';
 import { faSyncAlt } from '@fortawesome/free-solid-svg-icons';
 import Button from '../../Button/Button';
-import submitRegistrationData from '../../../requests';
 
-function FifthStep({ formData, onSubmit }) {
-  const [backendConnectionError, setErrorState] = useState(false);
-  const [connectionState, setConnectionState] = useState('');
+function FifthStep({ onSubmit, connectionState }) {
   const [counter, setCounter] = useState(5);
+  const backendConnectionError = connectionState !== 1;
   const messages = {
     error: 'Data submited. Redirecting to Login',
     success: 'Connection with backend failed. Data not saved. Please reload and try again!'
@@ -15,36 +13,21 @@ function FifthStep({ formData, onSubmit }) {
   const messageClassName =
     connectionState === 1 ? 'data-request-success-message' : 'data-request-error-message';
 
-  const sendRequestAndDisplayState = async () => {
-    submitRegistrationData(formData);
-    await Promise.resolve('Success')
-      .then(() => {
-        setConnectionState(1);
-        startCountdownAndRedirect();
-      })
-      .catch(() => {
-        setErrorState(true);
-        setConnectionState(2);
-      });
-  };
-
-  const startCountdownAndRedirect = () => {
-    setTimeout(onSubmit, 5000);
-  };
+  // const startCountdownAndRedirect = () => {
+  //   setTimeout(onSubmit, 5000);
+  // };
 
   useEffect(() => {
     const timer = counter > 0 && setInterval(() => setCounter(counter - 1), 1000);
     return () => clearInterval(timer);
   }, [counter]);
-
-  sendRequestAndDisplayState();
   return (
     <>
       <h2 className={messageClassName}>
         {connectionState === 1 ? messages.error : messages.success}
       </h2>
       {backendConnectionError && (
-        <Button label='RELOAD' icon={faSyncAlt} onSubmit={() => console.log('działa')} />
+        <Button label='RELOAD' icon={faSyncAlt} onClick={() => console.log('działa')} />
       )}
       {!backendConnectionError && (
         <>
@@ -58,8 +41,8 @@ function FifthStep({ formData, onSubmit }) {
 }
 
 FifthStep.propTypes = {
-  formData: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.string, PropTypes.bool])).isRequired,
-  onSubmit: PropTypes.func.isRequired
+  onSubmit: PropTypes.func.isRequired,
+  connectionState: PropTypes.number.isRequired
 };
 
 export default FifthStep;

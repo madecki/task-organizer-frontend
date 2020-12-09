@@ -8,10 +8,12 @@ import FourthStep from './Steps/FourthStep';
 import FifthStep from './Steps/FifthStep';
 import Stepper from './Stepper/Stepper';
 import './RegistrationView.css';
+import submitRegistrationData from '../../requests';
 
 function RegistrationView() {
   const [currentStep, setCurrentStep] = useState(3);
   const [registrationData, setRegistrationData] = useState({});
+  const [connectionState, setConnectionState] = useState('');
   const errorText = 'This field is required';
 
   const nextStep = () => {
@@ -57,6 +59,17 @@ function RegistrationView() {
     return 'registration__container__form-wrapper';
   };
 
+  const sendRequestAndDisplayState = async () => {
+    submitRegistrationData(registrationData);
+    await Promise.resolve('Success')
+      .then(() => {
+        setConnectionState(1);
+      })
+      .catch(() => {
+        setConnectionState(2);
+      });
+  };
+
   return (
     <>
       <div className='registration__container'>
@@ -83,17 +96,16 @@ function RegistrationView() {
           {currentStep === 3 && (
             <FourthStep
               currentStep={currentStep}
-              onSubmit={onSubmit}
+              onSubmit={() => {
+                onSubmit();
+                sendRequestAndDisplayState();
+              }}
               callBackFn={() => prevStep()}
               formData={registrationData}
             />
           )}
           {currentStep === 4 && (
-            <FifthStep
-              currentStep={currentStep}
-              formData={registrationData}
-              onSubmit={() => goToLogin()}
-            />
+            <FifthStep onSubmit={() => goToLogin()} connectionState={Math.floor(connectionState)} />
           )}
         </div>
         {currentStep !== 4 && (

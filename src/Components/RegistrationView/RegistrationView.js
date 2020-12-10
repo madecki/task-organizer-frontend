@@ -82,14 +82,14 @@ function RegistrationView() {
             <SecondStep
               onSubmit={onSubmit}
               errorText={errorText}
-              callBackFn={() => prevStep()}
+              callbackFn={() => prevStep()}
               formData={registrationData}
             />
           )}
           {currentStep === 2 && (
             <ThirdStep
               stepfunc={() => stepTypeOfProfession()}
-              callBackFn={() => prevStep()}
+              callbackFn={() => prevStep()}
               formData={registrationData}
             />
           )}
@@ -100,18 +100,22 @@ function RegistrationView() {
                 onSubmit();
                 sendRequestAndDisplayState();
               }}
-              callBackFn={() => prevStep()}
+              callbackFn={() => prevStep()}
               formData={registrationData}
             />
           )}
           {currentStep === 4 && (
-            <FifthStep onSubmit={() => goToLogin()} connectionState={Math.floor(connectionState)} />
+            <FifthStep
+              onSubmit={() => goToLogin()}
+              connectionState={Math.floor(connectionState)}
+              onClick={() => prevStep()}
+            />
           )}
         </div>
         {currentStep !== 4 && (
           <div className='registration__sign-in'>
             <p>Do you already have an account?</p>
-            <Button color='turquoise' label='SIGN IN' size='small' callBackFn={() => goToLogin()} />
+            <Button color='turquoise' label='SIGN IN' size='small' callbackFn={() => goToLogin()} />
           </div>
         )}
       </div>

@@ -3,7 +3,7 @@ import { PropTypes } from 'prop-types';
 import { faSyncAlt } from '@fortawesome/free-solid-svg-icons';
 import Button from '../../Button/Button';
 
-function FifthStep({ onSubmit, connectionState }) {
+function FifthStep({ onSubmit, connectionState, onClick }) {
   const [counter, setCounter] = useState(5);
   const backendConnectionError = connectionState !== 1;
   const messages = {
@@ -21,21 +21,20 @@ function FifthStep({ onSubmit, connectionState }) {
     const timer = counter > 0 && setInterval(() => setCounter(counter - 1), 1000);
     return () => clearInterval(timer);
   }, [counter]);
+
   return (
     <>
       <h2 className={messageClassName}>
         {connectionState === 1 ? messages.error : messages.success}
       </h2>
-      {backendConnectionError && (
-        <Button label='RELOAD' icon={faSyncAlt} onClick={() => console.log('działa')} />
-      )}
+      {backendConnectionError && <Button label='RELOAD' icon={faSyncAlt} callbackFn={onClick} />}
       {!backendConnectionError && (
-        <>
+        <form>
           {startCountdownAndRedirect()}
           <p>You will be redirected in {counter}</p>
           <p>OR</p>
           <Button color='turquoise' label='SIGN IN' size='small' onSubmit={onSubmit} />
-        </>
+        </form>
       )}
     </>
   );
@@ -43,6 +42,7 @@ function FifthStep({ onSubmit, connectionState }) {
 
 FifthStep.propTypes = {
   onSubmit: PropTypes.func.isRequired,
+  onClick: PropTypes.func.isRequired,
   connectionState: PropTypes.number.isRequired
 };
 

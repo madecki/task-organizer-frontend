@@ -1,7 +1,8 @@
 import axios from 'axios';
 
 export default function submitRegistrationData(data) {
-  const {firstName,
+  const {
+    firstName,
     lastName,
     password,
     email,

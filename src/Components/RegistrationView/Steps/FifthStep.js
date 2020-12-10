@@ -13,9 +13,9 @@ function FifthStep({ onSubmit, connectionState }) {
   const messageClassName =
     connectionState === 1 ? 'data-request-success-message' : 'data-request-error-message';
 
-  // const startCountdownAndRedirect = () => {
-  //   setTimeout(onSubmit, 5000);
-  // };
+  const startCountdownAndRedirect = () => {
+    setTimeout(onSubmit, 5000);
+  };
 
   useEffect(() => {
     const timer = counter > 0 && setInterval(() => setCounter(counter - 1), 1000);
@@ -31,6 +31,7 @@ function FifthStep({ onSubmit, connectionState }) {
       )}
       {!backendConnectionError && (
         <>
+          {startCountdownAndRedirect()}
           <p>You will be redirected in {counter}</p>
           <p>OR</p>
           <Button color='turquoise' label='SIGN IN' size='small' onSubmit={onSubmit} />

@@ -207,6 +207,7 @@
 
 .data-request-error-message {
   color: var(--error-red);
+  line-height: 200%;
 }
 
 .fa-sync-alt {

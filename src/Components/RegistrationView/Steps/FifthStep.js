@@ -30,7 +30,7 @@ function FifthStep({ onSubmit, connectionState, onClick }) {
     return () => {
       if (counter === 1) {
         clearInterval(timer);
-        setTimeout(onSubmit, 1000);
+        setTimeout(connectionState === 1 ? onSubmit : onClick, 1000);
       } else clearInterval(timer);
     };
   };

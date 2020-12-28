@@ -7,14 +7,16 @@ import ThirdStep from './Steps/ThirdStep';
 import FourthStep from './Steps/FourthStep';
 import FifthStep from './Steps/FifthStep';
 import Stepper from './Stepper/Stepper';
-import './RegistrationView.css';
 import submitRegistrationData from '../../requests';
+import Loader from '../Loader/Loader';
+import './RegistrationView.css';
 
 function RegistrationView() {
   const [currentStep, setCurrentStep] = useState(3);
   const [registrationData, setRegistrationData] = useState({});
   const [connectionState, setConnectionState] = useState('');
   const errorText = 'This field is required';
+  const [isLoading, setLoadingState] = useState(true);
 
   const nextStep = () => {
     const whichStep = currentStep === 0 ? 1 : currentStep + 1;
@@ -59,14 +61,23 @@ function RegistrationView() {
     return 'registration__container__form-wrapper';
   };
 
+  // const loaderTimeoutSetup = () => {
+  //   const timer = setTimeout(() => console.log('zmiana'), 5000);
+  //   return clearTimeout(timer);
+  // };
+
   const sendRequestAndDisplayState = async () => {
     submitRegistrationData(registrationData);
     await Promise.resolve('Success')
       .then(() => {
         setConnectionState(1);
+        // loaderTimeoutSetup();
+        setTimeout(() => setLoadingState(false), 3000);
       })
       .catch(() => {
         setConnectionState(2);
+        // loaderTimeoutSetup();
+        setTimeout(() => setLoadingState(false), 3000);
       });
   };
 
@@ -104,7 +115,7 @@ function RegistrationView() {
               formData={registrationData}
             />
           )}
-          {currentStep === 4 && (
+          {currentStep === 4 && !isLoading && (
             <FifthStep
               currentStep={currentStep}
               onSubmit={() => goToLogin()}
@@ -112,6 +123,7 @@ function RegistrationView() {
               onClick={() => prevStep()}
             />
           )}
+          {currentStep === 4 && isLoading && <Loader />}
         </div>
         {currentStep !== 4 && (
           <div className='registration__sign-in'>

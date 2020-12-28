@@ -13,30 +13,46 @@ function FifthStep({ onSubmit, connectionState, onClick }) {
   const messageClassName =
     connectionState === 1 ? 'data-request-success-message' : 'data-request-error-message';
 
-  const startCountdownAndRedirect = () => {
-    setTimeout(onSubmit, 5000);
+  // const startCountdownAndRedirect = () => {
+  //   const timer1 = setTimeout(console.log('wyczyszczone1'), 2000);
+  //   return () => {
+  //     clearTimeout(timer1);
+  //   };
+  //   const timer2 = counter > 0 && setInterval(() => setCounter(counter - 1), 1000);
+  //   return () => {
+  //     clearInterval(timer);
+  //     console.log('interval czyszczenie');
+  //   };
+  // };
+
+  const intervalSetup = () => {
+    const timer = counter > 0 && setInterval(() => setCounter(counter - 1), 1000);
+    return () => {
+      if (counter === 1) {
+        clearInterval(timer);
+        setTimeout(onSubmit, 1000);
+      } else clearInterval(timer);
+    };
   };
 
-  useEffect(() => {
-    const timer = counter > 0 && setInterval(() => setCounter(counter - 1), 1000);
-    return () => clearInterval(timer);
-  }, [counter]);
+  useEffect(intervalSetup, [counter]);
 
   return (
-    <>
+    <div className='connection-message'>
       <h2 className={messageClassName}>
         {connectionState === 1 ? messages.error : messages.success}
       </h2>
       {backendConnectionError && <Button label='RELOAD' icon={faSyncAlt} callbackFn={onClick} />}
       {!backendConnectionError && (
-        <form>
-          {startCountdownAndRedirect()}
+        <>
+          {/* {startCountdownAndRedirect()} */}
+          {/* {intervalSetup} */}
           <p>You will be redirected in {counter}</p>
           <p>OR</p>
-          <Button color='turquoise' label='SIGN IN' size='small' onSubmit={onSubmit} />
-        </form>
+          <Button color='turquoise' label='SIGN IN' size='small' callbackFn={onSubmit} />
+        </>
       )}
-    </>
+    </div>
   );
 }
 

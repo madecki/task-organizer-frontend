@@ -175,6 +175,14 @@
   margin-right: 3px;
 }
 
+.connection-message {
+  text-align: center;
+}
+
+.connection-message p {
+  margin: 20px;
+}
+
 .registration-error {
   padding-left: 17px;
   margin-bottom: 25px;

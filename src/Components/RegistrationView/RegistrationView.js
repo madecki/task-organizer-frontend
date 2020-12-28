@@ -106,6 +106,7 @@ function RegistrationView() {
           )}
           {currentStep === 4 && (
             <FifthStep
+              currentStep={currentStep}
               onSubmit={() => goToLogin()}
               connectionState={Math.floor(connectionState)}
               onClick={() => prevStep()}

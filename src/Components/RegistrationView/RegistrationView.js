@@ -8,15 +8,13 @@ import FourthStep from './Steps/FourthStep';
 import FifthStep from './Steps/FifthStep';
 import Stepper from './Stepper/Stepper';
 import submitRegistrationData from '../../requests';
-import Loader from '../Loader/Loader';
 import './RegistrationView.css';
 
 function RegistrationView() {
   const [currentStep, setCurrentStep] = useState(3);
   const [registrationData, setRegistrationData] = useState({});
-  const [connectionState, setConnectionState] = useState('');
+  const [connectionState, setConnectionState] = useState(0);
   const errorText = 'This field is required';
-  const [isLoading, setLoadingState] = useState(true);
 
   const nextStep = () => {
     const whichStep = currentStep === 0 ? 1 : currentStep + 1;
@@ -61,23 +59,13 @@ function RegistrationView() {
     return 'registration__container__form-wrapper';
   };
 
-  // const loaderTimeoutSetup = () => {
-  //   const timer = setTimeout(() => console.log('zmiana'), 5000);
-  //   return clearTimeout(timer);
-  // };
-
   const sendRequestAndDisplayState = async () => {
-    submitRegistrationData(registrationData);
-    await Promise.resolve('Success')
+    await submitRegistrationData(registrationData)
       .then(() => {
-        setConnectionState(1);
-        // loaderTimeoutSetup();
-        setTimeout(() => setLoadingState(false), 3000);
+        setConnectionState(2);
       })
       .catch(() => {
-        setConnectionState(2);
-        // loaderTimeoutSetup();
-        setTimeout(() => setLoadingState(false), 3000);
+        setConnectionState(1);
       });
   };
 
@@ -107,23 +95,20 @@ function RegistrationView() {
           {currentStep === 3 && (
             <FourthStep
               currentStep={currentStep}
-              onSubmit={() => {
-                onSubmit();
-                sendRequestAndDisplayState();
-              }}
+              onClick={() => sendRequestAndDisplayState()}
+              onSubmit={() => onSubmit()}
               callbackFn={() => prevStep()}
               formData={registrationData}
             />
           )}
-          {currentStep === 4 && !isLoading && (
+          {currentStep === 4 && (
             <FifthStep
               currentStep={currentStep}
               onSubmit={() => goToLogin()}
+              callbackFn={() => prevStep()}
               connectionState={Math.floor(connectionState)}
-              onClick={() => prevStep()}
             />
           )}
-          {currentStep === 4 && isLoading && <Loader />}
         </div>
         {currentStep !== 4 && (
           <div className='registration__sign-in'>

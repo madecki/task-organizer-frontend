@@ -1,4 +1,4 @@
-import axios from 'axios';
+// import axios from 'axios';
 
 export default function submitRegistrationData(data) {
   const {
@@ -13,16 +13,22 @@ export default function submitRegistrationData(data) {
     zipCode,
     country
   } = data;
-  return axios.post('localhost:3210/users/register', {
-    firstName,
-    lastName,
-    password,
-    email,
-    birthDate,
-    job,
-    gender,
-    street,
-    zipCode,
-    country
+  return Promise((resolve, reject) => {
+    const connection = true;
+
+    if (connection) {
+      resolve('localhost:3210/users/register', {
+        firstName,
+        lastName,
+        password,
+        email,
+        birthDate,
+        job,
+        gender,
+        street,
+        zipCode,
+        country
+      });
+    } else reject();
   });
 }

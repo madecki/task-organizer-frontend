@@ -5,7 +5,7 @@ import Button from '../../Button/Button';
 import Radio from '../../Radio/Radio';
 import Input from '../../Input/Input';
 
-function FourthStep({ onSubmit, callbackFn, formData }) {
+function FourthStep({ onSubmit, callbackFn, formData, onClick }) {
   const { register, handleSubmit, errors } = useForm({ reValidateMode: 'onSubmit' });
   const [selectedProfession, selectProfession] = useState(
     formData.proffession ? formData.proffession : ''
@@ -52,7 +52,7 @@ function FourthStep({ onSubmit, callbackFn, formData }) {
 
         <div className='registration__control-btns'>
           <Button label='PREV' uniqueBtn='hover' callbackFn={callbackFn} />
-          <Button color='turquoise' label='FINISH' type='submit' />
+          <Button color='turquoise' label='FINISH' type='submit' onClick={onClick} />
         </div>
       </form>
     </>
@@ -62,6 +62,7 @@ function FourthStep({ onSubmit, callbackFn, formData }) {
 FourthStep.propTypes = {
   onSubmit: PropTypes.func.isRequired,
   callbackFn: PropTypes.func.isRequired,
+  onClick: PropTypes.func.isRequired,
   formData: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.string, PropTypes.bool])).isRequired
 };
 

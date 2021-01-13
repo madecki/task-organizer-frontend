@@ -13,22 +13,23 @@ export default function submitRegistrationData(data) {
     zipCode,
     country
   } = data;
-  return Promise((resolve, reject) => {
-    const connection = true;
-
-    if (connection) {
-      resolve('localhost:3210/users/register', {
-        firstName,
-        lastName,
-        password,
-        email,
-        birthDate,
-        job,
-        gender,
-        street,
-        zipCode,
-        country
-      });
-    } else reject();
+  return new Promise((resolve, reject) => {
+    const connection = false;
+    setTimeout(() => {
+      if (connection) {
+        resolve('localhost:3210/users/register', {
+          firstName,
+          lastName,
+          password,
+          email,
+          birthDate,
+          job,
+          gender,
+          street,
+          zipCode,
+          country
+        });
+      } else reject();
+    }, 2000);
   });
 }

@@ -25,6 +25,9 @@ function RegistrationView() {
   const prevStep = () => {
     const whichStep = currentStep === 1 ? 0 : currentStep - 1;
     setCurrentStep(whichStep);
+    if (currentStep > 3 && connectionState === 1) {
+      setConnectionState(0);
+    }
   };
 
   const stepTypeOfProfession = () => {
@@ -113,7 +116,6 @@ function RegistrationView() {
           {currentStep === 4 && (
             <FifthStep
               currentStep={currentStep}
-              onSubmit={() => goToLogin()}
               callbackFn={() => prevStep()}
               connectionState={Math.floor(connectionState)}
             />

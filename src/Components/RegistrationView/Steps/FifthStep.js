@@ -7,7 +7,7 @@ import Loader from '../../Loader/Loader';
 function FifthStep({ connectionState, callbackFn }) {
   const messages = {
     success: 'Data submited. Redirecting to Login',
-    error: 'Connection with backend failed. Data not saved. Please reload and try again!'
+    error: 'Connection with backend failed. Data not saved. Please try again!'
   };
   const messageClassName =
     connectionState === 1 ? 'data-request-error-message' : 'data-request-success-message';
@@ -21,7 +21,7 @@ function FifthStep({ connectionState, callbackFn }) {
             {connectionState === 1 ? messages.error : messages.success}
           </h2>
           {connectionState === 1 && (
-            <Button label='RELOAD' icon={faSyncAlt} callbackFn={callbackFn} />
+            <Button label='TRY AGAIN' icon={faSyncAlt} callbackFn={callbackFn} />
           )}
           {connectionState === 2 && (
             <>

@@ -4,7 +4,7 @@ import { faSyncAlt } from '@fortawesome/free-solid-svg-icons';
 import Button from '../../Button/Button';
 import Loader from '../../Loader/Loader';
 
-function FifthStep({ onSubmit, connectionState, callbackFn }) {
+function FifthStep({ connectionState, callbackFn }) {
   const messages = {
     success: 'Data submited. Redirecting to Login',
     error: 'Connection with backend failed. Data not saved. Please reload and try again!'
@@ -27,7 +27,6 @@ function FifthStep({ onSubmit, connectionState, callbackFn }) {
             <>
               <p>You will be redirected in {}</p>
               <p>OR</p>
-              <Button color='turquoise' label='SIGN IN' size='small' onSubmit={onSubmit} />
             </>
           )}
         </div>
@@ -37,7 +36,6 @@ function FifthStep({ onSubmit, connectionState, callbackFn }) {
 }
 
 FifthStep.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
   callbackFn: PropTypes.func.isRequired,
   connectionState: PropTypes.number.isRequired
 };

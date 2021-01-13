@@ -14,6 +14,7 @@ function RegistrationView() {
   const [currentStep, setCurrentStep] = useState(3);
   const [registrationData, setRegistrationData] = useState({});
   const [connectionState, setConnectionState] = useState(0);
+  const [isLoading, setLoadingState] = useState(false);
   const errorText = 'This field is required';
 
   const nextStep = () => {
@@ -38,7 +39,13 @@ function RegistrationView() {
     formData = { ...formData, ...currentStepFields };
 
     setRegistrationData(formData);
-    nextStep();
+
+    if (currentStep === 3) {
+      sendRequestAndDisplayState();
+    }
+    if (currentStep <= 3) {
+      nextStep();
+    }
   };
 
   const history = useHistory();
@@ -60,12 +67,15 @@ function RegistrationView() {
   };
 
   const sendRequestAndDisplayState = async () => {
+    setLoadingState(true);
     await submitRegistrationData(registrationData)
       .then(() => {
         setConnectionState(2);
+        setLoadingState(false);
       })
       .catch(() => {
         setConnectionState(1);
+        setLoadingState(false);
       });
   };
 
@@ -95,7 +105,6 @@ function RegistrationView() {
           {currentStep === 3 && (
             <FourthStep
               currentStep={currentStep}
-              onClick={() => sendRequestAndDisplayState()}
               onSubmit={() => onSubmit()}
               callbackFn={() => prevStep()}
               formData={registrationData}
@@ -110,9 +119,9 @@ function RegistrationView() {
             />
           )}
         </div>
-        {currentStep !== 4 && (
+        {connectionState !== 1 && !isLoading && (
           <div className='registration__sign-in'>
-            <p>Do you already have an account?</p>
+            {currentStep !== 4 && <p>Do you already have an account?</p>}
             <Button color='turquoise' label='SIGN IN' size='small' callbackFn={() => goToLogin()} />
           </div>
         )}

@@ -118,6 +118,7 @@ function RegistrationView() {
               currentStep={currentStep}
               callbackFn={() => prevStep()}
               connectionState={Math.floor(connectionState)}
+              goToLogin={() => goToLogin()}
             />
           )}
         </div>

@@ -14,7 +14,7 @@ export default function submitRegistrationData(data) {
     country
   } = data;
   return new Promise((resolve, reject) => {
-    const connection = false;
+    const connection = true;
     setTimeout(() => {
       if (connection) {
         resolve('localhost:3210/users/register', {

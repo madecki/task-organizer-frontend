@@ -175,12 +175,43 @@
   margin-right: 3px;
 }
 
+.connection-message {
+  text-align: center;
+}
+
+.connection-message p {
+  margin: 20px;
+}
+
 .registration-error {
   padding-left: 17px;
   margin-bottom: 25px;
-  color: red;
+  color: var(--error-red);
   font-weight: 500;
   font-size: 14px;
+}
+
+.data-request-error-message,
+.data-request-success-message {
+  margin-bottom: 20px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.data-request-error-message + .btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+}
+
+.data-request-error-message {
+  color: var(--error-red);
+  line-height: 200%;
+}
+
+.fa-sync-alt {
+  margin-right: 5px;
 }
 
 @media (min-width: 480px) {

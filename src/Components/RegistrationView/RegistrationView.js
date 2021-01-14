@@ -5,12 +5,16 @@ import FirstStep from './Steps/FirstStep';
 import SecondStep from './Steps/SecondStep';
 import ThirdStep from './Steps/ThirdStep';
 import FourthStep from './Steps/FourthStep';
+import FifthStep from './Steps/FifthStep';
 import Stepper from './Stepper/Stepper';
+import submitRegistrationData from '../../requests';
 import './RegistrationView.css';
 
 function RegistrationView() {
-  const [currentStep, setCurrentStep] = useState(0);
+  const [currentStep, setCurrentStep] = useState(3);
   const [registrationData, setRegistrationData] = useState({});
+  const [connectionState, setConnectionState] = useState(0);
+  const [isLoading, setLoadingState] = useState(false);
   const errorText = 'This field is required';
 
   const nextStep = () => {
@@ -21,6 +25,9 @@ function RegistrationView() {
   const prevStep = () => {
     const whichStep = currentStep === 1 ? 0 : currentStep - 1;
     setCurrentStep(whichStep);
+    if (currentStep > 3 && connectionState === 1) {
+      setConnectionState(0);
+    }
   };
 
   const stepTypeOfProfession = () => {
@@ -35,13 +42,19 @@ function RegistrationView() {
     formData = { ...formData, ...currentStepFields };
 
     setRegistrationData(formData);
-    nextStep();
+
+    if (currentStep === 3) {
+      sendRequestAndDisplayState();
+    }
+    if (currentStep <= 3) {
+      nextStep();
+    }
   };
 
   const history = useHistory();
 
   const goToLogin = () => {
-    history.push('/');
+    history.push('/login');
   };
 
   const getWrapperClassName = () => {
@@ -56,11 +69,24 @@ function RegistrationView() {
     return 'registration__container__form-wrapper';
   };
 
+  const sendRequestAndDisplayState = async () => {
+    setLoadingState(true);
+    await submitRegistrationData(registrationData)
+      .then(() => {
+        setConnectionState(2);
+        setLoadingState(false);
+      })
+      .catch(() => {
+        setConnectionState(1);
+        setLoadingState(false);
+      });
+  };
+
   return (
     <>
       <div className='registration__container'>
         <div className={getWrapperClassName()}>
-          <Stepper currentStep={currentStep} />
+          {currentStep !== 4 && <Stepper currentStep={currentStep} />}
           {currentStep === 0 && (
             <FirstStep onSubmit={onSubmit} errorText={errorText} formData={registrationData} />
           )}
@@ -68,30 +94,40 @@ function RegistrationView() {
             <SecondStep
               onSubmit={onSubmit}
               errorText={errorText}
-              callBackFn={() => prevStep()}
+              callbackFn={() => prevStep()}
               formData={registrationData}
             />
           )}
           {currentStep === 2 && (
             <ThirdStep
               stepfunc={() => stepTypeOfProfession()}
-              callBackFn={() => prevStep()}
+              callbackFn={() => prevStep()}
               formData={registrationData}
             />
           )}
           {currentStep === 3 && (
             <FourthStep
               currentStep={currentStep}
-              onSubmit={onSubmit}
-              callBackFn={() => prevStep()}
+              onSubmit={() => onSubmit()}
+              callbackFn={() => prevStep()}
               formData={registrationData}
             />
           )}
+          {currentStep === 4 && (
+            <FifthStep
+              currentStep={currentStep}
+              callbackFn={() => prevStep()}
+              connectionState={Math.floor(connectionState)}
+              goToLogin={() => goToLogin()}
+            />
+          )}
         </div>
-        <div className='registration__sign-in'>
-          <p>Do you already have an account?</p>
-          <Button color='turquoise' label='SIGN IN' size='small' callBackFn={() => goToLogin()} />
-        </div>
+        {connectionState !== 1 && !isLoading && (
+          <div className='registration__sign-in'>
+            {currentStep !== 4 && <p>Do you already have an account?</p>}
+            <Button color='turquoise' label='SIGN IN' size='small' callbackFn={() => goToLogin()} />
+          </div>
+        )}
       </div>
     </>
   );

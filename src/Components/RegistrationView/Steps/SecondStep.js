@@ -5,7 +5,7 @@ import Button from '../../Button/Button';
 import Input from '../../Input/Input';
 import Radio from '../../Radio/Radio';
 
-function SecondStep({ onSubmit, errorText, callBackFn, formData }) {
+function SecondStep({ onSubmit, errorText, callbackFn, formData }) {
   const { register, handleSubmit, errors } = useForm({ reValidateMode: 'onSubmit' });
   const [selectedGender, selectGender] = useState(formData.gender ? formData.gender : '');
 
@@ -137,7 +137,7 @@ function SecondStep({ onSubmit, errorText, callBackFn, formData }) {
           <p className='registration-error'>{errorText}</p>
         )}
         <div className='registration__control-btns'>
-          <Button label='PREV' uniqueBtn='hover' callBackFn={callBackFn} />
+          <Button label='PREV' uniqueBtn='hover' callbackFn={callbackFn} />
           <Button label='NEXT' uniqueBtn='hover' type='submit' />
         </div>
       </form>
@@ -148,7 +148,7 @@ function SecondStep({ onSubmit, errorText, callBackFn, formData }) {
 SecondStep.propTypes = {
   onSubmit: PropTypes.func.isRequired,
   errorText: PropTypes.string.isRequired,
-  callBackFn: PropTypes.func.isRequired,
+  callbackFn: PropTypes.func.isRequired,
   formData: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.string, PropTypes.bool])).isRequired
 };
 

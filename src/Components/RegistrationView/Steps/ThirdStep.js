@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { PropTypes } from 'prop-types';
 import Button from '../../Button/Button';
 
-function ThirdStep({ callBackFn, stepfunc }) {
+function ThirdStep({ callbackFn, stepfunc }) {
   const [selectedButton, setSelectedButton] = useState('');
   const selectedType = () => {
     const whichButton = 'btn--selected';
@@ -18,26 +18,26 @@ function ThirdStep({ callBackFn, stepfunc }) {
         icon={['fas', 'suitcase']}
         uniqueBtn='type-of-use'
         label='WORK'
-        callBackFn={stepfunc}
+        callbackFn={stepfunc}
       />
 
       <Button
         icon={['fas', 'user']}
         uniqueBtn='type-of-use'
         label='PERSONAL'
-        callBackFn={stepfunc}
+        callbackFn={stepfunc}
       />
 
       <Button
         icon={['fas', 'graduation-cap']}
         uniqueBtn='type-of-use'
         label='SCHOOL'
-        callBackFn={event => selectedType(event)}
+        callbackFn={event => selectedType(event)}
         selectedButton={selectedButton}
       />
 
       <div className='registration__control-btns'>
-        <Button label='PREV' uniqueBtn='hover' callBackFn={callBackFn} />
+        <Button label='PREV' uniqueBtn='hover' callbackFn={callbackFn} />
         <Button color='turquoise' label='FINISH' type='submit' />
       </div>
     </>
@@ -45,7 +45,7 @@ function ThirdStep({ callBackFn, stepfunc }) {
 }
 
 ThirdStep.propTypes = {
-  callBackFn: PropTypes.func.isRequired,
+  callbackFn: PropTypes.func.isRequired,
   stepfunc: PropTypes.func.isRequired
 };
 
